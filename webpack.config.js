@@ -14,7 +14,7 @@ module.exports = {
     loaders: [
       {
         test: /(\.css|\.scss)$/,
-        exclude: [path.resolve(__dirname, "node_modules"))], 
+        exclude: [path.resolve(__dirname, "node_modules")], 
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader','postcss-loader','sass-loader']
