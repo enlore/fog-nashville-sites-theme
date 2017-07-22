@@ -175,7 +175,7 @@ function random_item_link($text=null,$class='show'){
 function mh_global_header($html=null){
 	$html.= '<div id="mobile-menu-button"><a class="icon-reorder"><span class="visuallyhidden"> '.__('Menu').'</span></a></div>';
 	$html.= link_to_home_page(mh_the_logo(),array('class'=>'home-link'));
-	$html.= '<div class="menu" role="menu">'.mh_simple_search($formProperties=array('id'=>'header-search')).'<nav role="navigation">'.mh_global_nav().random_item_link().'</nav></div>';
+	$html.= '<div class="menu" role="menu">'.'<nav role="navigation">'.mh_global_nav().random_item_link().'</nav>'.mh_simple_search($formProperties=array('id'=>'header-search')).'</div>';
 
 	return $html;
 
@@ -1937,7 +1937,7 @@ function homepage_widget_sections($html=null){
 			
 			switch ($setting) {
 			    case 'featured':
-			        $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,3).'</section>' : null;
+			        $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,1).'</section>' : null;
 			        $featured_isset++;
 			        break;
 			    case 'tours':

@@ -1170,8 +1170,8 @@ header.main #logo-img {
     display: inline-block
 }
 header.main #header-search {
-    display: block;
-    margin: 1em 0;
+    display: flex;
+    margin: 1em 2em;
 	padding: 0;
 	float: right;
 }
@@ -1179,12 +1179,12 @@ header.main #header-search input {
     font-variant: small-caps
 }
 header.main .menu {
-	display: inline-block;
 	display: flex;
 	flex: 1;
 }
 header.main .menu nav {
-	display: flex;
+    display: flex;
+    flex: 1;
 }
 #mobile-menu-button {
     display: none;
@@ -1207,8 +1207,11 @@ header.main .random-story-link.show {
     padding: 1em 0
 }
 header.main ul.navigation {
-    padding-left: 0;
-    text-align: right
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    /* padding-left: 0;
+    text-align: right */
 }
 a.home-link {
     border: 0 none transparent;
@@ -1253,7 +1256,9 @@ header.main ul.navigation {
     text-align: center
 }
 header.main ul.navigation li {
-    display: inline-block
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
 }
 header.main ul.navigation li a {
     color: #555;
