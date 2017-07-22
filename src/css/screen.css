@@ -789,19 +789,12 @@ span.amp {
 body {
     margin: 0;
     display: block;
-    /* background-color: #eaeaea; */
-    /* background-image: -o-linear-gradient(top, #fff 0%, #ccc 700px); */
-    /* background-image: -moz-linear-gradient(top, #fff 0%, #ccc 700px); */
-    /* background-image: -webkit-linear-gradient(top, #fff 0%, #ccc 700px); */
-    /* background-image: -ms-linear-gradient(top, #fff 0%, #ccc 700px); */
-    /* background-image: linear-gradient(top, #fff 0%, #ccc 700px); */
 }
 #wrap {
     margin: 0em auto 4em;
     display: block;
     background: #fff;
     max-width: 50em;
-    box-shadow: 0 0 .15em #333;
 }
 header.main,
 #content,
@@ -1162,11 +1155,13 @@ span.post-date {
 
 header.main {
     width: 100%;
-    max-width: 50em;
+    /* max-width: 50em; */
     min-height: 6.5em;
     display: block;
     font-variant: small-caps;
-    z-index: 1
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
 }
 header.main #logo-img {
     max-height: 6.5em;
@@ -1177,13 +1172,19 @@ header.main #logo-img {
 header.main #header-search {
     display: block;
     margin: 1em 0;
-    padding: 0
+	padding: 0;
+	float: right;
 }
 header.main #header-search input {
     font-variant: small-caps
 }
 header.main .menu {
-    display: inline-block;
+	display: inline-block;
+	display: flex;
+	flex: 1;
+}
+header.main .menu nav {
+	display: flex;
 }
 #mobile-menu-button {
     display: none;
@@ -1286,10 +1287,7 @@ header.main ul.navigation li a:hover {
     height: 20em;
 }
 #hero {
-    background: none center top no-repeat #ccc;
     clear: both;
-    background-size: cover;
-    box-shadow: 0 0 1em #333 inset
 }
 @media only screen and (max-width: 25em) {
     #hero,
@@ -1729,9 +1727,7 @@ ul.pagination li a {
 #search figure#hero {
     display: none;
 }
-#search {
-    float: right;
-}
+
 #search-wrap {
     text-align: center;
     margin: 0 auto 2em
@@ -2092,7 +2088,7 @@ a.edit:hover {
     display: inline-block
 }
 #home #about {
-    background: #333
+
 }
 #home #about article {
     padding: 5%;
@@ -2187,9 +2183,7 @@ a.edit:hover {
         position: relative
     }
     #home #about article {
-        width: 55%;
-        float: left;
-        box-shadow: 1em 0em 1em -1em #333
+		text-align: center;
     }
     #home #about .home-about-links {
         background: #333;

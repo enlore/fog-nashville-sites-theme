@@ -645,9 +645,9 @@ function mh_display_map($type=null,$item=null,$tour=null){
         </script>
         
 		<!-- Map Container -->
-		<div id="hm-map">
+		<!-- <div id="hm-map">
 			<div id="map_canvas"></div>
-		</div>
+		</div> -->
 		
 <?php }
 
@@ -1795,25 +1795,25 @@ function mh_home_about($length=530,$html=null){
 	$html .= '<div class="about-text">';
 		$html .= '<article>';
 			
-			$html .= '<header>';
-				$html .= '<h2>'.option('site_title').'</h2>';
-				$html .= '<span class="find-us">'.__('A project by %s', mh_owner_link()).'</span>';
-			$html .= '</header>';
+			// $html .= '<header>';
+			// 	$html .= '<h2>'.option('site_title').'</h2>';
+			// 	$html .= '<span class="find-us">'.__('A project by %s', mh_owner_link()).'</span>';
+			// $html .= '</header>';
 		
 			$html .= '<div class="about-main">';
 				$html .= substr(mh_about(),0,$length);
 				$html .= ($length < strlen(mh_about())) ? '...' : null;
-				$html .= '<p class="view-more-link"><a href="'.url('about').'">'.__('Read more <span>About Us</span>').'</a></p>';
+				// $html .= '<p class="view-more-link"><a href="'.url('about').'">'.__('Read more <span>About Us</span>').'</a></p>';
 			$html .= '</div>';
 	
 		$html .= '</article>';
 	$html .= '</div>';
 	
-	$html .= '<div class="home-about-links">';
-		$html .= '<aside>';
-		$html .= mh_homepage_find_us();
-		$html .= '</aside>';
-	$html .= '</div>';
+	// $html .= '<div class="home-about-links">';
+	// 	$html .= '<aside>';
+	// 	$html .= mh_homepage_find_us();
+	// 	$html .= '</aside>';
+	// $html .= '</div>';
 
 	return $html;
 }
@@ -2274,7 +2274,7 @@ function mh_lg_logo_url()
 {
 	$lg_logo = get_theme_option('lg_logo');
 
-	$logo_img = $lg_logo ? WEB_ROOT.'/files/theme_uploads/'.$lg_logo : img('hm-logo.png');
+	$logo_img = $lg_logo ? WEB_ROOT.'/files/theme_uploads/'.$lg_logo : img('logo-cropped.jpg');
 
 	return $logo_img;
 }
