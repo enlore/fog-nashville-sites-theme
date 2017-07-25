@@ -1,44 +1,23 @@
 <?php
-if ((get_theme_option('stealth_mode')==1)&&(is_allowed('Items', 'edit')!==true)){
-queue_css_file('stealth');
-include_once('stealth-index.php');
-}
-else{
-//if not stealth mode, do everything else
-?>
-<?php 
-$classname='home';
-if(get_theme_option('expand_map')==1){
-	$classname = 'home expand-map';
-}else{
-	$classname = 'home';
-}
-echo head(array('maptype'=>'focusarea','bodyid'=>'home','bodyclass'=>$classname)); 
-?>
+/**
+ * Omeka
+ * 
+ * @copyright Copyright 2007-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
+ * @package Omeka
+ */
 
-<?php mh_map_actions();?>
-	
-<div id="content" role="main">
-<article id="homepage">
-										
-	<section id="about"><?php echo mh_home_about();?></section>
+// Bootstrap the application.
+require_once 'bootstrap.php';
 
-	<?php echo homepage_widget_sections();?>
-
-</article>
-</div> <!-- end content -->
-
-<script>
-	// add map overlay for click function if map is not already expanded
-	jQuery('body:not(.expand-map) #hm-map').append('<div class="home-map-overlay"></div>');
-	jQuery('#hm-map .home-map-overlay').click(function(){
-		jQuery('#home').addClass('expand-map');
-		jQuery('.home-map-overlay').remove();
-	});
-</script>
-
-<?php echo foot(); ?>
-
-<?php
-//end stealth mode else statement
- }?>
+// Configure, initialize, and run the application.
+$application = new Omeka_Application(APPLICATION_ENV);
+$application->getBootstrap()->setOptions(array(
+    'resources' => array(
+        'theme' => array(
+            'basePath' => THEME_DIR,
+            'webBasePath' => WEB_THEME
+        )
+    )
+));
+$application->initialize()->run();

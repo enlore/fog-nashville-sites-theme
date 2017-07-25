@@ -22,4 +22,4 @@ omeka:
     MYSQL_PASSWORD: omeka
     #PHP_IDE_CONFIG: "serverName=omekadocker_omeka_1_xdebug_server"
   volumes:
-    - ./src:/var/www/html/themes/curatescape
+    - ./src:/app
