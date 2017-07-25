@@ -10,6 +10,7 @@
   },
   "homepage": "https://github.com/CoreyAR/fog-nashville-sites-theme#readme",
   "devDependencies": {
+    "node-sass": "^4.5.3",
     "webpack": "^3.3.0"
   },
   "dependencies": {
