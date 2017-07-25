@@ -1,0 +1,26 @@
+/* regular weight */
+@font-face {
+    font-family: 'Edmonsans';
+    src: url('/fonts/Edmondsans-Regular.WOFF') format('woff'),
+         url('/fonts/Edmondsans-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* this font's medium looks pretty bold */
+@font-face {
+    font-family: 'Edmonsans';
+    src: url('/fonts/Edmondsans-Medium.WOFF') format('woff'),
+         url('/fonts/Edmondsans-Medium.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* very bold */
+@font-face {
+    font-family: 'Edmonsans';
+    src: url('/fonts/Edmondsans-Bold.WOFF') format('woff'),
+         url('/fonts/Edmondsans-Bold.otf') format('otf');
+    font-weight: 900;
+    font-style: normal;
+}
