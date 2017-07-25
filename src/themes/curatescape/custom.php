@@ -58,7 +58,7 @@ function mh_seo_pageimg_custom(){
 function mh_theme_css($media='all'){
 	$themeName = Theme::getCurrentThemeName();
 	$theme = Theme::getTheme($themeName);
-	return '<link href="'.WEB_PUBLIC_THEME.'/'.$themeName.'/css/screen.css?v='.$theme->version.'" media="'.$media.'" rel="stylesheet" type="text/css" >';
+	return '<link href="'.WEB_PUBLIC_THEME.'/'.$themeName.'/css/main.css?v='.$theme->version.'" media="'.$media.'" rel="stylesheet" type="text/css" >';
 }
 
 function mh_item_label_option($which=null){
