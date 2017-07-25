@@ -175,7 +175,7 @@ function random_item_link($text=null,$class='show'){
 function mh_global_header($html=null){
 	$html.= '<div id="mobile-menu-button"><a class="icon-reorder"><span class="visuallyhidden"> '.__('Menu').'</span></a></div>';
 	$html.= link_to_home_page(mh_the_logo(),array('class'=>'home-link'));
-	$html.= '<div class="menu" role="menu">'.mh_simple_search($formProperties=array('id'=>'header-search')).'<nav role="navigation">'.mh_global_nav().random_item_link().'</nav></div>';
+	$html.= '<div class="menu" role="menu">'.'<nav role="navigation">'.mh_global_nav().random_item_link().'</nav>'.mh_simple_search($formProperties=array('id'=>'header-search')).'</div>';
 
 	return $html;
 
@@ -645,9 +645,9 @@ function mh_display_map($type=null,$item=null,$tour=null){
         </script>
         
 		<!-- Map Container -->
-		<div id="hm-map">
+		<!-- <div id="hm-map">
 			<div id="map_canvas"></div>
-		</div>
+		</div> -->
 		
 <?php }
 
@@ -1795,25 +1795,25 @@ function mh_home_about($length=530,$html=null){
 	$html .= '<div class="about-text">';
 		$html .= '<article>';
 			
-			$html .= '<header>';
-				$html .= '<h2>'.option('site_title').'</h2>';
-				$html .= '<span class="find-us">'.__('A project by %s', mh_owner_link()).'</span>';
-			$html .= '</header>';
+			// $html .= '<header>';
+			// 	$html .= '<h2>'.option('site_title').'</h2>';
+			// 	$html .= '<span class="find-us">'.__('A project by %s', mh_owner_link()).'</span>';
+			// $html .= '</header>';
 		
 			$html .= '<div class="about-main">';
 				$html .= substr(mh_about(),0,$length);
 				$html .= ($length < strlen(mh_about())) ? '...' : null;
-				$html .= '<p class="view-more-link"><a href="'.url('about').'">'.__('Read more <span>About Us</span>').'</a></p>';
+				// $html .= '<p class="view-more-link"><a href="'.url('about').'">'.__('Read more <span>About Us</span>').'</a></p>';
 			$html .= '</div>';
 	
 		$html .= '</article>';
 	$html .= '</div>';
 	
-	$html .= '<div class="home-about-links">';
-		$html .= '<aside>';
-		$html .= mh_homepage_find_us();
-		$html .= '</aside>';
-	$html .= '</div>';
+	// $html .= '<div class="home-about-links">';
+	// 	$html .= '<aside>';
+	// 	$html .= mh_homepage_find_us();
+	// 	$html .= '</aside>';
+	// $html .= '</div>';
 
 	return $html;
 }
@@ -1937,7 +1937,7 @@ function homepage_widget_sections($html=null){
 			
 			switch ($setting) {
 			    case 'featured':
-			        $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,3).'</section>' : null;
+			        $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,1).'</section>' : null;
 			        $featured_isset++;
 			        break;
 			    case 'tours':
@@ -2274,7 +2274,7 @@ function mh_lg_logo_url()
 {
 	$lg_logo = get_theme_option('lg_logo');
 
-	$logo_img = $lg_logo ? WEB_ROOT.'/files/theme_uploads/'.$lg_logo : img('hm-logo.png');
+	$logo_img = $lg_logo ? WEB_ROOT.'/files/theme_uploads/'.$lg_logo : img('logo-cropped.jpg');
 
 	return $logo_img;
 }
