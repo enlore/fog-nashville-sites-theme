@@ -1,1 +1,1 @@
-import './styles/_main.scss'
+import './styles/_screen.scss'

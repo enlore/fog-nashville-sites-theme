@@ -7,8 +7,8 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'src/javascripts'),
-    publicPath: '/src/javascripts'
+    path: path.resolve(__dirname, 'src/themes/curatescape/javascripts'),
+    publicPath: '/src/themes/curatescape/javascripts'
   },
   module: {
     loaders: [
@@ -22,7 +22,11 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        loader: 'file-loader?name=Images/[name].[ext]'
+        loader: 'file-loader?name=../images/[name].[ext]'
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=../fonts/[name].[ext]'
       }
     ]
   },
