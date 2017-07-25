@@ -82,8 +82,10 @@ class Tour extends Omeka_Record_AbstractRecord
 		}
 
 	}
+	// Original function took an $args argument
+	protected function beforeDelete()
+	{
 
-	protected function beforeDelete($args){
 		$this->removeAllItems();
 	}
 	
