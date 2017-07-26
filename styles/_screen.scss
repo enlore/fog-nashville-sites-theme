@@ -2,31 +2,30 @@
 /*! normalize.css v1.1.3 | MIT License | git.io/normalize */
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
+/* colors, whitespace, etc */
 @import 'root.scss';
-@import 'typography.scss';
-@import 'resets.scss';
-@import 'controls.scss';
-@import 'print.scss';
-@import 'container.scss';
-@import 'item.scss';
-@import 'error.scss';
-@import 'fa.scss';
-@import 'files.scss';
-@import 'inline-login.scss';
-@import 'item.scss';
-@import 'social.scss';
-@import 'streaming-media.scss';
-@import 'util.scss';
-@import 'footer.scss';
-@import 'social.scss';
-@import 'other-media-queries.scss';
-@import 'ie.scss';
 
+@import 'util-typography.scss';
+@import 'util-resets.scss';
+@import 'util-container.scss';
+@import 'util-util.scss';
+@import 'util-error.scss';
+@import 'util-fa.scss';
+@import 'util-ie.scss';
+@import 'util-other-media-queries.scss';
+@import 'util-print.scss';
 
-/* components */
+/* reusable component styles */
+@import 'component-controls.scss';
+@import 'component-files.scss';
+@import 'component-footer.scss';
+@import 'component-inline-login.scss';
+@import 'component-item.scss';
+@import 'component-social.scss';
+@import 'component-streaming-media.scss';
 
-/* screens */
-@imports 'screen-item.scss'
+/* whole screens composed of components */
+@import 'screen-item.scss';
 
 html {
     font-family: Edmonsans, 'Roboto', sans-serif;
