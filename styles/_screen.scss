@@ -16,11 +16,12 @@
 @import 'util-print.scss';
 
 /* reusable component styles */
+@import 'component-header.scss';
+@import 'component-footer.scss';
+@import 'component-item.scss';
 @import 'component-controls.scss';
 @import 'component-files.scss';
-@import 'component-footer.scss';
 @import 'component-inline-login.scss';
-@import 'component-item.scss';
 @import 'component-social.scss';
 @import 'component-streaming-media.scss';
 
@@ -104,16 +105,6 @@ iframe,
 object {
     max-width: 100%;
 }
-/*! ===== Available MODERNIZR classes (for testing CSS3 support) ===== */
-
-.no-js {} .csstransitions {} .audio {} .video {}
-/*! ===== Other conditional classes (for applying IE fixes) ===== */
-
-.notie {} .ie {} .ie6 {} .lte7 {} .lte8 {} .lte9 {}
-/*! ===== Other DYNAMIC classes (check-width.js) ===== */
-
-body.small {} body.big {}
-/*! ===== NO JS ===== */
 
 #no-js-message {
     display: none;
@@ -154,47 +145,6 @@ body.small {} body.big {}
     to {
         transform: rotate(360deg);
     }
-}
-/*! FONTS */
-
-#custom-block .find-us,
-.view-more-link,
-.stealth-mode #about .soon,
-.stealth-mode #contact,
-#items .tour-nav,
-header.main #header-search input,
-header.main,
-.random-story-link.show,
-.big-button,
-h1,
-h2,
-h3,
-h4,
-h5,
-nav,
-#search-wrap input,
-#map_canvas a,
-#slider li div span,
-thead,
-#map-faq-inner p a,
-.marker-content,
-.app-store,
-#story-header .item-subtitle,
-#tour-header .tour-subtitle,
-.view-more-link span,
-#story-header .story-meta,
-#tour-header .tour-meta {
-    //font-family: "Droid Serif", "Georgia", "Times", "Times New Roman", serif;
-    font-weight: normal;
-}
-body,
-#custom-block .find-us a,
-.item-related-links {
-    //font-family: "PT Serif", "Georgia", "Times", "Times New Roman", serif;
-}
-span.amp {
-    //font-family: "Baskerville", "Palatino", "Book Antiqua";
-    font-style: italic;
 }
 /*! Comments */
 
@@ -274,278 +224,10 @@ header.main .menu {
     -o-transition: margin 0.5s ease;
     transition: margin 0.5s ease;
 }
-/*! Links */
-
-a {
-    border-bottom: 1px dashed #e2e2e2;
-    padding-bottom: 1px;
-    text-decoration: none
-}
-a:hover,
-a:active {
-    border-bottom: 1px dashed #eaeaea
-}
-a,
-a:hover,
-a:active {
-    color: #999;
-}
-blockquote {
-    margin: 2em 16px 0;
-    padding: 1.5em 0 1em;
-    quotes: "\201C""\201D""\2018""\2019";
-    border-top: 1px dashed #dadada;
-    border-bottom: 1px dashed #dadada;
-}
-blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.15em;
-    vertical-align: -0.4em
-}
-blockquote p {
-    display: inline
-}
-q {
-    quotes: "\201C""\201D""\2018""\2019"
-}
-q:before {
-    content: open-quote
-}
-q:after {
-    content: close-quote
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    -o-hyphens: none;
-    hyphens: none;
-}
-.ie #featured-story h3,
-.ie #home-tours h3 {}body {
-    line-height: 1.75em
-}
-.truncate {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1em
-}
-.show.dropcap .item-description p:first-child:first-letter,
-.show.dropcap #tour-description p:first-child:first-letter {
-    float: left;
-    font-size: 4em;
-    line-height: .75em;
-    padding-top: 0.075em;
-    padding-right: .115em;
-    padding-left: 0
-}
 
 /*! HEADER */
-
-header.main {
-    width: 100%;
-    /* max-width: 50em; */
-    min-height: 6.5em;
-    display: block;
-    font-variant: small-caps;
-	z-index: 1;
-	display: flex;
-	justify-content: space-between;
-}
-header.main #logo-img,
-footer.main #logo-img {
-    max-height: 6.5em;
-    max-width: 11.8em;
-    padding: .75em .25em .25em;
-    display: inline-block
-}
-header.main #header-search {
-    display: flex;
-    margin: 1em 2em;
-	padding: 0;
-	float: right;
-}
-header.main #header-search input {
-    font-variant: small-caps
-}
-header.main .menu {
-	display: flex;
-	flex: 1;
-}
-header.main .menu nav {
-    display: flex;
-    flex: 1;
-}
-#mobile-menu-button {
-    display: none;
-    float: right;
-    padding: 1em 0;
-    font-size: 2.5em;
-    margin: 0;
-}
-#mobile-menu-button a {
-    border-bottom: 0 none transparent;
-    color: #333;
-    cursor: pointer;
-    padding: .75em
-}
-header.main .random-story-link.show {
-    color: #FAFAFA;
-    margin: 0 auto;
-    display: none;
-    background: #333;
-    padding: 1em 0
-}
-header.main ul.navigation {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    /* padding-left: 0;
-    text-align: right */
-}
-a.home-link {
-    border: 0 none transparent;
-}
-@media only screen and (max-width: 50em) {
-    header.main {
-        background: #fff;
-        min-height: 6.75em;
-        padding: 0 !important;
-        position: relative;
-        box-shadow: 0 0 .5em #333
-    }
-    header.main .menu {
-        background: #eaeaea;
-        padding-top: .5em;
-        width: 100%;
-        margin: 0 auto;
-        clear: both;
-        text-align: center;
-        box-shadow: 0em .25em .25em #333;
-        display: none;
-    }
-    header.main .menu.active {
-        display: block;
-    }
-    header.main .random-story-link.show {
-        display: block
-    }
-    #mobile-menu-button {
-        display: block;
-    }
-    header.main #logo-img {
-        max-height: 6em;
-        padding: 0.5em 1em 0 !important
-    }
-    header.main a.home-link {
-        display: inline-block;
-    }
-}
-header.main ul.navigation {
-    padding-left: 0;
-    text-align: center
-}
-header.main ul.navigation li {
-    display: flex;
-    flex: 1;
-    justify-content: space-around;
-}
-header.main ul.navigation li a {
-    color: #555;
-    padding: .5em;
-    border: 1px solid transparent
-}
-header.main ul.navigation li a:hover {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: .25em
-}
-@media only screen and (min-width: 50em) {
-    header.main {
-        padding-top: 1em;
-        padding-bottom: 1em
-    }
-    header.main #logo-img {
-        padding-top: 0;
-        z-index: 0
-    }
-}
 /*! HERO */
-
-#tours.browse #hero,
-.page #hero,
-.exhibits #hero {
-    display: none;
-}
-#hero,
-#map_canvas {
-    height: 20em;
-}
-#hero {
-    clear: both;
-}
-@media only screen and (max-width: 25em) {
-    #hero,
-    #map_canvas {
-        height: 12em
-    }
-}
-@media only screen and (max-width: 45em) {
-    #tours.show #hero,
-    #tours.browse #hero,
-    .page #hero {
-        background-size: contain;
-        background-attachment: scroll !important
-    }
-    .no-image-for-hero #hero {
-        display: none
-    }
-}
-@media only screen and (min-width: 45em) {
-    #hero {
-        width: 100%;
-        clear: right;
-        margin-bottom: 0;
-        margin-right: 0;
-        box-shadow: none
-    }
-    .no-location #hero {
-        display: none;
-    }
-}
 /*! MAP in HERO container*/
-
-#hero .leaflet-container {
-    font: inherit !important;
-}
-.leaflet-control-layers-list {
-    font-size: .8em;
-    line-height: 2em;
-}
-.leaflet-control-layers-base label span {
-    padding-left: 3px;
-}
-.leaflet-popup-content-wrapper {
-    border-radius: 2px !important;
-}
-.leaflet-popup a {
-    border: none;
-}
-.home .leaflet-control-attribution {
-    display: none
-}
-.home.expand-map .leaflet-control-attribution {
-    display: block;
-}
 /*! MAP actions */
 
 .no-location .map-actions {
