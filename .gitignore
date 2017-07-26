@@ -4,3 +4,4 @@ node_modules
 #Debugging
 src/.htaccess
 errors.log
+src/files
