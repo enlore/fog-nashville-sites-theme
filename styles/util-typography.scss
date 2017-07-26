@@ -123,3 +123,19 @@ ul {
 dd {
     margin: 0 0 0 40px
 }
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1em
+}
+.show.dropcap .item-description p:first-child:first-letter,
+.show.dropcap #tour-description p:first-child:first-letter {
+    float: left;
+    font-size: 4em;
+    line-height: .75em;
+    padding-top: 0.075em;
+    padding-right: .115em;
+    padding-left: 0
+}
