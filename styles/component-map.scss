@@ -1,0 +1,208 @@
+
+.no-location .map-actions {
+    display: none;
+}
+.map-actions {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #333;
+    padding: .25em 0
+}
+.map-actions a {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 1em;
+    padding: .5em
+}
+.map-actions a:hover {
+    background: #fafafa;
+    color: #333
+}
+.map-actions a span.label {
+    display: inline
+}
+.map-actions a span.alt {
+    display: none
+}
+body#home .map-actions {
+    display: none
+}
+body#home.fullscreen-map .map-actions {
+    display: block
+}
+body.fullscreen-map #map_canvas {
+    display: block !important
+}
+i.working {
+    display: inline-block;
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear
+}
+@media only screen and (max-width: 50em) {
+    body#home .map-actions {
+        display: block
+    }
+    .map-actions a {
+        margin: 0;
+        padding: .5em
+    }
+    .fullscreen-map .map-actions a {
+        font-size: .9em;
+        margin: 1.25em 0 !important;
+    }
+    .map-actions a span.alt {
+        display: inline
+    }
+    #items.show .map-actions a.fullscreen span.alt:before {
+        content: 'Show Location on '
+    }
+    #tours.show .map-actions a.fullscreen span.alt:before {
+        content: 'Show Locations on '
+    }
+    #items.show.fullscreen-map .map-actions a.fullscreen span.alt:before {
+        content: 'Close '
+    }
+    #tours.show.fullscreen-map .map-actions a.fullscreen span.alt:before {
+        content: 'Close '
+    }
+    .map-actions a span.label {
+        display: none
+    }
+    .map-actions a.location,
+    .map-actions a.directions {
+        display: none
+    }
+    .fullscreen-map .map-actions a.location,
+    .fullscreen-map .map-actions a.directions {
+        display: inline-block
+    }
+}
+
+.fullscreen-map #hm-map {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0
+}
+.fullscreen-map .map-actions {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2
+}
+@media only screen and (max-width: 30em) {
+    .fullscreen-map .map-actions {
+        top: 0;
+        height: 2.75em;
+        z-index: 2
+    }
+    .fullscreen-map #hm-map {
+        top: 3em;
+        height: 100%;
+        z-index: 1
+    }
+    .fullscreen-map .map-actions a {
+        margin: 0 0 !important;
+    }
+}
+.fullscreen-map #hm-map #map_canvas {
+    height: 100% !important;
+    width: 100% !important
+}
+#home.fullscreen-map #about article,
+#home.fullscreen-map #about .home-about-links,
+#home.fullscreen-map #featured-story,
+#home.fullscreen-map #home-tours,
+#home.fullscreen-map #home-item-list,
+#home.fullscreen-map #home-popular-tags {
+    display: none
+}
+@media only screen and (max-width: 50em) {
+    .fullscreen-map header.main,
+    .fullscreen-map #showmap {
+        display: none
+    }
+    .fullscreen-map #map_canvas {
+        max-height: none
+    }
+}
+
+.leaflet-container a {
+    color: inherit !important;
+}
+.leaflet-popup-content {
+    margin: 0 !important;
+    min-width: 12em;
+    max-width: 15em;
+}
+#tours.show .leaflet-popup-content {
+    display: flex;
+    min-width: 10em;
+    max-width: 26em;
+    padding: 8px 8px 4px;
+    line-height: 2em;
+}
+.curatescape-infowindow-title {
+    padding: 0 8px 0;
+    display: inline-block;
+    font-variant: small-caps;
+    line-height: 1.2em;
+}
+.curatescape-infowindow-address {
+    padding: 4px 8px 8px;
+    font-size: .65em;
+    text-transform: uppercase;
+    color: #bababa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+.curatescape-infowindow-address.single-item {
+    padding-top: 8px;
+    min-width: 14em;
+}
+#tours.show .curatescape-infowindow-address {
+    padding: 0 4px 4px 8px;
+    line-height: 1.4em;
+    max-width: 26em;
+}
+#tours.show .leaflet-popup-content .number {
+    min-width: 2em;
+    margin: 4px 0 0
+}
+.curatescape-infowindow-image {
+    background-color: #eaeaea;
+    background-size: cover;
+    width: 100%;
+    height: 7.5em;
+    display: block;
+    background-position: center
+}
+#map_canvas .access-anchor {
+    background: #efefef;
+    color: #777;
+    border-bottom: none;
+    padding: 3px 5px 3px;
+    border-radius: 2px;
+    font-size: .7em;
+    text-align: center;
+    display: block;
+    margin: 4px 0 0;
+    color: #999 !important;
+}
+#map_canvas .access-anchor:hover {
+    color: #fff !important;
+}
+a.leaflet-control-layers-toggle,
+.leaflet-control-attribution a {
+    border-bottom: none;
+}
