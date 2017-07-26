@@ -19,7 +19,7 @@
 <!-- Stylesheets -->
 <?php 
 // also returns conditional styles from queue above
-queue_css_file('screen');
+queue_css_file('main');
 echo head_css();
 ?>
 
