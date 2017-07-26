@@ -1,0 +1,155 @@
+/*! Item Related Resources */
+
+.show .item-related-links {
+    color: #777;
+    font-size: small;
+    font-variant: small-caps;
+    line-height: 1em;
+    margin-top: 0;
+    margin-bottom: 2em
+}
+.show .item-related-links h3 {
+    margin-top: 0.75em;
+    padding-top: 0.75em
+}
+.show .item-related-links h3:after {
+    content: ': '
+}
+.show .item-related-links ul {
+    padding-left: 0
+}
+.show .item-related-links li {
+    list-style-type: none;
+    margin-left: 0;
+    margin-bottom: .5em;
+    line-height: 1.2em;
+}
+
+/*! Item Citation */
+
+#cite-this {
+    background: none repeat scroll 0% 0% #F2F2F2;
+    margin: 1em auto;
+    padding: 1em 1em 1em;
+    border-radius: .15em;
+    opacity: .85
+}
+.show section.meta #cite-this h3 {
+    margin-top: 0
+}
+.citation-url,
+.item-related-links a,
+#official-website a {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto
+}
+/*! Item Tags and Subjects and Tours */
+
+.show #tags,
+.show #subjects,
+.show #tour-for-item {
+    color: #777;
+    font-size: small;
+    margin-top: 0.75em
+}
+.show #tags h3 {
+    display: block;
+    margin-top: 0
+}
+.show #subjects h3,
+.show #tour-for-item h3 {
+    display: block;
+    margin-top: 0.75em
+}
+.show #subjects h3:after,
+.show #tags h3:after,
+.show #tour-for-item h3:after {
+    content: ': '
+}
+.show #tags ul,
+.show #subjects ul,
+.show #tour-for-item ul {
+    display: inline;
+    padding-left: 0
+}
+.show #tour-for-item li,
+.show #tags li,
+.show #subjects li {
+    display: inline;
+    margin-right: .15em !important;
+    line-height: 2.1em;
+}
+.show #tour-for-item li a,
+.show #tags li a,
+.show #subjects li a {
+    padding: 0.25em 0.5em;
+    border-radius: .15em;
+    border-bottom: none;
+    line-height: 1.4em;
+    margin: 0
+}
+.show #tags li a {
+    display: inline-block;
+    color: #fafafa;
+    background: #333
+}
+.show #subjects li a {
+    display: inline-block;
+    color: #fff;
+    background: #999
+}
+.show #tags li a:hover {
+    background: #ccc
+}
+.show #subjects li a:hover {
+    background: #aaa
+}
+.show #tour-for-item li a {
+    display: inline-block;
+    color: #fafafa;
+    background: #333
+}
+.show #tour-for-item li a:hover {
+    background: #999
+}
+/*! Item Relations (plugin) */
+
+.show #relations {
+    margin-top: .75em
+}
+.show #relations h3 {
+    display: inline;
+}
+.show #relations h3:after {
+    content: ': '
+}
+.show #relations ul {
+    display: inline;
+    padding-left: 0
+}
+.show #relations li {
+    list-style-type: none;
+    margin-left: 0;
+    display: inline
+}
+.show #relations li:after {
+    content: ", "
+}
+.show #relations li:last-child:after {
+    content: ""
+}
+
+/*! Items image grid */
+
+.big #item-photos img {
+    float: left;
+    display: inline-block;
+}
+.big #item-photos img {
+    width: 31%;
+    padding: 1.15%;
+}

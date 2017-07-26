@@ -1,0 +1,33 @@
+/*! Inline Login (shows up when landing on certain admin-only templates) */
+
+body.login figure#hero {
+    display: none !important
+}
+body.login h1 {
+    padding: 1em;
+    text-align: center
+}
+body.login form#login-form {
+    width: 100%;
+    margin-bottom: 2em;
+}
+body.login fieldset#fieldset-login {
+    margin: 0 auto;
+    max-width: 22em
+}
+body.login p#login-links {
+    text-align: center
+}
+body.login .field div {
+    display: inline-block;
+    width: 8em;
+    padding-bottom: .25em
+}
+body.login #wrap input#submit {
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    width: 22em;
+    height: 2em
+}
+

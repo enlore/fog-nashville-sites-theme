@@ -1,0 +1,26 @@
+/*! STREAMING MEDIA */
+
+.video-js {
+    max-width: 100% !important;
+    margin-bottom: 1em
+}
+video {
+    max-width: 100%;
+    height: auto
+}
+#item-video {
+    width: 100%;
+    height: auto;
+    clear: both;
+    display: inline-block
+}
+#items p .view-file-link {
+    font-size: .9em
+}
+div.item-file-container div.video-js.vjs-fullscreen {
+    max-height: none !important;
+}
+.embed-container {
+    margin-bottom: .5em;
+}
+

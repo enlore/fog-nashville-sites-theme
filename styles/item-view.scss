@@ -1,0 +1,49 @@
+/*
+wrap
+    #hero // map
+    #map-actions
+    #content
+    artice.storey.item.show.instapaper_body.hentry
+        header.story-header
+        #item-primary.show
+            section#text
+                .item-description
+        #item-media
+        #item-metadata
+        #share-this
+*/
+
+.story-header-hero {
+    height: 300px;
+    background-position: center center;
+}
+
+.entry-title {
+    color: var(--white);
+    margin: 0 auto 0 24px;
+    max-width: 70%;
+    transform: translateY(-50%);
+}
+
+#story-header .item-title {
+    line-height: 1.5em;
+    margin: 0;
+    text-align: left;
+}
+
+.item-title--raggedBackground {
+    background-color: var(--blue);
+    padding: 16px;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 16px 0 0 var(--blue), -16px 0 0 var(--blue);
+}
+
+.item-subtitle {
+    margin: 0;
+}
+
+.item-metadata {
+    border: 1px solid var(--lightgrey);
+    padding: 32px;
+}

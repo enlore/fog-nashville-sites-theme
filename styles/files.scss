@@ -1,0 +1,38 @@
+/*! FILES show */
+
+body#file figure#hero {
+    display: none !important;
+}
+#file .item-file img {
+    width: auto !important;
+    max-width: 100% !important
+}
+#omeka-image-file-exif-array,
+.element-text {
+    max-width: 100%;
+    overflow: auto
+}
+#file #showmap {
+    display: none;
+    visibility: hidden
+}
+#file #file-metadata {
+    font-size: .9em;
+    line-height: 1.4em;
+    background: #e2e2e2;
+    padding: 1em
+}
+#file-metadata .element-set {
+    display: none
+}
+#file-metadata .element-set:first-child {
+    display: inline
+}
+a.file-appears-in-item {
+    border-bottom: 0 solid transparent
+}
+.rights-caption {
+    font-size: .8em;
+    color: #777;
+}
+
