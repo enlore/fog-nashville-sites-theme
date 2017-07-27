@@ -8,13 +8,11 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'src/themes/curatescape/javascripts'),
-    publicPath: '/src/themes/curatescape/javascripts'
   },
   module: {
     loaders: [
       {
         test: /(\.css|\.scss)$/,
-        exclude: [path.resolve(__dirname, "node_modules")], 
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader','postcss-loader','sass-loader']
@@ -25,7 +23,7 @@ module.exports = {
         loader: 'file-loader?name=../images/[name].[ext]'
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
         loader: 'file-loader?name=../fonts/[name].[ext]'
       }
     ]

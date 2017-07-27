@@ -11,9 +11,11 @@
   "homepage": "https://github.com/CoreyAR/fog-nashville-sites-theme#readme",
   "devDependencies": {
     "node-sass": "^4.5.3",
+    "postcss-custom-properties": "^6.1.0",
     "webpack": "^3.3.0"
   },
   "dependencies": {
+    "bulma": "^0.4.4",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
