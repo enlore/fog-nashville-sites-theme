@@ -36,15 +36,11 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
 
 <?php //mh_map_actions();?>
 
-<div id="content">
-
 <section class="section browseItemsSection">	
 	<h2><?php 
 	$title .= ( $total_results  ? ': <span class="item-number">'.$total_results.'</span>' : '');
 	echo $title; 
 	?></h2>
-
-
 
 	<div id="primary" class="container">
         <nav class="secondary-nav" id="item-browse"> 
@@ -111,7 +107,6 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
         </div>	
 	</div><!-- end primary -->
 </section>
-</div> <!-- end content -->
 
 <div id="share-this" class="browse">
 <?php echo mh_share_this();?>
