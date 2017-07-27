@@ -1765,9 +1765,9 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 {
     $featuredItem = get_random_featured_items($num,$withImage);
     //$html = '<h2 class="hidden">'.__('Featured %s', mh_item_label()).'</h2>';
-    $html = '<div style="display: flex; justify-content: flex-start; align-items: center;">';
-    $html = $html.'<h3 class="title-label" style="background-color: #B9E88B; padding: 8px 32px;">Discover</h3>';
-    $html = $html.'<h2 style="margin-left: 32px;">'.__('Featured %s', mh_item_label()).'</h2>';
+    $html = '<div class="featuredSection">';
+        $html = $html.'<h3 class="featuredSection-label">Discover</h3>';
+        $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
     $html = $html.'</div>';
 
     $class=get_theme_option('featured_tint')==1 ? 'tint' : 'no-tint';
@@ -1787,19 +1787,27 @@ function mh_display_random_featured_item($withImage=false,$num=1)
                 $img_url = array_pop($result);              
                 
                 $html .= '<div class="'.$class.'">';
-                    $html .= '<article class="featured-story-result" style="position: relative;">';
-                    $html .= '<div class="featured-decora-outer">' ;
-                        $html .= '<div class="featured-decora-bg" style="background-image:url('.$img_url.')"></div>' ;
-                        $html .= '<div class="featured-decora-img">'.link_to_item(item_image('square_thumbnail',array('alt'=>''),0, $item), array(), 'show', $item).'</div>';
+                    $html .= '<article class="featuredItem">';
+                    $html .= '<div class="">' ;
+                        $html .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>' ;
+
+                        //$html .= '<div class="featuredItem-image">'
+                            //.link_to_item(item_image('square_thumbnail',array('alt'=>''),0, $item), array(), 'show', $item)
+                            //.'</div>';
                     
-                        $html .= '<div class="featured-decora-text" style="color: white; background: #4E92DF; position: absolute; bottom: 0; right: 0;"><div class="featured-decora-text-inner">';
-                            $html .= '<header><h3>' . link_to_item($itemTitle, array(), 'show', $item) . '<span class="featured-item-author">'.mh_the_byline($item,false).'</span></h3></header>';
-                        if ($itemDescription) {
-                            $html .= '<div class="item-description">' . strip_tags($itemDescription) . '</div>';
-                            }else{
-                            $html .= '<div class="item-description">'.__('Preview text not available.').'</div>';
-                            $html .= '<p class="view-more-link">'. link_to_item(__('Continue reading <span>%s</span>', $itemTitle), array(), 'show', $item) .'</p>';
-                        }
+                        $html .= '<div class="featuredItem-text">'
+                            .'<div class="featuredItem-textInner">';
+
+                        $html .= '<h3 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item) 
+                                    //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
+                                .'</h3>';
+
+                        //if ($itemDescription) {
+                            //$html .= '<div class="item-description">' . strip_tags($itemDescription) . '</div>';
+                            //}else{
+                            //$html .= '<div class="item-description">'.__('Preview text not available.').'</div>';
+                            //$html .= '<p class="view-more-link">'. link_to_item(__('Continue reading <span>%s</span>', $itemTitle), array(), 'show', $item) .'</p>';
+                        //}
     
                         $html .= '</div></div>' ;
                     
