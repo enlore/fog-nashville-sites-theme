@@ -34,7 +34,7 @@ else{
 echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass'=>$bodyclass)); 
 ?>
 
-<?php mh_map_actions();?>
+<?php //mh_map_actions();?>
 
 <div id="content">
 
