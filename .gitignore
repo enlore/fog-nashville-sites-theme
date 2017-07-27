@@ -3,6 +3,6 @@ node_modules
 
 #Debugging
 src/.htaccess
-errors.log
+src/application/logs/errors.log
 src/files
 src/themes/curatescape/css/main.css
