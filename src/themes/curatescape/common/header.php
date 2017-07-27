@@ -59,10 +59,10 @@ isset($file) ? $file : $file=null;
 
 <!-- Custom CSS via theme config -->
 <?php 
-echo mh_custom_css();
-if ($uploaded_stylesheet=get_theme_option('custom stylesheet')){
-	echo '<link rel="stylesheet" type="text/css" media="screen" href="'.WEB_ROOT.'/files/theme_uploads/'.$uploaded_stylesheet.'" />';
-}
+//echo mh_custom_css();
+//if ($uploaded_stylesheet=get_theme_option('custom stylesheet')){
+	//echo '<link rel="stylesheet" type="text/css" media="screen" href="'.WEB_ROOT.'/files/theme_uploads/'.$uploaded_stylesheet.'" />';
+//}
 ?>
 
 <!-- jQuery -->
@@ -77,7 +77,7 @@ if ($uploaded_stylesheet=get_theme_option('custom stylesheet')){
 	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 <?php endif;
 queue_js_file('libraries.min'); // <-- Modernizr, MakiMarker, Swipe.js, iSOnScreen, LoadJS, LoadCSS
-queue_js_file('check-width');
+//queue_js_file('check-width');
 echo head_js(false); // <-- No to Omeka default scripts
 // Fancybox, VideoJS (CDN) and AudioJS are loaded asyncronously as needed
 ?>
@@ -103,9 +103,10 @@ echo head_js(false); // <-- No to Omeka default scripts
 <header class="main active" role="banner">	
 	<?php echo mh_global_header();?>
 	<script>
-	    jQuery(".main .menu").removeClass("active");
-	    jQuery("#mobile-menu-button a").click(function () {
-	    	jQuery(".main .menu").toggleClass("active");
+	    jQuery("#navbar-menu", "#menu-toggle").removeClass("active");
+	    jQuery("#menu-toggle").click(function () {
+	    	jQuery("#navbar-menu").toggleClass("is-active");
+            jQuery("#menu-toggle").toggleClass('is-active')
 	    });
 	</script>
 </header>
@@ -114,5 +115,5 @@ echo head_js(false); // <-- No to Omeka default scripts
 <div id="wrap">
 
 	<figure id="hero">
-		<?php echo mh_which_content($maptype,$item,$tour); ?>	
+		<?php //echo mh_which_content($maptype,$item,$tour); ?>	
 	</figure>
