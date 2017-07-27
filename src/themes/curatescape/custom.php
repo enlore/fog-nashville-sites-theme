@@ -119,10 +119,14 @@ function mh_global_nav(){
     if( $curatenav==1 || !isset($curatenav) ){
         return nav(array(
                 array('label'=>__('Home'),'uri' => url('/')),
-                array('label'=>mh_item_label('plural'),'uri' => url('items/browse')),
+                array(
+                    'label'=>mh_item_label('plural'),
+                    'uri' => url('items/browse')
+                ),
                 array('label'=>mh_tour_label('plural'),'uri' => url('tours/browse/')),
                 array('label'=>__('About'),'uri' => url('about/')),
-            ));
+            )
+            );
     }else{
         return public_nav_main();
     }
@@ -173,9 +177,38 @@ function random_item_link($text=null,$class='show'){
 ** site title h1 is visually hidden but included for semantic purposes and screen readers
 */
 function mh_global_header($html=null){
-    $html.= '<div id="mobile-menu-button"><a class="icon-reorder"><span class="visuallyhidden"> '.__('Menu').'</span></a></div>';
-    $html.= link_to_home_page(mh_the_logo(),array('class'=>'home-link'));
-    $html.= '<div class="menu" role="menu">'.'<nav role="navigation">'.mh_global_nav().random_item_link().'</nav>'.mh_simple_search($formProperties=array('id'=>'header-search')).'</div>';
+
+    $html.= '<nav class"navbar">';
+
+    $html.= '<div class="navbar-brand">'
+                .'<div class="navbar-item">'
+                    .link_to_home_page(mh_the_logo(),array('class'=>''))
+                .'</div>'
+
+                .'<div id="menu-toggle" class="navbar-burger">'
+                    .'<span></span>'
+                    .'<span></span>'
+                    .'<span></span>'
+                .'</div>'
+            .'</div>';
+
+    $html.= '<div class="navbar-menu" role="menu">'
+                //.mh_global_nav()
+                .'<div class="navbar-start">'
+                    .'<a class="navbar-item" href="/"> Home </a>'
+                    .'<a class="navbar-item" href="/items/browse"> Items </a>'
+                    .'<a class="navbar-item" href="/tours/browse"> Tours </a>'
+                    .'<a class="navbar-item" href="/about"> About </a>'
+                .'</div>'
+
+                .'<div class="navbar-end">'
+                    .'<div class="navbar-item">'
+                        .mh_simple_search($formProperties=array('id'=>'header-search'))
+                    .'</div>'
+                .'</div>'
+            .'</div>';
+
+    $html.= '</nav>';
 
     return $html;
 
