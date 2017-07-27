@@ -5,31 +5,31 @@
 </aside> 
 -->
 
-<div class="clearfix"></div>
 </div><!--end wrap-->
-<footer class="main">
-	<div>
+
+<footer class="footer columns is-desktop">
+	<div class="footer-brand column">
 		<?php echo link_to_home_page(mh_the_logo(), array('class'=>'home-link')); ?>
 	</div>
-	<div>
-		<nav id="footer-nav">
-			<ul>
-				<li><a href="#">Dicsover</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</div>
-	<div>
-		<p>The Metropolitan Historical Commission is a municipal
-			historic preservation agency working to document history,
-			save and reuse buildings, and make the public more aware of the 
-			necessity and advantages of preservation in Nashville and 
-			Davidson County, Tennessee. Created in 1966, the commision
-			consists of fifteen citizens appointed by the mayor.
-		</p>
-	</div>
-	<div id="address">
+
+    <nav class="footer-nav column is-2-tablet">
+        <ul>
+            <li><a href="#">Dicsover</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <p class="footer-about column is-5-tablet">
+        The Metropolitan Historical Commission is a municipal
+        historic preservation agency working to document history,
+        save and reuse buildings, and make the public more aware of the 
+        necessity and advantages of preservation in Nashville and 
+        Davidson County, Tennessee. Created in 1966, the commision
+        consists of fifteen citizens appointed by the mayor.
+    </p>
+
+	<div class="footer-address column">
 		<address>
 			Sunnyside in Sevier Park<br/>
 			3000 Granny White Pike<br/>
@@ -39,12 +39,16 @@
 			Phone: 615-862-7970<br/>
 			Fax: 615-862-7974<br/>
 		</p>
-		<span>
-			Copyright 2017. all rights reserved.
-		</span>
-		<span>
-			Site built and designed by fog.haus
-		</span>
+
+		<p> Copyright 2017. <br /> All rights reserved. </p>
+
+		<div class="footer-byline">
+            <div>Designed for this time</div>
+            <div>and place by</div>
+            <a href="http://fog.haus">
+                <img class="footer-fog" src="/themes/curatescape/images/fog-logo-white.png" alt="fog.haus"/>
+            </a>
+		</div>
 	</div>
 
 	<!--<nav id="footer-nav">    

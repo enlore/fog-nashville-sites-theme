@@ -1,65 +1,40 @@
 /*! FOOTER */
-
-footer > div {
-    display: flex;
-    flex: 1;
+.footer {
+    background-color: var(--black);
+    color: var(--lightgrey);
 }
 
-footer.main .custom {
-    float: none;
-    width: 100%;
-    margin: 1em auto
+.footer-brand img {
+    max-width: 200px;
 }
-footer.main {
-    background-color: #000;
-    text-align: center;
-    margin-top: 1em;
-    padding: .5em;
-    padding-bottom: 3em;
-    color: #fff;
-    display: flex;
-    flex: 1;
-    flex-direction: row;
+
+.footer-nav ul {
+    padding-left: 0;
 }
-footer.main nav {
-    margin-bottom: .25em
+
+.footer-nav a {
+    font-size: 24px;
+    color: var(--lightgrey);
 }
-footer.main p {
-    font-size: .9em
+
+.footer-about {
+    margin-top: 0;
 }
-footer.main p.default {
-    line-height: .5em;
-    margin: 1em auto;
-    width: 100%
+
+.footer-byline {
+    margin-top: 64px;
+    text-align: right;
 }
-#app-store-links {
-    width: 100%;
-    display: block;
-    padding: .75em 0;
-    font-style: italic
+
+@media (min-width: 1008px) {
+    .footer-byline {
+        margin-top: 0;
+        text-align: left;
+    }
 }
-footer.main span {
+
+.footer-fog {
     display: inline-block;
-    line-height: 1.4;
-    margin-bottom: .5em
+    margin-top: 8px;
+    opacity: 0.7;
 }
-footer.main span.find-us-footer {
-    color: #777;
-    line-height: 4em;
-}
-footer #app-store-links,
-footer #find-us-footer,
-footer #copyright,
-footer #powered-by {
-    display: block;
-}
-footer #copyright {
-    padding: 0.75em 0 0;
-}
-footer #app-store-links {
-    padding-bottom: .5em;
-}
-footer #address {
-    flex-direction: column;
-}
-
