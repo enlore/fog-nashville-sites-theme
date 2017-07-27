@@ -1,7 +1,9 @@
+<!--
 <aside id="action-buttons">
 	<?php echo random_item_link("View A Random ".mh_item_label('singular'),'big-button');?>
 	<?php mh_appstore_downloads(); ?>
 </aside> 
+-->
 
 <div class="clearfix"></div>
 </div><!--end wrap-->
