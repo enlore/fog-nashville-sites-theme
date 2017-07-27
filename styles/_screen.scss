@@ -8,6 +8,7 @@
 @import '../node_modules/bulma/sass/grid/all';
 @import '../node_modules/bulma/sass/components/all';
 @import '../node_modules/bulma/sass/layout/all';
+@import '../node_modules/bulma/sass/elements/other';
 
 /* colors, whitespace, etc */
 @import 'root.scss';
@@ -37,6 +38,7 @@
 /* whole screens composed of components */
 @import 'screen-index.scss';
 @import 'screen-item.scss';
+@import 'screen-items.scss';
 
 html {
     font-family: Edmonsans, 'Roboto', sans-serif;
@@ -500,45 +502,6 @@ a.edit:hover {
     color: #777
 }
 /*! HOMEPAGE */
-/*! ITEM RESULTS on both HOMEPAGE and ITEMS-BROWSE */
-
-.browse .item-result {
-    display: block;
-    clear: both;
-    margin: 3em auto;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: .75em
-}
-.browse .item-result .item-description {
-    overflow: hidden
-}
-.item-result h3 {
-    display: block;
-    clear: both
-}
-.browse .item-result .item-meta-browse {
-    clear: both;
-    display: block;
-    margin-top: .5em;
-    padding-top: .5em
-}
-.browse .item-result .item-image,
-#tours.show .item-result .item-image {
-    background-repeat: no-repeat;
-    width: 23%;
-    height: 7em;
-    float: right;
-    margin: 0 0 0 1.5em;
-    background-position: top center;
-    background-size: cover;
-    clear: left;
-    display: block;
-    overflow: hidden;
-    box-shadow: 0 0 0 .25em #fff, 0 0 .25em .15em #777
-}
-#tours.show .item-result .item-image {
-    margin-bottom: .5em
-}
 /*! BROWSE */
 
 #subject-browse .pagination_list {
