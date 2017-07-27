@@ -19,13 +19,17 @@ else{
 <?php //mh_map_actions();?>
 
 <div id="content" role="main">
-<article id="homepage">
+    <article id="homepage">
 
-    <section id="about"><?php echo mh_home_about();?></section>
+        <section class="hero">
+            <div class="hero-body">
+                <?php echo mh_home_about();?>
+            </div>
+        </section>
 
-    <?php echo homepage_widget_sections();?>
+        <?php echo homepage_widget_sections();?>
 
-</article>
+    </article>
 </div> <!-- end content -->
 
     <script>
