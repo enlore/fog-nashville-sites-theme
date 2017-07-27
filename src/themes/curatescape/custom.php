@@ -181,9 +181,7 @@ function mh_global_header($html=null){
     $html.= '<nav class"navbar">';
 
     $html.= '<div class="navbar-brand">'
-                .'<div class="navbar-item">'
-                    .link_to_home_page(mh_the_logo(),array('class'=>''))
-                .'</div>'
+                    .link_to_home_page(mh_the_logo(),array('class'=>'navbar-item'))
 
                 .'<div id="menu-toggle" class="navbar-burger">'
                     .'<span></span>'
@@ -192,7 +190,7 @@ function mh_global_header($html=null){
                 .'</div>'
             .'</div>';
 
-    $html.= '<div class="navbar-menu" role="menu">'
+    $html.= '<div id="navbar-menu" class="navbar-menu" role="menu">'
                 //.mh_global_nav()
                 .'<div class="navbar-start">'
                     .'<a class="navbar-item" href="/"> Home </a>'

@@ -16,7 +16,7 @@ else{
     echo head(array('maptype'=>'focusarea','bodyid'=>'home','bodyclass'=>$classname)); 
 ?>
 
-<?php mh_map_actions();?>
+<?php //mh_map_actions();?>
 
 <div id="content" role="main">
 <article id="homepage">
