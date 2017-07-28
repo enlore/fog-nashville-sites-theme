@@ -6,3 +6,4 @@ src/.htaccess
 src/application/logs/errors.log
 src/files
 src/themes/curatescape/css/main.css
+src/themes/curatescape/javascripts/main.js
