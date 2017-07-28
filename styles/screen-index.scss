@@ -1,3 +1,8 @@
+.about-main {
+    color: var(--black);
+    text-align: center;
+}
+
 .featuredSection {
     display: flex;
     justify-content: flex-start;
@@ -27,8 +32,40 @@
 
 .featuredItem-text {
     color: var(--white);
-    background: var(--blue);
     position: absolute;
     bottom: 0;
     right: 0;
+    padding: .3em;
+    .featuredItem-title {
+        line-height: $h3-size + .4em;
+        a {
+            background: var(--blue);
+            color: var(--white);
+            padding: .2em;
+        }
+    }
+}
+
+.featuredItem-imageBg {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media only screen and (min-width: $fullhd) {
+
+}
+@media only screen and (min-width: $widescreen) {
+
+}
+@media only screen and (min-width: $desktop) {
+
+}
+@media only screen and (min-width: $tablet) {
+
+}
+@media only screen and (max-width: $tablet) {
+    .featuredItem-imageBg {
+        height: 300px;
+    }
+
 }

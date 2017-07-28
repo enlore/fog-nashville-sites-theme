@@ -22,7 +22,7 @@ else{
     <article id="homepage">
 
         <section class="hero">
-            <div class="hero-body">
+            <div class="hero-text">
                 <?php echo mh_home_about();?>
             </div>
         </section>
