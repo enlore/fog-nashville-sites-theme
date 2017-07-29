@@ -16,7 +16,7 @@ else{
     echo head(array('maptype'=>'focusarea','bodyid'=>'home','bodyclass'=>$classname)); 
 ?>
 
-<?php //mh_map_actions();?>
+ <?php //mh_map_actions();?> 
 
 <div id="content" role="main">
     <article id="homepage">
@@ -27,19 +27,24 @@ else{
             </div>
         </section>
 
-        <?php echo homepage_widget_sections();?>
+        <?php 
+            echo homepage_widget_sections();
+        ?>
+
+
+        
 
     </article>
 </div> <!-- end content -->
 
-    <script>
+    <!-- <script>
     // add map overlay for click function if map is not already expanded
     jQuery('body:not(.expand-map) #hm-map').append('<div class="home-map-overlay"></div>');
     jQuery('#hm-map .home-map-overlay').click(function(){
         jQuery('#home').addClass('expand-map');
         jQuery('.home-map-overlay').remove();
 });
-</script>
+</script> -->
 
 <?php echo foot(); ?>
 

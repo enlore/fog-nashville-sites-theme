@@ -1707,7 +1707,7 @@ function mh_display_discover($title='Discover'){
 }
 
 /*
-** Display the Tours list
+** Display the People list
 */
 function mh_display_homepage_people($num=3){
     // omeka_elements_texts
@@ -1715,14 +1715,24 @@ function mh_display_homepage_people($num=3){
     $html = mh_display_discover('Learn');
     $html = $html."<div class='persons'>";
     foreach($people as $p) {
-        $html = $html."<div class='person'>";
+        
         $personName = metadata($p, array('Dublin Core', 'Title'));
-        $html = $html."<h3>".$personName."</h3>";
-        $img_markup=item_image('fullsize',array(),0, $p);
+        $img_markup = item_image('fullsize',array(),0, $p);
+        $html = $html."<div class='person'>";
         $html = $html.$img_markup;
+        $html = $html."<h3>".$personName."</h3>";
         $html = $html."</div>";
     }
     $html = $html."</div>";
+    return $html;
+}
+
+/*
+** Display the Map
+*/
+function mh_display_homepage_map() {
+    $html = mh_display_discover($title='Vist');
+    $html = mh_display_map($type='global');
     return $html;
 }
 
@@ -2023,6 +2033,9 @@ function homepage_widget_sections($html=null){
                     break;
                 case 'people':
                     $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
+                    break;
+                case 'map':
+                    $html.= ($popular_tags==0) ? '<section id="map">'.mh_display_homepage_map().'</section>' : null;
                     break;
 
                 default:
