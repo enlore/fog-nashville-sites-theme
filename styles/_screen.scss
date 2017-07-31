@@ -296,35 +296,7 @@ ul.pagination li a {
 .pagination.bottom ul {
     margin-bottom: 2em
 }
-/*! SEARCH */
 
-#search figure#hero {
-    display: none;
-}
-
-#search-wrap {
-    text-align: center;
-    margin: 0 auto 2em
-}
-input#search {
-    border-color: #ccc;
-    color: var(--black);
-    padding: .5em 2%;
-}
-input#submit_search {
-    display: none
-}
-input.search {
-    background: url('./../images/search-dark.png') no-repeat scroll 97% center #FFF;
-    border-radius: .15em;
-    border-width: 1px;
-    border-style: solid;
-    width: 96%;
-    max-width: none
-}
-input:focus.search {
-    color: #333
-}
 @media only screen and (max-width: 50em) {
     input.search {
         width: 90%;

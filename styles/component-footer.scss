@@ -33,7 +33,30 @@ footer.main #logo-img {
     text-align: right;
 }
 
-@media (min-width: 1008px) {
+@media only screen and (min-width: $fullhd) {
+
+}
+@media only screen and (min-width: $widescreen) {
+
+
+}
+@media only screen and (min-width: $desktop) {
+    .navbar {
+        display: flex;
+    }
+}
+@media only screen and (min-width: $tablet) {
+    header.main {
+        padding-top: 1em;
+        padding-bottom: 1em
+    }
+    header.main #logo-img {
+        padding-top: 0;
+        z-index: 0
+    }
+
+}
+@media only screen and (max-width: $tablet) {
     .footer-byline {
         margin-top: 0;
         text-align: left;

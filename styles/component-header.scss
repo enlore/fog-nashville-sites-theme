@@ -22,6 +22,7 @@
         flex: 1;
         flex-direction: row;
         justify-content: space-around;
+        font-size: 18px;
     }
  }
 
@@ -39,10 +40,11 @@ header.main {
 header.main #header-search {
     display: flex;
 	padding: 0;
-	float: right;
+    float: right;
 }
 header.main #header-search input {
-    font-variant: small-caps
+    font-variant: small-caps;
+    height: 100%;
 }
 
 nav {
@@ -71,6 +73,14 @@ nav {
 @media only screen and (min-width: $desktop) {
     .navbar {
         display: flex;
+    }
+    header.main #header-search input {
+        line-height: 25px;
+        font-size: 18px;
+    }
+    header.main #header-search {
+        font-size: 25px;
+        width: 200px;
     }
 }
 @media only screen and (min-width: $tablet) {

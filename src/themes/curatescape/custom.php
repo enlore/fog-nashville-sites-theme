@@ -1698,10 +1698,11 @@ function mh_reducepayload($index,$showThisMany){
     $showThisMany = ($index) ? ($index < ($showThisMany+1)) : true;
     return $showThisMany;
 }
-function mh_display_discover($title='Discover'){
+function mh_display_discover($title='Discover', $more="View More Explorations", $link="#" ){
     $html = '<div class="featuredSection">';
         $html = $html.'<h3 class="featuredSection-label">'.__($title).'</h3>';
-        // $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
+        $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
+        $html = $html.'<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
      $html = $html.'</div>';
      return $html;
 }
@@ -1712,7 +1713,7 @@ function mh_display_discover($title='Discover'){
 function mh_display_homepage_people($num=3){
     // omeka_elements_texts
     $people = get_records('Item', array('hasImage'=>true, 'item_type_id'=>12), $num);
-    $html = mh_display_discover('Learn');
+    $html = mh_display_discover('Learn', $more="View More People", $link="#");
     $html = $html."<div class='people columns is-mobile'>";
     foreach($people as $p) {
         
@@ -1731,7 +1732,7 @@ function mh_display_homepage_people($num=3){
 ** Display the Map
 */
 function mh_display_homepage_map() {
-    $html = mh_display_discover($title='Vist');
+    $html = mh_display_discover($title='Vist', $more="View More Past Events", $link="#");
     mh_display_map($type='global');
     return $html;
 }

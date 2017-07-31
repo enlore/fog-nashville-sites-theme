@@ -1,11 +1,15 @@
 .about-main {
     color: var(--black);
     text-align: center;
+    max-width: 600px;
+    display: block;
+    margin: auto;
+    font-size: 32px;
 }
 
 .featuredSection {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -51,6 +55,24 @@
     background-position: center;
 }
 
+/*
+**
+** People section
+**
+*/
+
+.person {
+    img {
+        max-height: 250px;
+        display: block;
+        margin:auto;
+    }
+    h3 {
+        text-align: center;
+    }
+}
+
+
 .grey-banner {
     background-color: var(--lightgrey);
     padding: 8px;
@@ -75,6 +97,14 @@
 
 }
 @media only screen and (max-width: $tablet) {
+    .featuredSection-link,
+    .featuredSection-title {
+        display: none;
+    }
+    .about-main {
+        font-size: 18px;
+    }
+
     .featuredItem-imageBg {
         height: 300px;
     }
