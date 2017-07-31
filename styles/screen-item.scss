@@ -22,6 +22,17 @@ wrap
     height: 300px;
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+    .item-headerInner { height: 450px; }
+    .item-headerImage { height: 450px; }
+}
+
+@media screen and (min-width: 1008px) {
+    .item-headerInner { height: 550px; }
+    .item-headerImage { height: 550px; }
 }
 
 .item-title {
