@@ -1732,7 +1732,7 @@ function mh_display_homepage_people($num=3){
 */
 function mh_display_homepage_map() {
     $html = mh_display_discover($title='Vist');
-    $html = mh_display_map($type='global');
+    mh_display_map($type='global');
     return $html;
 }
 
@@ -2034,7 +2034,7 @@ function homepage_widget_sections($html=null){
                 case 'people':
                     $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
                     break;
-                case 'map':
+                case 'mapp':
                     $html.= ($popular_tags==0) ? '<section id="map">'.mh_display_homepage_map().'</section>' : null;
                     break;
 

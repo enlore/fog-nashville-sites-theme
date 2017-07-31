@@ -30,13 +30,27 @@ else{
         <?php 
             echo homepage_widget_sections();
         ?>
+            <section id="map" class="home-page-map">
+        <?php
+            echo mh_display_discover($title='Vist');
+            mh_display_map($type='global');
+            
+?>
+        <div class="featuredItem-text">
+            <div class="featuredItem-textInner">
+                <h3 class="featuredItem-title"><a href="#">Check out the map to visit MHC Locations!</a></h3>
+            </div>
+        </div>
+        </section>
+
 
 
         
 
     </article>
 </div> <!-- end content -->
-
+<div class="grey-banner">
+</div>
     <!-- <script>
     // add map overlay for click function if map is not already expanded
     jQuery('body:not(.expand-map) #hm-map').append('<div class="home-map-overlay"></div>');
