@@ -22,37 +22,37 @@ echo head(array(
 //echo file_display_url($item->Files[0])
 ?>
 
-<article class="item show instapaper_body hentry" role="main">
+<article class="item instapaper_body hentry" role="main">
 			
 	<header class="item-header">
-        <div
-            class="item-headerImage"
+        <div class="item-headerImage"
             style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
+
+            <div class="item-headerInner">
+                <h2 class="item-title">
+                    <span class="item-title--raggedBackground">
+                        <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
+                    </span>
+                </h2>
+            </div>
+            
         </div>
-	
-        <div class="instapaper_title item-title">	
-        
-            <h2 class="item-title">
-                <span class="item-title--raggedBackground">
-                    <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
-                </span>
-            </h2>
+        <!--
+         <h3 class="item-subtitle">
+            <?php //echo mh_the_subtitle($item); ?>
+        </h3>
+        -->
             
-            <h3 class="item-subtitle">
-                <?php //echo mh_the_subtitle($item); ?>
-            </h3>
-            
-        </div>	
         
         <?php //echo mh_the_byline($item,true,true); echo item_is_private($item);?>
 	
 	</header>
 
-    <div id="item-metadata" class="item instapaper_ignore">
-        <fieldset>
-            <legend class="item-metadata-label"> Info </legend>
-            <section class="meta item-metadata">
-                
+    <div id="item-metadata" class="item section instapaper_ignore">
+        <fieldset class="item-fieldset">
+            <legend class="item-metadataLegend"> Info </legend>
+
+            <section>
                 <aside id="factoid">  	
                 <?php echo mh_factoid(); ?>
                 </aside>	

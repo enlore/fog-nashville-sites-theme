@@ -13,22 +13,24 @@ wrap
         #share-this
 */
 
+.item-headerInner {
+    height: 300px;
+    position: relative;
+}
+
 .item-headerImage {
     height: 300px;
     background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .item-title {
     color: var(--white);
-    margin: 0 auto 0 24px;
     max-width: 70%;
-    transform: translateY(-50%);
-}
-
-.item-title {
-    line-height: 1.5em;
-    margin: 0;
-    text-align: left;
+    transform: translateY(50%);
+    position: absolute;
+    bottom: 0;
+    left: 24px;
 }
 
 .item-title--raggedBackground {
@@ -46,4 +48,13 @@ wrap
 .item-metadata {
     border: 1px solid var(--lightgrey);
     padding: 32px;
+}
+
+.item-metadataLegend {
+    font-size: 24px;
+    padding: 0 16px;
+}
+
+.item-fieldset {
+    border-left: none;
 }
