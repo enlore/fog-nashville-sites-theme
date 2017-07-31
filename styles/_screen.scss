@@ -626,15 +626,6 @@ ul.pagination_list {
 }
 /*! ITEMS-SHOW */
 
-#story-header {
-    margin-bottom: 1em;
-    text-align: center;
-    padding: 0 0 1em
-}
-#story-header h2 {
-    font-size: 2.2em;
-    line-height: 1.1em
-}
 a.fancybox-close {
     text-decoration: none;
     border-bottom: 0 none transparent
@@ -653,61 +644,6 @@ span#close a {
     line-height: 1em;
     vertical-align: middle;
     margin-top: 3px
-}
-#item-media h3 {
-    border-bottom: 1px solid #ccc
-}
-#item-media h3 span.toggle {
-    font-size: .9em;
-    font-weight: 400;
-    text-align: right;
-    float: right;
-    text-transform: lowercase;
-    color: #777;
-    cursor: pointer
-}
-#item-media p.description {
-    font-size: .9em;
-    line-height: 1.6em;
-    margin-bottom: .5em;
-    margin-top: 0
-}
-body.big #item-media h3 span.toggle {
-    display: none !important
-}
-body.big .item-file-container {
-    display: block !important
-}
-body#items.small .item-file-container {
-    background: #fff;
-    padding-bottom: .25em;
-    margin-bottom: 1.5em;
-    box-shadow: 0 0 .15em #777
-}
-body.small #item-media .item-file-container p.description,
-body.small #item-media .item-file-container .title {
-    padding: 0 .5em;
-    margin-bottom: .15em
-}
-.item-file.image-jpeg {
-    background: #000;
-    text-align: center
-}
-.item-file #content img {
-    width: 100%;
-    height: auto
-}
-.item-map-link {
-    font-size: .9em;
-    float: left;
-    color: #555;
-    padding: .25em;
-    position: inherit
-}
-#item-photos {
-    display: inline-block;
-    clear: both;
-    width: 100%
 }
 section.meta {
     border-top: 1px solid #fff;
@@ -778,15 +714,6 @@ div.factoid .icon-lightbulb {
 .fancybox-opened a.fancybox-hide-text.active {
     background: #eaeaea;
     color: #333
-}
-p.description a.view-file-record {
-    background: #eaeaea;
-    color: #333;
-    padding: 3px 5px;
-    display: block;
-    border-bottom: none;
-    margin-top: 1em;
-    text-align: center
 }
 .big p.video-description a.view-file-record,
 .big p.audio-description a.view-file-record {

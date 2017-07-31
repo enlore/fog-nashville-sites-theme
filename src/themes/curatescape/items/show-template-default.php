@@ -37,18 +37,17 @@ echo head(array(
             </div>
             
         </div>
+
         <!--
          <h3 class="item-subtitle">
             <?php //echo mh_the_subtitle($item); ?>
         </h3>
         -->
-            
         
         <?php //echo mh_the_byline($item,true,true); echo item_is_private($item);?>
-	
 	</header>
 
-    <section id="item-metadata" class="item section instapaper_ignore">
+    <section class="item-metadata section instapaper_ignore">
         <fieldset class="item-fieldset container">
             <legend class="item-legend"> Info </legend>
 
@@ -101,51 +100,39 @@ echo head(array(
                 </div>
             </div>
         </fieldset>
-    </div>	
+    </section>	
 
-    <section class="item-content section"> 
-        <div class="item-map container">
-            <h2> Map </h2>
-            <?php echo mh_display_map('story') ?>
+    <section class="item-copy section"> 
+        <div class="container">
+            <div class="item-map">
+                <h2> Map </h2>
+                <?php echo mh_display_map('story') ?>
+            </div>
+
+            <div class="item-lede">
+                <?php echo mh_the_lede($item);?>
+            </div>
+                
+            <div class="item-description">
+                <?php echo mh_the_text($item); ?>
+            </div>
         </div>
+    </section>
 
+    <section class="item-media section">
+        <div class="container">
+            <?php mh_item_images($item);?>	
             
-        <div class="item-text container">
-            
-            <?php echo mh_the_lede($item);?>
-            
-            <section id="text">
-
-                <div class="item-description">
+            <?php mh_audio_files($item);?>		
                     
-                    <?php echo mh_the_text($item); ?>
-                    
-                </div>
-        
-            </section>
-        
-        </div><!-- end primary -->
-
-        
-        <div id="item-media">
-            <section class="media">
-                
-                <?php mh_item_images($item);?>	
-                
-                <?php mh_audio_files($item);?>		
-                        
-                <?php mh_video_files($item);?>
-                        
-            </section>
+            <?php mh_video_files($item);?>
         </div>
     </section>
             
 
-<div class="clearfix"></div>
-
-<div id="share-this" class="instapaper_ignore">
-	<?php echo mh_share_this(mh_item_label());?>
-</div>	
+    <div id="share-this" class="instapaper_ignore">
+        <?php echo mh_share_this(mh_item_label());?>
+    </div>	
 
 </article>
 
