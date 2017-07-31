@@ -22,15 +22,15 @@ echo head(array(
 //echo file_display_url($item->Files[0])
 ?>
 
-<article class="story item show instapaper_body hentry" role="main">
+<article class="item show instapaper_body hentry" role="main">
 			
-	<header id="story-header">
+	<header class="item-header">
         <div
-            class="story-header-hero"
+            class="item-headerImage"
             style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
         </div>
 	
-        <div class="instapaper_title entry-title">	
+        <div class="instapaper_title item-title">	
         
             <h2 class="item-title">
                 <span class="item-title--raggedBackground">

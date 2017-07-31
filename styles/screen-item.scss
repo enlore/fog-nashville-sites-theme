@@ -13,19 +13,19 @@ wrap
         #share-this
 */
 
-.story-header-hero {
+.item-headerImage {
     height: 300px;
     background-position: center center;
 }
 
-.entry-title {
+.item-title {
     color: var(--white);
     margin: 0 auto 0 24px;
     max-width: 70%;
     transform: translateY(-50%);
 }
 
-#story-header .item-title {
+.item-title {
     line-height: 1.5em;
     margin: 0;
     text-align: left;
