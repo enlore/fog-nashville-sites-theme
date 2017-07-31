@@ -50,11 +50,20 @@ wrap
     padding: 32px;
 }
 
-.item-metadataLegend {
-    font-size: 24px;
-    padding: 0 16px;
+.item-legend {
+    font-size: 36px;
+    text-transform: uppercase;
+    /* vertical padding here fixes an odd rendering artifact */
+    padding: 1px 16px 0 0;
 }
 
 .item-fieldset {
-    border-left: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $black;
+    border-left-color: transparent;
+}
+
+.item-fieldsetInner {
+    padding: 8px;
 }

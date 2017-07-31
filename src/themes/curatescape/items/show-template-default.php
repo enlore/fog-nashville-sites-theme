@@ -52,51 +52,53 @@ echo head(array(
         <fieldset class="item-fieldset container">
             <legend class="item-legend"> Info </legend>
 
-            <aside id="factoid">  	
-            <?php echo mh_factoid(); ?>
-            </aside>	
+            <div class="item-fieldsetInner">
+                <aside id="factoid">  	
+                <?php echo mh_factoid(); ?>
+                </aside>	
 
-            <div id="access-info">  	
-            <?php echo mh_the_access_information(); ?>
-            </div>	
+                <div id="access-info">  	
+                <?php echo mh_the_access_information(); ?>
+                </div>	
 
-            <div id="street-address">
-            <?php echo mh_street_address();?>	
-            </div>
-            
-            <div id="official-website">
-            <?php echo mh_official_website();?>	
-            </div>
-
-            <div id="cite-this">
-            <?php echo mh_item_citation(); ?>
-            </div>	
-            
-            <?php if(function_exists('tours_for_item')){
-                 $label=mh_tour_label_option('plural');
-                 echo tours_for_item($item->id, __('Related %s', $label)); 
-            }?>
+                <div id="street-address">
+                <?php echo mh_street_address();?>	
+                </div>
                 
-            <div id="subjects">  	
-            <?php mh_subjects(); ?>
-            </div>	
-            
-            <div id="tags">
-            <?php mh_tags();?>	
-            </div>
-            
-            <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>		
+                <div id="official-website">
+                <?php echo mh_official_website();?>	
+                </div>
 
-            <div class="item-related-links">
-            <?php mh_related_links();?>
-            </div>
-            
-            <div class="date-stamp">
-            <?php echo mh_post_date(); ?>				
-            </div>
-            
-            <div class="comments">
-            <?php mh_display_comments();?>
+                <div id="cite-this">
+                <?php echo mh_item_citation(); ?>
+                </div>	
+                
+                <?php if(function_exists('tours_for_item')){
+                     $label=mh_tour_label_option('plural');
+                     echo tours_for_item($item->id, __('Related %s', $label)); 
+                }?>
+                    
+                <div id="subjects">  	
+                <?php mh_subjects(); ?>
+                </div>	
+                
+                <div id="tags">
+                <?php mh_tags();?>	
+                </div>
+                
+                <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>		
+
+                <div class="item-related-links">
+                <?php mh_related_links();?>
+                </div>
+                
+                <div class="date-stamp">
+                <?php echo mh_post_date(); ?>				
+                </div>
+                
+                <div class="comments">
+                <?php mh_display_comments();?>
+                </div>
             </div>
         </fieldset>
     </div>	
