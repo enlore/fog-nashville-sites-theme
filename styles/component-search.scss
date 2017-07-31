@@ -1,5 +1,6 @@
 #header-search {
-    input#search {
+    input#search,fieldset {
         border: none!important;
+        background-color: var(--lightgrey);
     }
 }

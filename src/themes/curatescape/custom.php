@@ -1713,12 +1713,12 @@ function mh_display_homepage_people($num=3){
     // omeka_elements_texts
     $people = get_records('Item', array('hasImage'=>true, 'item_type_id'=>12), $num);
     $html = mh_display_discover('Learn');
-    $html = $html."<div class='persons'>";
+    $html = $html."<div class='people columns is-mobile'>";
     foreach($people as $p) {
         
         $personName = metadata($p, array('Dublin Core', 'Title'));
         $img_markup = item_image('fullsize',array(),0, $p);
-        $html = $html."<div class='person'>";
+        $html = $html."<div class='person column is-half'>";
         $html = $html.$img_markup;
         $html = $html."<h3>".$personName."</h3>";
         $html = $html."</div>";

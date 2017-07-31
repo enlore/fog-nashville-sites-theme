@@ -51,6 +51,17 @@
     background-position: center;
 }
 
+.grey-banner {
+    background-color: var(--lightgrey);
+    padding: 8px;
+    margin-bottom: 1em;
+    .proposal-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 @media only screen and (min-width: $fullhd) {
 
 }
@@ -67,5 +78,14 @@
     .featuredItem-imageBg {
         height: 300px;
     }
+    .grey-banner {
+        
+        h4 {
+            font-size: .8em;
+        }
+    }
 
+    footer {
+        display: none;
+    }
 }

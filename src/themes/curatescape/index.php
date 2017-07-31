@@ -50,6 +50,15 @@ else{
     </article>
 </div> <!-- end content -->
 <div class="grey-banner">
+    <div class="columns is-mobile">
+        <div class="column is-one-third proposal-image">
+            <img src="/themes/curatescape/images/MHC-demo-logo.png">
+        </div>
+        <div class="column is-two-thirds">
+            <h4>Do you know of a landmark, person, or site that the commission should add to our markers?</h4>
+            <h4>Find out how to submit your marker proposal here.</h4>
+        </div>
+    </div>
 </div>
     <!-- <script>
     // add map overlay for click function if map is not already expanded
