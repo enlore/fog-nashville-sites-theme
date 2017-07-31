@@ -1,3 +1,30 @@
+
+.navbar-brand,
+.navbar-menu,
+.navbar-end, {
+    display: flex;
+}
+
+.navbar {
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logo-img.home {
+    height: 150px;
+}
+#navbar-menu {
+    width: 100%;
+   
+    .navbar-links{
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+ }
+
 header.main {
     width: 100%;
     padding: 16px;
@@ -25,6 +52,7 @@ nav {
         padding-top: 8px;
         a {
             color: var(--black);
+            display: flex;
         }
     }
 }
@@ -38,9 +66,12 @@ nav {
 }
 @media only screen and (min-width: $widescreen) {
 
+
 }
 @media only screen and (min-width: $desktop) {
-
+    .navbar {
+        display: flex;
+    }
 }
 @media only screen and (min-width: $tablet) {
     header.main {
@@ -94,12 +125,6 @@ nav {
         display: block;
         clear: both;
         width: 100%;
-        .navbar-links{
-            display: flex;
-            flex: 1;
-            flex-direction: row;
-            justify-content: space-around;
-        }
     }
 }
 

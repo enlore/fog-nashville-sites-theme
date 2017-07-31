@@ -178,7 +178,7 @@ function random_item_link($text=null,$class='show'){
 */
 function mh_global_header($html=null){
 
-    $html.= '<nav class"navbar">';
+    $html.= '<nav class="navbar">';
 
     $html.= '<div class="navbar-brand">'
                     .link_to_home_page(mh_the_logo(),array('class'=>'navbar-item'))
