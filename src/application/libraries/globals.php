@@ -1733,7 +1733,8 @@ function option($name)
  */
 function get_records($recordType, $params = array(), $limit = 10)
 {
-    return get_db()->getTable($recordType)->findBy($params, $limit);
+    $db = get_db()->getTable($recordType)->findBy($params, $limit);
+    return $db;
 }
 
 /**

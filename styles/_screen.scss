@@ -6,7 +6,6 @@
 @import '../node_modules/bulma/sass/utilities/all';
 @import '../node_modules/bulma/sass/base/all';
 @import '../node_modules/bulma/sass/grid/all';
-@import '../node_modules/bulma/sass/components/all';
 @import '../node_modules/bulma/sass/layout/all';
 @import '../node_modules/bulma/sass/elements/other';
 
@@ -15,7 +14,7 @@
 
 @import 'util-typography.scss';
 //@import 'util-resets.scss';
-//@import 'util-container.scss';
+@import 'util-container.scss';
 @import 'util-util.scss';
 @import 'util-error.scss';
 @import 'util-fa.scss';
@@ -24,7 +23,7 @@
 @import 'util-print.scss';
 
 /* reusable component styles */
-//@import 'component-header.scss';
+@import 'component-header.scss';
 @import 'component-footer.scss';
 @import 'component-map.scss';
 @import 'component-slider.scss';
@@ -34,6 +33,7 @@
 @import 'component-inline-login.scss';
 @import 'component-social.scss';
 @import 'component-streaming-media.scss';
+@import 'component-search.scss';
 
 /* whole screens composed of components */
 @import 'screen-index.scss';
@@ -296,35 +296,7 @@ ul.pagination li a {
 .pagination.bottom ul {
     margin-bottom: 2em
 }
-/*! SEARCH */
 
-#search figure#hero {
-    display: none;
-}
-
-#search-wrap {
-    text-align: center;
-    margin: 0 auto 2em
-}
-input#search {
-    border-color: #ccc;
-    color: #999;
-    padding: .5em 2%;
-}
-input#submit_search {
-    display: none
-}
-input.search {
-    background: url('./../images/search.png') no-repeat scroll 97% center #FFF;
-    border-radius: .15em;
-    border-width: 1px;
-    border-style: solid;
-    width: 96%;
-    max-width: none
-}
-input:focus.search {
-    color: #333
-}
 @media only screen and (max-width: 50em) {
     input.search {
         width: 90%;

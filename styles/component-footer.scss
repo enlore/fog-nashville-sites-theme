@@ -1,4 +1,11 @@
 /*! FOOTER */
+footer.main #logo-img {
+    max-height: 6.5em;
+    max-width: 11.8em;
+    padding: .75em .25em .25em;
+    display: inline-block
+}
+
 .footer {
     background-color: var(--black);
     color: var(--lightgrey);
@@ -26,7 +33,30 @@
     text-align: right;
 }
 
-@media (min-width: 1008px) {
+@media only screen and (min-width: $fullhd) {
+
+}
+@media only screen and (min-width: $widescreen) {
+
+
+}
+@media only screen and (min-width: $desktop) {
+    .navbar {
+        display: flex;
+    }
+}
+@media only screen and (min-width: $tablet) {
+    header.main {
+        padding-top: 1em;
+        padding-bottom: 1em
+    }
+    header.main #logo-img {
+        padding-top: 0;
+        z-index: 0
+    }
+
+}
+@media only screen and (max-width: $tablet) {
     .footer-byline {
         margin-top: 0;
         text-align: left;
