@@ -178,33 +178,34 @@ function random_item_link($text=null,$class='show'){
 */
 function mh_global_header($html=null){
 
-    $html.= '<nav class"navbar">';
+    $html.= '<nav class="navbar">';
 
     $html.= '<div class="navbar-brand">'
                     .link_to_home_page(mh_the_logo(),array('class'=>'navbar-item'))
 
-                .'<div id="menu-toggle" class="navbar-burger">'
-                    .'<span></span>'
-                    .'<span></span>'
-                    .'<span></span>'
-                .'</div>'
+            //     .'<div id="menu-toggle" class="navbar-burger">'
+            //         .'<span></span>'
+            //         .'<span></span>'
+            //         .'<span></span>'
+            //     .'</div>'
             .'</div>';
 
     $html.= '<div id="navbar-menu" class="navbar-menu" role="menu">'
                 //.mh_global_nav()
-                .'<div class="navbar-start">'
+                .'<div class="navbar-links">'
                     .'<a class="navbar-item" href="/"> Home </a>'
                     .'<a class="navbar-item" href="/items/browse"> Items </a>'
                     .'<a class="navbar-item" href="/tours/browse"> Tours </a>'
                     .'<a class="navbar-item" href="/about"> About </a>'
                 .'</div>'
 
-                .'<div class="navbar-end">'
+               
+            .'</div>'.
+             '<div class="navbar-end">'
                     .'<div class="navbar-item">'
                         .mh_simple_search($formProperties=array('id'=>'header-search'))
                     .'</div>'
-                .'</div>'
-            .'</div>';
+                .'</div>';
 
     $html.= '</nav>';
 
@@ -764,7 +765,8 @@ function mh_simple_search($formProperties=array(), $uri = null){
     $html = '<form ' . tag_attributes($formProperties) . '>' . "\n";
     $html .= '<fieldset>' . "\n\n";
     $html .= '<label for "search" class="visuallyhidden">Search</label>';
-    $html .= get_view()->formText('search', $searchQuery, array('name'=>'search','class'=>'textinput search','placeholder'=>__('Search %s',mh_item_label('plural'))));
+    $html .= get_view()->formText('search', $searchQuery, array('name'=>'search','class'=>'textinput search','placeholder'=> //__('Search %s',mh_item_label('plural'))
+        'Search'));
     $html .= '</fieldset>' . "\n\n";
 
     // add hidden fields for the get parameters passed in uri
@@ -1696,6 +1698,44 @@ function mh_reducepayload($index,$showThisMany){
     $showThisMany = ($index) ? ($index < ($showThisMany+1)) : true;
     return $showThisMany;
 }
+function mh_display_discover($title='Discover', $more="View More Explorations", $link="#" ){
+    $html = '<div class="featuredSection">';
+        $html = $html.'<h3 class="featuredSection-label">'.__($title).'</h3>';
+        $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
+        $html = $html.'<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
+     $html = $html.'</div>';
+     return $html;
+}
+
+/*
+** Display the People list
+*/
+function mh_display_homepage_people($num=3){
+    // omeka_elements_texts
+    $people = get_records('Item', array('hasImage'=>true, 'item_type_id'=>12), $num);
+    $html = mh_display_discover('Learn', $more="View More People", $link="#");
+    $html = $html."<div class='people columns is-mobile'>";
+    foreach($people as $p) {
+        
+        $personName = metadata($p, array('Dublin Core', 'Title'));
+        $img_markup = item_image('fullsize',array(),0, $p);
+        $html = $html."<div class='person column is-half'>";
+        $html = $html.$img_markup;
+        $html = $html."<h3>".$personName."</h3>";
+        $html = $html."</div>";
+    }
+    $html = $html."</div>";
+    return $html;
+}
+
+/*
+** Display the Map
+*/
+function mh_display_homepage_map() {
+    $html = mh_display_discover($title='Vist', $more="View More Past Events", $link="#");
+    mh_display_map($type='global');
+    return $html;
+}
 
 /*
 ** Display the Tours list
@@ -1765,10 +1805,7 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 {
     $featuredItem = get_random_featured_items($num,$withImage);
     //$html = '<h2 class="hidden">'.__('Featured %s', mh_item_label()).'</h2>';
-    $html = '<div class="featuredSection">';
-        $html = $html.'<h3 class="featuredSection-label">Discover</h3>';
-        $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
-    $html = $html.'</div>';
+    $html = mh_display_discover();
 
     $class=get_theme_option('featured_tint')==1 ? 'tint' : 'no-tint';
     
@@ -1966,7 +2003,6 @@ function homepage_widget_2($content='tours'){
 function homepage_widget_3($content='recent_or_random'){
     
     get_theme_option('widget_section_3') ? $content=get_theme_option('widget_section_3') : null;
-    
     return $content;    
 }
 
@@ -1995,6 +2031,12 @@ function homepage_widget_sections($html=null){
                 case 'popular_tags':
                     $html.= ($popular_tags==0) ? '<section id="home-popular-tags">'.mh_home_popular_tags().'</section>' : null;
                     $popular_tags++;
+                    break;
+                case 'people':
+                    $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
+                    break;
+                case 'mapp':
+                    $html.= ($popular_tags==0) ? '<section id="map">'.mh_display_homepage_map().'</section>' : null;
                     break;
 
                 default:
