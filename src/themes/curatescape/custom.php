@@ -1698,11 +1698,17 @@ function mh_reducepayload($index,$showThisMany){
     $showThisMany = ($index) ? ($index < ($showThisMany+1)) : true;
     return $showThisMany;
 }
-function mh_display_discover($title='Discover', $more="View More Explorations", $link="#" ){
+
+function mh_display_featured_section($title='Discover', $more="View More Explorations", $link="#", $inner=null){
     $html = '<div class="featuredSection">';
         $html = $html.'<h3 class="featuredSection-label">'.__($title).'</h3>';
         $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
         $html = $html.'<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
+
+        if ($inner != null) {
+            $html .= $inner;
+        }
+
      $html = $html.'</div>';
      return $html;
 }
@@ -1713,7 +1719,7 @@ function mh_display_discover($title='Discover', $more="View More Explorations", 
 function mh_display_homepage_people($num=3){
     // omeka_elements_texts
     $people = get_records('Item', array('hasImage'=>true, 'item_type_id'=>12), $num);
-    $html = mh_display_discover('Learn', $more="View More People", $link="#");
+    $html = mh_display_featured_section('Learn', $more="View More People", $link="#");
     $html = $html."<div class='people columns is-mobile'>";
     foreach($people as $p) {
         
@@ -1732,7 +1738,7 @@ function mh_display_homepage_people($num=3){
 ** Display the Map
 */
 function mh_display_homepage_map() {
-    $html = mh_display_discover($title='Vist', $more="View More Past Events", $link="#");
+    $html = mh_display_featured_section($title='Vist', $more="View More Past Events", $link="#");
     mh_display_map($type='global');
     return $html;
 }
@@ -1742,7 +1748,7 @@ function mh_display_homepage_map() {
 */
 function mh_display_homepage_tours($num=7, $scope='random'){
     
-    $scope=get_theme_option('homepage_tours_scope') ? get_theme_option('homepage_tours_scope') : $scope;
+    $scope = get_theme_option('homepage_tours_scope') ? get_theme_option('homepage_tours_scope') : $scope;
     
     // Get the database.
     $db = get_db();
@@ -1805,52 +1811,38 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 {
     $featuredItem = get_random_featured_items($num,$withImage);
     //$html = '<h2 class="hidden">'.__('Featured %s', mh_item_label()).'</h2>';
-    $html = mh_display_discover();
+    $html = '';
 
-    $class=get_theme_option('featured_tint')==1 ? 'tint' : 'no-tint';
-    
+
     if ($featuredItem) {
     
     foreach($featuredItem as $item):
 
             $itemTitle = metadata($item, array('Dublin Core', 'Title'));
             $itemDescription = mh_the_text($item,array('snippet'=>200));
-            
     
             if (metadata($item, 'has thumbnail') ) {
             
-                $img_markup=item_image('fullsize',array(),0, $item);
-                preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_markup, $result);
-                $img_url = array_pop($result);              
+            $img_markup=item_image('fullsize',array(),0, $item);
+            preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_markup, $result);
+            $img_url = array_pop($result);              
+            
+                $inner = '';
+                $inner .= '<article class="featuredItem">';
+                $inner .= '<div class="">' ;
+                    $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>' ;
                 
-                $html .= '<div class="'.$class.'">';
-                    $html .= '<article class="featuredItem">';
-                    $html .= '<div class="">' ;
-                        $html .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>' ;
-
-                        //$html .= '<div class="featuredItem-image">'
-                            //.link_to_item(item_image('square_thumbnail',array('alt'=>''),0, $item), array(), 'show', $item)
-                            //.'</div>';
-                    
-                        $html .= '<div class="featuredItem-text">'
-                            .'<div class="featuredItem-textInner">';
-
-                        $html .= '<h3 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item) 
-                                    //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
-                                .'</h3>';
-
-                        //if ($itemDescription) {
-                            //$html .= '<div class="item-description">' . strip_tags($itemDescription) . '</div>';
-                            //}else{
-                            //$html .= '<div class="item-description">'.__('Preview text not available.').'</div>';
-                            //$html .= '<p class="view-more-link">'. link_to_item(__('Continue reading <span>%s</span>', $itemTitle), array(), 'show', $item) .'</p>';
-                        //}
-    
-                        $html .= '</div></div>' ;
-                    
-                    $html .= '</div>' ;
-                    $html .= '</article>';
-                $html .= '</div>';
+                    $inner .= '<div class="featuredItem-text">';
+                        $inner .= '<div class="featuredItem-textInner">';
+                            $inner .= '<h3 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item) 
+                                        //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
+                                    .'</h3>';
+                        $inner .= '</div>';
+                    $inner .= '</div>' ;
+                
+                $inner .= '</div>' ;
+                $inner .= '</article>';
+                $html = mh_display_featured_section("Discover", null, null, $inner);
             }
             
     endforeach;     
@@ -2017,7 +2009,7 @@ function homepage_widget_sections($html=null){
             
             switch ($setting) {
                 case 'featured':
-                    $html.= ($featured_isset==0) ? '<section id="featured-story" style="margin: 64px 0;">'.mh_display_random_featured_item(true,1).'</section>' : null;
+                    $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,1).'</section>' : null;
                     $featured_isset++;
                     break;
                 case 'tours':
@@ -2035,7 +2027,7 @@ function homepage_widget_sections($html=null){
                 case 'people':
                     $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
                     break;
-                case 'mapp':
+                case 'map':
                     $html.= ($popular_tags==0) ? '<section id="map">'.mh_display_homepage_map().'</section>' : null;
                     break;
 
@@ -2122,76 +2114,6 @@ function mh_random_or_recent($mode='recent',$num=4){
     return $html;   
     
 }
-
-/*
-** Csutom CSS
-*/
-function mh_custom_css(){
-    $bg_url=mh_bg_url();
-    $bg = $bg_url ? 'background-image: url('.$bg_url.');background-attachment: fixed; ' : '';
-    $color_primary=mh_link_color();
-    $color_secondary=mh_secondary_link_color();
-    $user_css= get_theme_option('custom_css') ? '/* Theme Option CSS */ '.get_theme_option('custom_css') : null;
-    return '<style type="text/css">
-    body{
-        '.$bg.'
-        background-position: left bottom;
-        background-repeat: no-repeat;
-        background-size:cover;
-        }
-    .look-at-me{
-        border-color:'.$color_secondary.';
-    }
-    .vjs-default-skin .vjs-play-progress,.vjs-default-skin .vjs-volume-level,
-    #swipenav #position li.current, .random-story-link.big-button,#home-tours h2,.tint .featured-decora-outer,a.edit,a.access-anchor:hover,header.main .random-story-link.show,ul.pagination a:hover,.show #tags li a,.show #tour-for-item li a:hover{
-        background-color:'.$color_primary.' !important;
-        }
-    .show #tags li a:hover{
-        background-color:'.$color_secondary.' !important;
-        }   
-    #home-tours h2:after,#home-tours h2{
-        border-color: '.$color_primary.' transparent;
-        }
-    a,.fancybox-opened a.fancybox-hide-text:hover{
-        color:'.$color_primary.'
-        }
-    #home-tours article:hover:after{
-        background: #333333;
-        background: -moz-linear-gradient(left, #333333 15%, '.$color_secondary.' 45%, #fff 55%, #333333 85%);
-        background: -webkit-gradient(linear, left top, right top, color-stop(15%,#333333), color-stop(45%,'.$color_secondary.'), color-stop(55%,'.$color_secondary.'), color-stop(85%,#333333));
-        background: -webkit-linear-gradient(left, #333333 15%,'.$color_secondary.' 45%,'.$color_secondary.' 55%,#333333 85%);
-        background: -o-linear-gradient(left, #333333 15%,'.$color_secondary.' 45%,'.$color_secondary.' 55%,#333333 85%);
-        background: -ms-linear-gradient(left, #333333 15%,'.$color_secondary.' 45%,'.$color_secondary.' 55%,#333333 85%);
-        background: linear-gradient(to right, #333333 15%,'.$color_secondary.' 45%,'.$color_secondary.' 55%,#333333 85%);
-    }       
-    @media only screen and (max-width:50em){
-        body footer.main .navigation a,body footer.main p a{
-            color:'.$color_secondary.';
-        }
-    }
-    a:hover,#items #tour-nav-links a,#home-tours .view-more-link a,.fancybox-opened a.view-file-record:hover{
-        color:'.$color_secondary.'
-        }
-    @media only screen and (min-width: 60em){
-            #featured-story .view-more-link a{
-            color:'.$color_secondary.'
-            }
-        }
-    nav.secondary-nav ul li.current{
-        border-bottom-color:'.$color_primary.'
-        }
-    .tint .featured-decora-img{
-        box-shadow:0em -1em .5em 0em '.$color_primary.'
-        }   
-    .tint .featured-story-result:nth-child(odd) .featured-decora-outer .featured-decora-img{
-        box-shadow:0em -1em .5em 0em '.$color_secondary. '!important;
-        }   
-    .tint .featured-story-result:nth-child(odd) .featured-decora-outer{
-        background-color:'.$color_secondary.' !important;
-    }'.$user_css.'  
-        </style>';
-}
-
 
 /*
 ** Which fonts/service to use?
