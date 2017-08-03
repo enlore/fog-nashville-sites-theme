@@ -39,13 +39,18 @@
 @import 'screen-item.scss';
 @import 'screen-items.scss';
 
+html, body { 
+    padding: 0;
+    margin: 0;
+}
+
 html {
     font-family: Edmonsans, 'Roboto', sans-serif;
     letter-spacing: -1;
-    font-size: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%
+    font-size: 16px;
+    line-height: 1.4
 }
+
 menu,
 ol,
 ul {
@@ -60,16 +65,13 @@ nav ol {
 img {
     border: 0;
     -ms-interpolation-mode: bicubic
+    vertical-align: middle
 }
 svg:not(:root) {
     overflow: hidden
 }
 figure {
     margin: 0
-}
-body {
-    font-size: 1em;
-    line-height: 1.4
 }
 ::-moz-selection {
     background: #b3d4fc;
@@ -87,12 +89,8 @@ hr {
     margin: 1em 0;
     padding: 0
 }
-img {
-    vertical-align: middle
-}
-textarea {
-    resize: vertical
-}
+textarea { resize: vertical }
+
 audio,
 video,
 img,
@@ -175,52 +173,6 @@ object {
     margin-right: .5em;
 }
 /*! TRANSITIONS */
-
-body,
-#wrap,
-#search-wrap,
-nav,
-#hero,
-header.main,
-#showmap a,
-#swipenav #position li.active {
-    transition: all .2s linear;
-    -o-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-}
-#access-info {
-    background-color: transparent;
-    transition: background-color 1.5s ease;
-    -o-transition: background-color 1.5s ease;
-    -moz-transition: background-color 1.5s ease;
-    -webkit-transition: background-color 1.5s ease;
-}
-#access-info.target {
-    background-color: #ffff99;
-}
-.map-actions a,
-.map-actions,
-{
-    transition: all .25s linear;
-    -o-transition: all .25s linear;
-    -moz-transition: all .25s linear;
-    -webkit-transition: all .25s linear
-}
-#items .tour-nav.look-at-me,
-#items .tour-nav {
-    -webkit-transition: all 0.75s ease;
-    -moz-transition: all 0.75s ease;
-    -o-transition: all 0.75s ease;
-    transition: all 0.75s ease
-}
-header.main .menu {
-    -webkit-transition: margin 0.5s ease;
-    -moz-transition: margin 0.5s ease;
-    -o-transition: margin 0.5s ease;
-    transition: margin 0.5s ease;
-}
-
 /*! HEADER */
 /*! HERO */
 /*! MAP in HERO container*/
