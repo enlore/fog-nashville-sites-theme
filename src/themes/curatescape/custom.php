@@ -1700,7 +1700,7 @@ function mh_reducepayload($index,$showThisMany){
 }
 
 function mh_display_featured_section($title='Discover', $more="View More Explorations", $link="#", $inner=null){
-    $html = '<div class="featuredSection">';
+    $html = '<section class="featuredSection">';
         $html = $html.'<h3 class="featuredSection-label">'.__($title).'</h3>';
         $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
         $html = $html.'<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
@@ -1709,7 +1709,7 @@ function mh_display_featured_section($title='Discover', $more="View More Explora
             $html .= $inner;
         }
 
-     $html = $html.'</div>';
+     $html = $html.'</section>';
      return $html;
 }
 
@@ -1738,8 +1738,12 @@ function mh_display_homepage_people($num=3){
 ** Display the Map
 */
 function mh_display_homepage_map() {
-    $html = mh_display_featured_section($title='Vist', $more="View More Past Events", $link="#");
-    mh_display_map($type='global');
+    $html = mh_display_featured_section(
+        $title='Vist',
+        $more="View More Past Events",
+        $link="#", mh_display_map($type='global')
+    );
+
     return $html;
 }
 
@@ -1777,15 +1781,17 @@ function mh_display_homepage_tours($num=7, $scope='random'){
     // Fetch some items with our select.
     $items = $table->fetchObjects($select);
     if($scope=='random') shuffle($items);
+    // truncate the iteration space if fewer items than steps
     $num = (count($items)<$num)? count($items) : $num;
     $html=null;
     
     if($items){
-        $html .= '<h2><a href="'.WEB_ROOT.'/tours/browse/">'.mh_tour_header().'</a></h2>';
-    
         for ($i = 0; $i < $num; $i++) {
-            $html .= '<article class="item-result">';
-            $html .= '<h3 class="home-tour-title"><a href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">' . $items[$i]['title'] . '</a></h3>';
+            //var_dump($items[$i]);
+            $html .= '<article class="featuredItem">';
+                $html .= '<h2 class="featuredItem-title">';
+                    $html .= '<a href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">' . $items[$i]['title'] . '</a>';
+                $html .= '</h2>';
             $html .= '</article>';
         }
         if(count($public)>1){
@@ -1796,6 +1802,8 @@ function mh_display_homepage_tours($num=7, $scope='random'){
         $html .= '<p>'.__('No tours are available.').'</p>';
         $html .= '</article>';
     }
+
+    $html = mh_display_featured_section(mh_tour_header(), null, null, $html);
     
     return $html;
 
@@ -1829,18 +1837,12 @@ function mh_display_random_featured_item($withImage=false,$num=1)
             
                 $inner = '';
                 $inner .= '<article class="featuredItem">';
-                $inner .= '<div class="">' ;
-                    $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>' ;
-                
-                    $inner .= '<div class="featuredItem-text">';
-                        $inner .= '<div class="featuredItem-textInner">';
-                            $inner .= '<h3 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item) 
+                    $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>';
+                        $inner .= '<div class="featuredItem-text">';
+                            $inner .= '<h2 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item) 
                                         //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
-                                    .'</h3>';
-                        $inner .= '</div>';
-                    $inner .= '</div>' ;
-                
-                $inner .= '</div>' ;
+                                   .'</h2>';
+                        $inner .= '</div>' ;
                 $inner .= '</article>';
                 $html = mh_display_featured_section("Discover", null, null, $inner);
             }
@@ -1909,9 +1911,7 @@ function mh_home_popular_tags($num=50){
 ** Listed in inline homepage section and used in the slider at mobile viewport sizes
 */
 function mh_home_item_list($html=null){
-    $html.= '<div id="rr_home-items" class="">';
     $html.=  mh_random_or_recent( ($mode=get_theme_option('random_or_recent')) ? $mode : 'recent' );
-    $html.=  '</div>';  
     
     return $html;
 }
@@ -2009,15 +2009,15 @@ function homepage_widget_sections($html=null){
             
             switch ($setting) {
                 case 'featured':
-                    $html.= ($featured_isset==0) ? '<section id="featured-story">'.mh_display_random_featured_item(true,1).'</section>' : null;
+                    $html.= ($featured_isset==0) ? mh_display_random_featured_item(true,1) : null;
                     $featured_isset++;
                     break;
                 case 'tours':
-                    $html.= ($tours_isset==0) ? '<section id="home-tours">'.mh_display_homepage_tours().'</section>' : null;
+                    $html.= ($tours_isset==0) ? mh_display_homepage_tours(3) : null;
                     $tours_isset++;
                     break;
                 case 'recent_or_random':
-                    $html.= ($recent_or_random_isset==0) ? '<section id="home-item-list">'.mh_home_item_list().'</section>' : null;
+                    $html.= ($recent_or_random_isset==0) ? mh_home_item_list() : null;
                     $recent_or_random_isset++;
                     break;
                 case 'popular_tags':
@@ -2028,7 +2028,7 @@ function homepage_widget_sections($html=null){
                     $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
                     break;
                 case 'map':
-                    $html.= ($popular_tags==0) ? '<section id="map">'.mh_display_homepage_map().'</section>' : null;
+                    $html.= ($popular_tags==0) ? mh_display_homepage_map() : null;
                     break;
 
                 default:
@@ -2069,18 +2069,24 @@ function mh_random_or_recent($mode='recent',$num=4){
     set_loop_records('items',$items);
 
     $html=null;
+    // Browse all 49 stories
     $labelcount='<span>'.total_records('Item').' '.mh_item_label('plural').'</span>';
         
     if (has_loop_records('items')){
             
-        $html.=($num <=1) ? '<h2>'.__('%s1 %s2', $param, mh_item_label()).'</h2>' : '<h2>'.__('%1s %2s', $param, mh_item_label('plural')).'</h2>';
+        //$html.=($num <=1)
+            //? '<h2>'.__('%s1 %s2', $param, mh_item_label()).'</h2>' 
+            //: '<h2>'.__('%1s %2s', $param, mh_item_label('plural')).'</h2>';
+        //$html .= '<h2 class="featuredItem-label"> LEARN </h2>';
         
-        $html.= '<div class="rr-results">'; 
-            
-        foreach (loop('items') as $item){
-            $html.= '<article class="item-result has-image">';
+        foreach (loop('items') as $item) {
+            $html.= '<article class="featuredItem">';
 
-            $html.= '<h3>'.link_to_item(metadata($item,array('Dublin Core','Title')),array('class'=>'permalink')).'</h3>';
+            $html .= '<div class="featuredItem-text">';
+                $html.= '<h2 class="featuredItem-title">'
+                    .link_to_item(metadata($item,array('Dublin Core','Title')),array('class'=>'permalink'))
+                .'</h2>';
+            $html .= '</div>';
 
             $hasImage=metadata($item, 'has thumbnail');
             if ($hasImage){
@@ -2088,20 +2094,23 @@ function mh_random_or_recent($mode='recent',$num=4){
                 $item_image = array_pop($result);
             }
 
-            $html.= isset($item_image) ? link_to_item('<span class="item-image" style="background-image:url('.$item_image.');"></span>') : null;
+            $html.= isset($item_image) 
+                ? link_to_item('<div class="featuredItem-imageBg" style="background-image:url('.$item_image.');"></div>')
+                : null;
 
 
-            if($desc = mh_the_text($item,array('snippet'=>200))){
-                $html.= '<div class="item-description">'.strip_tags($desc).'</div>';
-            }else{
-                $html.= '<div class="item-description">'.__('Text preview unavailable.').'</div>';
-            }
+            //if($desc = mh_the_text($item,array('snippet'=>200))){
+                //$html.= '<div class="item-description">'.strip_tags($desc).'</div>';
+            //}else{
+                //$html.= '<div class="item-description">'.__('Text preview unavailable.').'</div>';
+            //}
 
             $html.= '</article>';
-
         }
-        $html.= '</div>';   
-        $html.= '<p class="view-more-link">'.link_to_items_browse(__('Browse all %s',$labelcount)).'</p>';
+
+        $html = mh_display_featured_section("LEARN", null, null, $html);
+
+        //$html.= '<p class="view-more-link">'.link_to_items_browse(__('Browse all %s',$labelcount)).'</p>';
 
         
     }else{

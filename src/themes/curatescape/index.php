@@ -27,18 +27,20 @@ else { //if not stealth mode, do everything else
 
             <?php echo homepage_widget_sections(); ?>
 
-            <section id="map" class="home-page-map">
-                <?php
-                    echo mh_display_featured_section($title='Vist');
-                    echo mh_display_map($type='global');
-                ?>
+            <section id="map" class="featuredSection">
+                <div class="featuredMap">
+                    <h3 class="featuredMap-label">View</h3>
 
-                <div class="featuredItem-text">
-                    <div class="featuredItem-textInner">
-                        <h3 class="featuredItem-title"><a href="#">Check out the map to visit MHC Locations!</a></h3>
+                    <div class="featuredMap-map">
+                        <?php mh_display_map($type='global'); ?>
                     </div>
+
+                    <h2 class="featuredMap-title">
+                        <a class="featuredMap-titleInner" href="#">Check out the map to visit MHC Locations!</a>
+                    </h2>
                 </div>
             </section>
+                <?php //echo mh_display_featured_section($title='Vist', null, null, ); ?>
 
         </article>
     </div>

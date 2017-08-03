@@ -15,7 +15,12 @@
     }
 }
 
+.featuredSection + .featuredSection {
+    margin-top: 96px;
+}
+
 .featuredSection-label {
+    text-transform: uppercase;
     background-color: $green;
     padding: 8px 32px;
     margin: 0;
@@ -23,7 +28,9 @@
     z-index: 10000; // out z-ing the leaflet map control styles (being set to 1000)
     position: relative;
 
-    width: 200px;
+    font-size: 1.3rem;
+
+    display: inline-block;
 
     @media screen and (min-width: $tablet) {
 
@@ -38,21 +45,20 @@
     position: relative;
 }
 
-.featuredItem-imageBg {
-    height: 460px;
+.featuredItem + .featuredItem {
+    margin-top: 96px;
 }
 
-.featuredItem-title {
-    padding: 0 16px 0 16px;
+.featuredItem-imageBg {
+    height: 460px;
 }
 
 .featuredItem-text {
     color: $white;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: .3em;
-
+    bottom: 0px;
+    transform: translateY(34%);
+    right: 7%;
 }
 
 .featuredItem-imageBg {
@@ -61,16 +67,47 @@
 }
 
 .featuredItem-title {
-    line-height: $h3-size + .4em;
-    padding: 16px;
+    //line-height: 1.4em;
     background: $blue;
 
     a {
+        display: block;
         color: $white;
-        padding: .2em;
+        padding: 8px 16px;
     }
 }
 
+.featuredMap {
+    position: relative;
+}
+
+.featuredMap-label {
+    background-color: $green;
+    display: inline-block;
+    padding: 8px 32px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.featuredMap-map {
+    margin-top: 32px;
+    padding-left: 56px;
+    padding-right: 20px;
+}
+
+.featuredMap-title {
+    color: $white;
+    display: inline-block;
+    margin-left: 32px;
+    margin-right: 6%;
+}
+
+.featuredMap-titleInner {
+    $raggedPadding: 12px;
+    background-color: $orange;
+    padding: 8px $raggedPadding;
+    box-shadow: $raggedPadding 0 0 $orange, -$raggedPadding 0 0 $orange;
+}
 
 /*
 **
@@ -94,6 +131,8 @@
     background-color: $lightgrey;
     padding: 8px;
     margin-bottom: 1em;
+    margin-top: 96px;
+
     .proposal-image {
         display: flex;
         justify-content: center;
@@ -126,7 +165,6 @@
         height: 300px;
     }
     .grey-banner {
-        
         h4 {
             font-size: .8em;
         }
