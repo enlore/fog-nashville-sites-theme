@@ -3,7 +3,8 @@
   "version": "0.2.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "chokidar styles/**/* --initial -c 'postcss styles/_screen.scss -p postcss-scss -u autoprefixer postcss-simple-vars -o src/themes/curatescape/css/main.css'",
+    "dev": "chokidar styles/**/* --initial -c 'npm run dev:postcss'",
+    "dev:postcss": "node-sass --include-path node_modules styles/_screen.scss > src/themes/curatescape/css/main.css",,
     "build": "chdir src/themes; pwd"
   },
   "repository": {
@@ -25,6 +26,7 @@
     "file-loader": "^0.11.2",
     "postcss": "^6.0.8",
     "postcss-cli": "^4.1.0",
+    "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "postcss-scss": "^1.0.2",
     "postcss-simple-vars": "^4.0.0",
