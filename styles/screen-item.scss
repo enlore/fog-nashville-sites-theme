@@ -36,7 +36,7 @@ wrap
 }
 
 .item-title {
-    color: var(--white);
+    color: $white;
     max-width: 70%;
     transform: translateY(50%);
     position: absolute;
@@ -45,11 +45,11 @@ wrap
 }
 
 .item-title--raggedBackground {
-    background-color: var(--blue);
+    background-color: $blue;
     padding: 16px;
     padding-left: 0;
     padding-right: 0;
-    box-shadow: 16px 0 0 var(--blue), -16px 0 0 var(--blue);
+    box-shadow: 16px 0 0 $blue, -16px 0 0 $blue;
 }
 
 .item-subtitle {
@@ -57,7 +57,7 @@ wrap
 }
 
 .item-metadata {
-    border: 1px solid var(--lightgrey);
+    border: 1px solid $lightgrey;
     padding: 32px;
 }
 

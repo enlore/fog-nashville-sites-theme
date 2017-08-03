@@ -3,11 +3,11 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
 /* Bulma */
-@import '../node_modules/bulma/sass/utilities/all';
-@import '../node_modules/bulma/sass/base/all';
-@import '../node_modules/bulma/sass/grid/all';
-@import '../node_modules/bulma/sass/layout/all';
-@import '../node_modules/bulma/sass/elements/other';
+@import 'bulma/sass/utilities/all';
+@import 'bulma/sass/base/all';
+@import 'bulma/sass/grid/all';
+@import 'bulma/sass/layout/all';
+@import 'bulma/sass/elements/other';
 
 /* colors, whitespace, etc */
 @import 'root.scss';
@@ -16,10 +16,10 @@
 //@import 'util-resets.scss';
 @import 'util-util.scss';
 @import 'util-error.scss';
-@import 'util-fa.scss';
-@import 'util-ie.scss';
+//@import 'util-fa.scss';
+//@import 'util-ie.scss';
 @import 'util-other-media-queries.scss';
-@import 'util-print.scss';
+//@import 'util-print.scss';
 
 /* reusable component styles */
 @import 'component-header.scss';
@@ -60,22 +60,22 @@ ul {
 nav ul,
 nav ol {
     list-style: none;
-    list-style-image: none
+    list-style-image: none;
 }
 img {
     border: 0;
-    -ms-interpolation-mode: bicubic
-    vertical-align: middle
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
 }
 svg:not(:root) {
-    overflow: hidden
+    overflow: hidden;
 }
 figure {
-    margin: 0
+    margin: 0;
 }
 ::-moz-selection {
     background: #b3d4fc;
-    text-shadow: none
+    text-shadow: none;
 }
 ::selection {
     background: #b3d4fc;

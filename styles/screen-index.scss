@@ -1,5 +1,5 @@
 .about-main {
-    color: var(--black);
+    color: $black;
     text-align: center;
     max-width: 600px;
     display: block;
@@ -7,14 +7,16 @@
     font-size: 32px;
 }
 
-.featuredSection {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+@media screen and (min-width: $tablet) {
+    .featuredSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
 
 .featuredSection-label {
-    background-color: var(--green);
+    background-color: $green;
     padding: 8px 32px;
 }
 
@@ -35,7 +37,7 @@
 }
 
 .featuredItem-text {
-    color: var(--white);
+    color: $white;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -43,8 +45,8 @@
     .featuredItem-title {
         line-height: $h3-size + .4em;
         a {
-            background: var(--blue);
-            color: var(--white);
+            background: $blue;
+            color: $white;
             padding: .2em;
         }
     }
@@ -74,7 +76,7 @@
 
 
 .grey-banner {
-    background-color: var(--lightgrey);
+    background-color: $lightgrey;
     padding: 8px;
     margin-bottom: 1em;
     .proposal-image {

@@ -1,7 +1,7 @@
 
 input#search,fieldset {
     border: none!important;
-    background-color: var(--lightgrey);
+    background-color: $lightgrey;
 }
 
 /*! SEARCH */
@@ -16,7 +16,7 @@ input#search,fieldset {
 }
 input#search {
     border-color: #ccc;
-    color: var(--black);
+    color: $black;
     padding: .5em 2%;
 }
 input#submit_search {
