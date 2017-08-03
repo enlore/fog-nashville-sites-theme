@@ -4,7 +4,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "chokidar styles/**/* --initial -c 'npm run dev:postcss'",
-    "dev:postcss": "node-sass --include-path node_modules styles/_screen.scss > src/themes/curatescape/css/main.css",,
+    "dev:postcss": "node-sass --include-path node_modules styles/_screen.scss > src/themes/curatescape/css/main.css",
     "build": "chdir src/themes; pwd"
   },
   "repository": {
