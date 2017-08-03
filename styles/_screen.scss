@@ -14,7 +14,6 @@
 
 @import 'util-typography.scss';
 //@import 'util-resets.scss';
-@import 'util-container.scss';
 @import 'util-util.scss';
 @import 'util-error.scss';
 @import 'util-fa.scss';
@@ -46,13 +45,6 @@ html {
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
-}
-html,
-button,
-input,
-select,
-textarea {
-    //font-family: sans-serif
 }
 menu,
 ol,
