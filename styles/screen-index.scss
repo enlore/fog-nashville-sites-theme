@@ -7,16 +7,37 @@
     font-size: 32px;
 }
 
-.featuredSection {
+.featuredSection + .featuredSection {
+    margin-top: 96px;
+}
+
+.featuredSection-inner {
+    margin: 0 auto;
+
     @media screen and (min-width: $tablet) {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        max-width: $tablet;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: $desktop;
     }
 }
 
-.featuredSection + .featuredSection {
-    margin-top: 96px;
+.featuredSection-link {
+    display: none;
+
+    @media screen and (min-width: $tablet) {
+        display: block;
+    }
+}
+
+.featuredSection-header {
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .featuredSection-label {
@@ -33,12 +54,18 @@
     display: inline-block;
 
     @media screen and (min-width: $tablet) {
-
+        transform: none;
     }
 }
 
 .featuredSection-title {
+    display: none;
     margin-left: 32px;
+
+    @media screen and (min-width: $tablet) {
+        display: block;
+        margin-left: 0;
+    }
 }
 
 .featuredItem {
@@ -51,6 +78,9 @@
 
 .featuredItem-imageBg {
     height: 460px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .featuredItem-text {
@@ -59,11 +89,6 @@
     bottom: 0px;
     transform: translateY(34%);
     right: 7%;
-}
-
-.featuredItem-imageBg {
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .featuredItem-title {
@@ -79,6 +104,17 @@
 
 .featuredMap {
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: $tablet) {
+        max-width: $tablet;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: $desktop;
+    }
+
 }
 
 .featuredMap-label {
@@ -93,6 +129,15 @@
     margin-top: 32px;
     padding-left: 56px;
     padding-right: 20px;
+
+    // TODO temporary override
+    #map_canvas {
+        height: 300px;
+
+        @media screen and (min-width: $tablet) {
+            height: 450px;
+        }
+    }
 }
 
 .featuredMap-title {
@@ -100,6 +145,13 @@
     display: inline-block;
     margin-left: 32px;
     margin-right: 6%;
+    margin-top: 16px;
+    max-width: 400px;
+
+    @media screen and (min-width: $tablet) {
+        margin-left: 9%;
+        margin-top: 32px;
+    }
 }
 
 .featuredMap-titleInner {
@@ -127,50 +179,20 @@
 }
 
 
-.grey-banner {
+.greyBanner {
     background-color: $lightgrey;
     padding: 8px;
-    margin-bottom: 1em;
     margin-top: 96px;
 
-    .proposal-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
-@media only screen and (min-width: $fullhd) {
-
+.greyBanner-proposalImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-@media only screen and (min-width: $widescreen) {
 
-}
-@media only screen and (min-width: $desktop) {
-
-}
-@media only screen and (min-width: $tablet) {
-
-}
-@media only screen and (max-width: $tablet) {
-    .featuredSection-link,
-    .featuredSection-title {
-        display: none;
-    }
-    .about-main {
-        font-size: 18px;
-    }
-
-    .featuredItem-imageBg {
-        height: 300px;
-    }
-    .grey-banner {
-        h4 {
-            font-size: .8em;
-        }
-    }
-
-    footer {
-        display: none;
-    }
+.greyBanner-copy h4 {
+    padding: 16px 0px;
+    margin: 0;
 }

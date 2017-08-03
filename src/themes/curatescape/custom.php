@@ -1701,13 +1701,19 @@ function mh_reducepayload($index,$showThisMany){
 
 function mh_display_featured_section($title='Discover', $more="View More Explorations", $link="#", $inner=null){
     $html = '<section class="featuredSection">';
-        $html = $html.'<h3 class="featuredSection-label">'.__($title).'</h3>';
-        $html = $html.'<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
-        $html = $html.'<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
+        $html .= '<div class="featuredSection-inner">';
+            $html .= '<div class="featuredSection-header">';
+                $html .= '<h3 class="featuredSection-label">'.__($title).'</h3>';
+                $html .= '<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
+                $html .= '<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
+            $html .= '</div>';
 
-        if ($inner != null) {
-            $html .= $inner;
-        }
+            if ($inner != null) {
+                $html .= $inner;
+            }
+
+        $html .= '</div>';
+
 
      $html = $html.'</section>';
      return $html;
@@ -1844,7 +1850,7 @@ function mh_display_random_featured_item($withImage=false,$num=1)
                                    .'</h2>';
                         $inner .= '</div>' ;
                 $inner .= '</article>';
-                $html = mh_display_featured_section("Discover", null, null, $inner);
+                $html = mh_display_featured_section("Discover", "View More Explorations", null, $inner);
             }
             
     endforeach;     
