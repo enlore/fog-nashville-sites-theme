@@ -179,33 +179,30 @@ function random_item_link($text=null,$class='show'){
 function mh_global_header($html=null){
 
     $html.= '<nav class="navbar">';
-
-    $html.= '<div class="navbar-brand">'
+        $html.= '<div class="navbar-brand">'
                     .link_to_home_page(mh_the_logo(),array('class'=>'navbar-item'))
+                //     .'<div id="menu-toggle" class="navbar-burger">'
+                //         .'<span></span>'
+                //         .'<span></span>'
+                //         .'<span></span>'
+                //     .'</div>'
+                .'</div>';
 
-            //     .'<div id="menu-toggle" class="navbar-burger">'
-            //         .'<span></span>'
-            //         .'<span></span>'
-            //         .'<span></span>'
-            //     .'</div>'
-            .'</div>';
+                    //.mh_global_nav()
 
-    $html.= '<div id="navbar-menu" class="navbar-menu" role="menu">'
-                //.mh_global_nav()
-                .'<div class="navbar-links">'
-                    .'<a class="navbar-item" href="/"> Home </a>'
-                    .'<a class="navbar-item" href="/items/browse"> Items </a>'
-                    .'<a class="navbar-item" href="/tours/browse"> Tours </a>'
-                    .'<a class="navbar-item" href="/about"> About </a>'
+    $html .='' // < this is a terrible thing
+                .'<div class="navbar-end">'
+                    .mh_simple_search($formProperties=array('id'=>'header-search'))
                 .'</div>'
 
-               
-            .'</div>'.
-             '<div class="navbar-end">'
-                    .'<div class="navbar-item">'
-                        .mh_simple_search($formProperties=array('id'=>'header-search'))
+                .'<div class="navbar-links">'
+                        .'<a class="navbar-item" href="/"> Home </a>'
+                        .'<a class="navbar-item" href="/items/browse"> Items </a>'
+                        .'<a class="navbar-item" href="/tours/browse"> Tours </a>'
+                        .'<a class="navbar-item" href="/about"> About </a>'
                     .'</div>'
-                .'</div>';
+                .'</div>'
+    ; // holy shit tho
 
     $html.= '</nav>';
 

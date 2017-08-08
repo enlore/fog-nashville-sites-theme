@@ -1,85 +1,95 @@
 
 .navbar-brand,
-.navbar-menu,
-.navbar-end, {
+.navbar-menu {
     display: flex;
 }
 
 .navbar {
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media screen and (min-width: $desktop) {
+        flex-wrap: nowrap;
+    }
 }
 
 #logo-img.home {
-    height: 150px;
-}
-#navbar-menu {
-    width: 100%;
-   
-    .navbar-links{
-        display: flex;
-        flex: 1;
-        flex-direction: row;
-        justify-content: space-around;
-        font-size: 18px;
-    }
- }
+    width: 88px;
+    height: auto;
 
-header.main {
-    width: 100%;
-    padding: 16px;
-    min-height: 6.5em;
-    display: block;
-    font-variant: small-caps;
-    z-index: 1;
+    @media screen and (min-width: $desktop) {
+        width: 176px;
+    }
+}
+
+.navbar-brand {
+    order: 1;
+}
+
+.navbar-links{
+    font-size: 18px;
+    margin-top: 24px;
+
     display: flex;
     justify-content: space-between;
+
+    flex: 1 1 100%;
+
+    text-align: center;
+    a { color: $black; }
+
+    order: 3;
+
+    @media screen and (min-width: $desktop) {
+        margin-top: 0;
+        justify-content: space-around;
+        order: 2;
+    }
+}
+
+.navbar-end {
+    order: 2;
+    flex: 1 1 auto;
+
+    @media screen and (min-width: $desktop) {
+        order: 3;
+    }
+}
+
+
+header.main {
+    padding: 16px;
+    min-height: 6.5em;
+    font-variant: small-caps;
+    z-index: 1;
 }
 
 header.main #header-search {
-    display: flex;
     padding: 0;
-    float: right;
-}
-header.main #header-search input {
-    font-variant: small-caps;
-    height: 100%;
-    padding: 3px 0 3px 8px;
-}
 
-nav {
-    width: 100%;
-    .navbar-links {
-        text-align: center;
-        padding-top: 8px;
-        a {
-            color: $black;
-            display: flex;
-        }
-    }
-}
-
-@media only screen and (min-width: $fullhd) {
-
-}
-@media only screen and (min-width: $widescreen) {
-
-
-}
-@media only screen and (min-width: $desktop) {
-    .navbar {
-        display: flex;
-    }
-    header.main #header-search input {
-        line-height: 25px;
-        font-size: 18px;
-    }
-    header.main #header-search {
+    @media only screen and (min-width: $desktop) {
         font-size: 25px;
         width: 200px;
     }
 }
+
+header.main #header-search input {
+    font-variant: small-caps;
+    height: 100%;
+    padding: 12px 16px;
+    float: right;
+
+    @media only screen and (min-width: $tablet) {
+        max-width: 360px;
+    }
+
+    @media only screen and (min-width: $desktop) {
+        line-height: 25px;
+        font-size: 18px;
+    }
+}
+
 @media only screen and (min-width: $tablet) {
     header.main {
         padding-top: 1em;
@@ -91,49 +101,4 @@ nav {
     }
 
 }
-@media only screen and (max-width: $tablet) {
-    header.main {
-        background: #fff;
-        min-height: 6.75em;
-        padding: 8px;
-        position: relative;
-    }
-    header.main .menu {
-        background: #eaeaea;
-        padding-top: .5em;
-        width: 100%;
-        margin: 0 auto;
-        clear: both;
-        text-align: center;
-        box-shadow: 0em .25em .25em #333;
-        display: none;
-    }
-    header.main .menu.active {
-        display: block;
-    }
-    header.main a.home-link {
-        display: inline-block;
-    }
-
-    .navbar-brand {
-        float: left;
-    }
-    .navbar-brand img {
-        max-height: 3em !important;
-    }
-
-    .navbar-end {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-    }
-
-    #navbar-menu {
-        display: block;
-        clear: both;
-        width: 100%;
-    }
-}
-
-
 
