@@ -64,10 +64,8 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 }
                 
                 ?>
-                <article class="browseItem <?php echo $hasImage ? 'has-image' : null;?>" id="item-result-<?php echo $index;?>">
-                    <h2 class="browseItem-title">
-                        <?php echo $titlelink; ?>
-                    </h2>
+                <article class="browseItem" id="item-result-<?php echo $index;?>">
+                    <h2 class="browseItem-title"> <?php echo $titlelink; ?> </h2>
 
                     <?php echo isset($item_image) 
                     ? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
@@ -83,8 +81,10 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
 
                     <div class="browseItem-tags">
                         <?php if (metadata($item, 'has tags') ): ?>
-                            <div class="">
-                                <p><span><?php echo __('Tags');?>:</span> <?php echo $tags; ?></p>
+                            <div class="browseItem-tagsTitle f-h3"> <?php echo __('Tags');?> </div>
+
+                            <div class="browseItem-tagsList f-h4">
+                                <?php echo $tags; ?>
                             </div>
                         <?php endif; ?>
                         

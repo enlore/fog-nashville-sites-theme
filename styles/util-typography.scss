@@ -39,12 +39,13 @@ a:hover {
 
 $h3-size: 1.5rem;
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.85rem; }
-h3 { font-size: $h3-size; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 0.75rem; }
+h1, .f-h1 { font-size: 2.2rem; }
+h2, .f-h2 { font-size: 1.85rem; }
+h3, .f-h3 { font-size: $h3-size; }
+h4, .f-h4 { font-size: 1.25rem; }
+h5, .f-h5 { font-size: 1.2rem; }
+h6, .f-h6 { font-size: 0.75rem; }
+
 
 abbr[title] {
     border-bottom: 1px dotted
