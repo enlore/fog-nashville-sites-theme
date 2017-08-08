@@ -19,7 +19,7 @@ else { //if not stealth mode, do everything else
 
     <div role="main">
         <article id="homepage">
-            <section class="hero">
+            <section class="hero homepage-hero">
                 <div class="hero-text">
                     <?php echo mh_home_about();?>
                 </div>
