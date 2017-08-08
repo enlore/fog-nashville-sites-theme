@@ -1159,7 +1159,7 @@ function mh_item_images($item,$index=0,$html=null){
 
         if(in_array($mime,$img)) {
             if($index==0) {
-                $html .= '<h3><span class="icon-camera-retro" aria-hidden="true"></span>Images </span></h3>';
+                $html .= '<h3 class="f-upper" style="margin-bottom: 24px;">Images</h3>';
 
 
                 

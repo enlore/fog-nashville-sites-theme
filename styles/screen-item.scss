@@ -1,18 +1,3 @@
-/*
-wrap
-    #hero // map
-    #map-actions
-    #content
-    artice.storey.item.show.instapaper_body.hentry
-        header.story-header
-        #item-primary.show
-            section#text
-                .item-description
-        #item-media
-        #item-metadata
-        #share-this
-*/
-
 .item-headerInner {
     height: 300px;
     position: relative;
@@ -57,26 +42,40 @@ wrap
 }
 
 .item-metadata {
-    border: 1px solid $lightgrey;
     padding: 32px;
+    margin-top: 56px;
 }
 
 .item-legend {
-    font-size: 36px;
     text-transform: uppercase;
     /* vertical padding here fixes an odd rendering artifact */
-    padding: 1px 16px 0 0;
+    padding-right: 16px;
+    background-color: $white;
+    position: relative;
+    bottom: -18px;
+    vertical-align: middle;
+    display: inline-block;
+    z-index: 10;
 }
 
 .item-fieldset {
+    padding: 24px 16px 16px 0;
     border-style: solid;
     border-width: 1px;
-    border-color: $black;
+    border-color: #4a4a4a;
     border-left-color: transparent;
 }
 
-.item-fieldsetInner {
-    padding: 8px;
+.item-map {
+    margin-top: 64px;
+}
+
+.item-lede {
+
+}
+
+.item-description {
+    margin-top: 64px;
 }
 
 @media screen and (min-width: 768px) {
