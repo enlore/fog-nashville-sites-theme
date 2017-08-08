@@ -8,41 +8,41 @@ $bodyclass='browse';
 $maptype='focusarea';
 
 if ( ($tag || $tags) && !($query) ) {
-	$the_tag=($tag ? $tag : $tags);
-	$title = __('%1$s tagged "%2$s"', mh_item_label('plural'), $the_tag);
-	$bodyclass .=' queryresults';
-	$maptype='queryresults';
+    $the_tag=($tag ? $tag : $tags);
+    $title = __('%1$s tagged "%2$s"', mh_item_label('plural'), $the_tag);
+    $bodyclass .=' queryresults';
+    $maptype='queryresults';
 }
 elseif ( !empty($auth) ) {
-	$title = __('%1$s by author "%2$s"', mh_item_label('plural'), $auth);
-	$bodyclass .=' queryresults';
-	$maptype='queryresults';
+    $title = __('%1$s by author "%2$s"', mh_item_label('plural'), $auth);
+    $bodyclass .=' queryresults';
+    $maptype='queryresults';
 }elseif ( !empty($subj) ) {
-	$title = __('Results for subject term "%s"', $subj);
-	$bodyclass .=' queryresults';
-	$maptype='queryresults';
+    $title = __('Results for subject term "%s"', $subj);
+    $bodyclass .=' queryresults';
+    $maptype='queryresults';
 }
 elseif ($query) {
-	$title = __('Search Results for "%s"', $query);
-	$bodyclass .=' queryresults';
-	$maptype='queryresults';
-}	
+    $title = __('Search Results for "%s"', $query);
+    $bodyclass .=' queryresults';
+    $maptype='queryresults';
+}   
 else{
-	$title = __('All %s', mh_item_label('plural'));
-	$bodyclass .=' items stories';
-}	
+    $title = __('All %s', mh_item_label('plural'));
+    $bodyclass .=' items stories';
+}   
 echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass'=>$bodyclass)); 
 ?>
 
 <?php //mh_map_actions();?>
 
-<section class="section browseItemsSection">	
-	<h2><?php 
-	$title .= ( $total_results  ? ': <span class="item-number">'.$total_results.'</span>' : '');
-	echo $title; 
-	?></h2>
+<section class="section browseItemsSection">    
+    <h2><?php 
+    $title .= ( $total_results  ? ': <span class="item-number">'.$total_results.'</span>' : '');
+    echo $title; 
+    ?></h2>
 
-	<div id="primary" class="container">
+    <div id="primary" class="container">
         <nav class="secondary-nav" id="item-browse"> 
             <?php echo mh_item_browse_subnav();?>
         </nav>
@@ -60,7 +60,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 $hasImage=metadata($item, 'has thumbnail');
                 if ($hasImage){
                         preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
-                        $item_image = array_pop($result);				
+                        $item_image = array_pop($result);               
                 }
                 
                 ?>
@@ -104,8 +104,8 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
             
             <div class="pagination bottom"><?php echo pagination_links(); ?></div>
                     
-        </div>	
-	</div><!-- end primary -->
+        </div>  
+    </div><!-- end primary -->
 </section>
 
 <div id="share-this" class="browse">

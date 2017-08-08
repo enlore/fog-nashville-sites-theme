@@ -7,7 +7,7 @@
 
 </div><!--end wrap-->
 
-<footer class="footer columns is-desktop">
+<footer class="footer columns is-desktop" style="margin-top: 0px;">
 	<div class="footer-brand column">
 		<?php echo link_to_home_page(mh_the_logo(), array('class'=>'home-link')); ?>
 	</div>
