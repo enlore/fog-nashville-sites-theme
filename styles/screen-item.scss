@@ -27,6 +27,12 @@
     position: absolute;
     bottom: 0;
     left: 24px;
+
+    @media screen and (min-width: $desktop) {
+        bottom: initial;
+        top: 16px;
+        left: 48px;
+    }
 }
 
 .item-title--raggedBackground {
