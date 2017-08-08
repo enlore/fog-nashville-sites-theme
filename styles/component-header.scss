@@ -45,6 +45,7 @@ header.main #header-search {
 header.main #header-search input {
     font-variant: small-caps;
     height: 100%;
+    padding: 3px 0 3px 8px;
 }
 
 nav {
@@ -58,10 +59,6 @@ nav {
         }
     }
 }
-
-
-
-
 
 @media only screen and (min-width: $fullhd) {
 

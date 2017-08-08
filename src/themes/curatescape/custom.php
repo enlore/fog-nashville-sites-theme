@@ -763,11 +763,15 @@ function mh_simple_search($formProperties=array(), $uri = null){
     $formProperties['action'] = $uri;
     $formProperties['method'] = 'get';
     $html = '<form ' . tag_attributes($formProperties) . '>' . "\n";
-    $html .= '<fieldset>' . "\n\n";
     $html .= '<label for "search" class="visuallyhidden">Search</label>';
-    $html .= get_view()->formText('search', $searchQuery, array('name'=>'search','class'=>'textinput search','placeholder'=> //__('Search %s',mh_item_label('plural'))
-        'Search'));
-    $html .= '</fieldset>' . "\n\n";
+    $html .= get_view()->formText('search',
+         $searchQuery,
+         array(
+            'name'=>'search',
+            'class'=>'textinput search navbarSearch',
+            'placeholder'=> 'Search'
+        )
+    );
 
     // add hidden fields for the get parameters passed in uri
     $parsedUri = parse_url($uri);
