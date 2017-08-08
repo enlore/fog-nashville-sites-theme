@@ -32,14 +32,14 @@ header.main {
     min-height: 6.5em;
     display: block;
     font-variant: small-caps;
-	z-index: 1;
-	display: flex;
-	justify-content: space-between;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
 }
 
 header.main #header-search {
     display: flex;
-	padding: 0;
+    padding: 0;
     float: right;
 }
 header.main #header-search input {
