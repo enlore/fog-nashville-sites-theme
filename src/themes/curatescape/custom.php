@@ -1796,9 +1796,17 @@ function mh_display_homepage_tours($num=7, $scope='random'){
         for ($i = 0; $i < $num; $i++) {
             //var_dump($items[$i]);
             $html .= '<article class="featuredItem">';
-                $html .= '<h2 class="featuredItem-title">';
-                    $html .= '<a href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">' . $items[$i]['title'] . '</a>';
-                $html .= '</h2>';
+                $html .= '<div class="featuredItem-text">';
+                    $html .= '<h2 class="featuredItem-title">';
+                        $html .= '<span class="featuredItem-title--raggedBackground">' . $items[$i]['title'] . '</span>';
+                    $html .= '</h2>';
+                $html .= '</div>';
+
+                $html .= '<a href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">';
+                    $html .= '<div class="featuredItem-imageBg" style="background-image: url('. fog_get_image_url_of_first_public_item($items[$i]) .')">';
+                    $html .= '</div>';
+                $html .= '</a>';
+
             $html .= '</article>';
         }
         if(count($public)>1){
@@ -1845,11 +1853,16 @@ function mh_display_random_featured_item($withImage=false,$num=1)
                 $inner = '';
                 $inner .= '<article class="featuredItem">';
                     $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>';
-                        $inner .= '<div class="featuredItem-text">';
-                            $inner .= '<h2 class="featuredItem-title">' . link_to_item($itemTitle, array(), 'show', $item)
-                                        //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
-                                   .'</h2>';
-                        $inner .= '</div>' ;
+
+                    $inner .= '<div class="featuredItem-text">';
+                        $inner .= '<h2 class="featuredItem-title">' 
+                            . '<span class="featuredItem-title--raggedBackground">'
+                            . link_to_item($itemTitle, array(), 'show', $item)
+                            . '</span>'
+                                    //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
+                           .'</h2>';
+                    $inner .= '</div>' ;
+
                 $inner .= '</article>';
                 $html = mh_display_featured_section("Discover", "View More Explorations", null, $inner);
             }
