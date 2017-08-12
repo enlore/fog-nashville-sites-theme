@@ -1,6 +1,10 @@
 <?php
 $tourTitle = strip_formatting( tour( 'title' ) );
 $label = mh_tour_label();
+$heroImageUrl = fog_get_image_url_of_first_public_item($tour);
+//var_dump($tour);
+
+
 if( $tourTitle != '' && $tourTitle != '[Untitled]' ) {
 } else {
    $tourTitle = '';
@@ -12,30 +16,34 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 
 <?php mh_map_actions(null,$tour);?>
 
-<article class="tour show" role="main">
-    <header id="tourShow-header">
+<article class="tour" role="main">
+    <header class="tourShow-header">
         <h2 class="tourShow-title instapaper_title"><?php echo $tourTitle; ?></h2>
 
+        <?php if ($heroImageUrl !== null) {
+            echo '<div class="tourShow-heroImage" style="background-image: url(' . $heroImageUrl . ')"></div>';
+        } ?>
+
         <?php if(tour( 'Credits' )){
-            echo '<span class="tourShow-meta">'.__('%1s curated by: %2s', mh_tour_label_option('singular'),tour( 'Credits' )).'</span>';
+            echo '<span class="tourShow-credits">'.__('%1s curated by: %2s', mh_tour_label_option('singular'),tour( 'Credits' )).'</span>';
         }elseif(get_theme_option('show_author') == true){
-            echo '<span class="tourShow-meta">'.__('%1s curated by: The %2s Team',mh_tour_label_option('singular'),option('site_title')).'</span>';
+            echo '<span class="tourShow-credit">'.__('%1s curated by: The %2s Team',mh_tour_label_option('singular'),option('site_title')).'</span>';
         }else{}?>
     </header>
             
-    <div id="primary">
-        <section id="text">
-           <div id="tourShow-description">
+    <div class="tourShow-body">
+        <section class="tourShow-copy">
+           <div class="tourShow-description">
             <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
            </div>
 
-           <div id="tourShow-postscript">
+           <div class="tourShow-postscript">
             <?php echo htmlspecialchars_decode(metadata('tour','Postscript Text')); ?>
            </div>
         </section>
            
-        <section id="tourShow-items">
-            <h3><?php echo __('Locations for %s', $label);?></h3>
+        <section class="tourShow-items">
+            <h3 class="tourShow-itemsTitle"><?php echo __('Locations for %s', $label);?></h3>
 
              <?php 
              $i = 1;
@@ -46,7 +54,7 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
                     $itemID=$tourItem->id;
                     $hasImage=metadata($tourItem,'has thumbnail');
              ?>
-                     <article class="item-result <?php echo $hasImage ? 'has-image' : null;?>">
+                     <article class="tourShow-itemResult <?php echo $hasImage ? 'has-image' : null;?>">
                          <h3>
                             <a class="permalink" href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>"><?php echo '<span class="number">'.$i.'</span>';?> 
                              <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
@@ -61,12 +69,11 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
                     echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><span class="item-image" style="background-image:url('.$item_image.');"></span></a>' : null; 
             ?>
                                      
-                         <div class="item-description"><?php echo snippet(mh_the_text($tourItem),0,250); ?></div>
+                         <div class="tourShow-itemDescription"><?php echo snippet(mh_the_text($tourItem),0,250); ?></div>
                      </article>
              <?php 
                      $i++;
                      $item_image=null;
-             
                  }
 
              endforeach;

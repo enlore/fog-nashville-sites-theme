@@ -2456,4 +2456,16 @@ function mh_normalize_special_characters( $str )
     return $str;
 }
 
+function fog_get_image_url_of_first_public_item ($tour) {
+    // paw through items on tour and return the display url of the first public
+    // item (tour stop)
+    foreach ($tour->getItems() as $item) {
+        if ($item->public && $item->fileCount() > 0) {
+            return file_display_url($item->getFile(0));
+        }
+
+        return null;
+    }
+}
+
 ?>
