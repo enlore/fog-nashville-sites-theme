@@ -14,8 +14,6 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
    'bodyclass' => 'show tour '.$dc, 'tour'=>$tour ) );
 ?>
 
-<?php mh_map_actions(null,$tour);?>
-
 <article class="tour" role="main">
     <header class="tourShow-header">
         <h2 class="tourShow-title instapaper_title"><?php echo $tourTitle; ?></h2>
@@ -31,59 +29,57 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
         }else{}?>
     </header>
             
-    <div class="tourShow-body">
-        <section class="tourShow-copy">
-           <div class="tourShow-description">
-            <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
-           </div>
+    <section class="tourShow-copy">
+       <div class="tourShow-description">
+        <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
+       </div>
 
-           <div class="tourShow-postscript">
-            <?php echo htmlspecialchars_decode(metadata('tour','Postscript Text')); ?>
-           </div>
-        </section>
-           
-        <section class="tourShow-items">
-            <h3 class="tourShow-itemsTitle"><?php echo __('Locations for %s', $label);?></h3>
+       <div class="tourShow-postscript">
+        <?php echo htmlspecialchars_decode(metadata('tour','Postscript Text')); ?>
+       </div>
+    </section>
+       
+    <section class="tourShow-items">
+        <h3 class="tourShow-itemsTitle"><?php echo __('Locations for %s', $label);?></h3>
 
-             <?php 
-             $i = 1;
+         <?php 
+         $i = 1;
 
-             foreach( $tour->getItems() as $tourItem ): 
-                if ($tourItem->public) {
-                    set_current_record( 'item', $tourItem );
-                    $itemID=$tourItem->id;
-                    $hasImage=metadata($tourItem,'has thumbnail');
-             ?>
-                     <article class="tourShow-itemResult <?php echo $hasImage ? 'has-image' : null;?>">
-                         <h3>
-                            <a class="permalink" href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>"><?php echo '<span class="number">'.$i.'</span>';?> 
-                             <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
-                             </a>
-                        </h3>
+         foreach( $tour->getItems() as $tourItem ): 
+            if ($tourItem->public) {
+                set_current_record( 'item', $tourItem );
+                $itemID=$tourItem->id;
+                $hasImage=metadata($tourItem,'has thumbnail');
+         ?>
+                 <article class="tourShow-itemResult <?php echo $hasImage ? 'has-image' : null;?>">
+                     <h3>
+                        <a class="permalink" href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>"><?php echo '<span class="number">'.$i.'</span>';?> 
+                         <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
+                         </a>
+                    </h3>
 
-            <?php
-                    if ($hasImage){
-                        preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
-                        $item_image = array_pop($result);				
-                    }
-                    echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><span class="item-image" style="background-image:url('.$item_image.');"></span></a>' : null; 
-            ?>
-                                     
-                         <div class="tourShow-itemDescription"><?php echo snippet(mh_the_text($tourItem),0,250); ?></div>
-                     </article>
-             <?php 
-                     $i++;
-                     $item_image=null;
-                 }
+        <?php
+                if ($hasImage){
+                    preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
+                    $item_image = array_pop($result);				
+                }
+                echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><span class="item-image" style="background-image:url('.$item_image.');"></span></a>' : null; 
+        ?>
+                                 
+                     <div class="tourShow-itemDescription"><?php echo snippet(mh_the_text($tourItem),0,250); ?></div>
+                 </article>
+         <?php 
+                 $i++;
+                 $item_image=null;
+             }
 
-             endforeach;
-             ?>
-        </section>
+         endforeach;
+         ?>
+    </section>
 
-        <div class="comments">
-            <?php echo (get_theme_option('tour_comments') ==1) ? mh_display_comments() : null;?>
-        </div>			   
-    </div>
+    <section class="comments">
+        <?php echo (get_theme_option('tour_comments') ==1) ? mh_display_comments() : null;?>
+    </section>			   
 </article>
 
 <div id="share-this" class="browse">
