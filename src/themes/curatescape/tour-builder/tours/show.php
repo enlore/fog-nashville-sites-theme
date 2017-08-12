@@ -15,60 +15,79 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 ?>
 
 <article class="tour" role="main">
+
     <header class="tourShow-header">
-        <h2 class="tourShow-title instapaper_title"><?php echo $tourTitle; ?></h2>
+        <h2 class="tourShow-title instapaper_title">
+            <span class="tourShow-title--raggedBackground">
+                <?php echo $tourTitle; ?>
+            </span>
+        </h2>
 
         <?php if ($heroImageUrl !== null) {
             echo '<div class="tourShow-heroImage" style="background-image: url(' . $heroImageUrl . ')"></div>';
         } ?>
 
-        <?php if(tour( 'Credits' )){
-            echo '<span class="tourShow-credits">'.__('%1s curated by: %2s', mh_tour_label_option('singular'),tour( 'Credits' )).'</span>';
-        }elseif(get_theme_option('show_author') == true){
-            echo '<span class="tourShow-credit">'.__('%1s curated by: The %2s Team',mh_tour_label_option('singular'),option('site_title')).'</span>';
-        }else{}?>
     </header>
-            
-    <section class="tourShow-copy">
+
+    <section class="tourShow-copy section">
+        <?php if(tour( 'Credits' )){
+            echo '<div class="tourShow-credits">'
+                    .'<h2 class="tourShow-sectionLabel">Credits</h2>'
+                    .'<p>'
+                        .__('%1s curated by: %2s', mh_tour_label_option('singular'),tour( 'Credits' ))
+                    .'</p>'
+                .'</div>';
+        }elseif(get_theme_option('show_author') == true){
+            echo '<div class="tourShow-credits">'
+                    .'<h2 class="tourShow-sectionLabel">Credits</h2>'
+                    .'<p>'
+                        .__('%1s curated by: The %2s Team',mh_tour_label_option('singular'),option('site_title'))
+                    .'</p>'
+                .'</div>';
+        }else{}?>
+
+
        <div class="tourShow-description">
-        <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
+           <h2 class="tourShow-sectionLabel"> About This Tour </h2>
+            <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
        </div>
 
        <div class="tourShow-postscript">
         <?php echo htmlspecialchars_decode(metadata('tour','Postscript Text')); ?>
        </div>
     </section>
-       
-    <section class="tourShow-items">
-        <h3 class="tourShow-itemsTitle"><?php echo __('Locations for %s', $label);?></h3>
 
-         <?php 
+    <section class="tourShow-items section">
+        <h2 class="tourShow-itemsTitle"><?php echo __('Stops Along the %s', $label);?></h2>
+
+         <?php
          $i = 1;
 
-         foreach( $tour->getItems() as $tourItem ): 
+         foreach( $tour->getItems() as $tourItem ):
             if ($tourItem->public) {
                 set_current_record( 'item', $tourItem );
                 $itemID=$tourItem->id;
                 $hasImage=metadata($tourItem,'has thumbnail');
          ?>
-                 <article class="tourShow-itemResult <?php echo $hasImage ? 'has-image' : null;?>">
-                     <h3>
-                        <a class="permalink" href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>"><?php echo '<span class="number">'.$i.'</span>';?> 
-                         <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
+                 <div class="tourShow-item <?php echo $hasImage ? 'has-image' : null;?>">
+                     <h3 class="tourShow-itemTitle">
+                         <a href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>">
+                             <?php //echo '<span class="number">'.$i.'</span>';?>
+                             <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
                          </a>
                     </h3>
 
         <?php
                 if ($hasImage){
                     preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
-                    $item_image = array_pop($result);				
+                    $item_image = array_pop($result);
                 }
-                echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><span class="item-image" style="background-image:url('.$item_image.');"></span></a>' : null; 
+                echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><div class="tourShow-itemImage" style="background-image:url('.$item_image.');"></div></a>' : null;
         ?>
-                                 
+
                      <div class="tourShow-itemDescription"><?php echo snippet(mh_the_text($tourItem),0,250); ?></div>
-                 </article>
-         <?php 
+                 </div>
+         <?php
                  $i++;
                  $item_image=null;
              }
@@ -79,7 +98,8 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 
     <section class="comments">
         <?php echo (get_theme_option('tour_comments') ==1) ? mh_display_comments() : null;?>
-    </section>			   
+    </section>
+
 </article>
 
 <div id="share-this" class="browse">
