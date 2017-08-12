@@ -12,8 +12,6 @@ echo head(array(
 
 <?php mh_map_actions($item,null);?>
 
-<div id="content">
-
 <article class="item instapaper_body hentry" role="main">
 
     <header class="item-header">
@@ -126,8 +124,6 @@ echo head(array(
     </div>
 
 </article>
-
-</div> <!-- end content -->
 
 <script>
 
