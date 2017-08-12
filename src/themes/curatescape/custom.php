@@ -2104,7 +2104,9 @@ function mh_random_or_recent($mode='recent',$num=4){
 
             $html .= '<div class="featuredItem-text">';
                 $html.= '<h2 class="featuredItem-title">'
+                    . '<span class="featuredItem-title--raggedBackground">'
                     .link_to_item(metadata($item,array('Dublin Core','Title')),array('class'=>'permalink'))
+                    . '</span>'
                 .'</h2>';
             $html .= '</div>';
 
