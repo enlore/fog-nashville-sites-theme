@@ -1,39 +1,97 @@
 .tourShow-header {
+    position: relative;
+    margin: 32px 0 96px;
 }
 
 .tourShow-title {
+    color: $white;
+    max-width: 70%;
+    transform: translateY(50%);
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+
+    @media screen and (min-width: $desktop) {
+        bottom: initial;
+        top: 16px;
+        left: 48px;
+    }
+}
+
+.tourShow-title--raggedBackground {
+    @include raggedBackground;
 }
 
 .tourShow-heroImage {
     height: 400px;
     background-repeat: no-repeat;
-}
+    background-position: center;
+    background-size: cover;
 
-.tourShow-credits {
+    @media screen and (min-width: $tablet) {
+        height: 450px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        height: 550px;
+    }
 }
 
 .tourShow-copy {
+    @media screen and (min-width: $tablet) {
+        max-width: 70%;
+    }
+}
 
+.tourShow-credits {}
+
+.tourShow-sectionLabel {
+    text-transform: uppercase;
 }
 
 .tourShow-description {
+    margin-top: 64px;
 }
 
-.tourShow-postscript {
-}
+.tourShow-postscript {}
 
 .tourShow-items {
+    @media screen and (min-width: $tablet) {
+        max-width: 70%;
+    }
 }
 
 .tourShow-itemsTitle {
-
+    text-transform: uppercase;
 }
 
-.tourShow-itemResult {
+.tourShow-item + .tourShow-item {
+    margin-top: 64px;
+}
 
+.tourShow-item {
+    margin-top: 32px;
+}
+
+.tourShow-itemImage {
+    margin-top: 16px;
+    height: 320px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (min-width: $tablet) {
+        height: 360px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        height: 400px;
+    }
 }
 
 .tourShow-itemDescription {
+    margin-top: 32px;
 
 }
 

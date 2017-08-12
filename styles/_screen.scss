@@ -12,6 +12,17 @@
 /* colors, whitespace, etc */
 @import 'root.scss';
 
+// mixins
+// bind variables?
+@mixin raggedBackground($pad: 16px, $color: $blue) {
+    background-color: $blue;
+    padding: $pad;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: $pad 0 0 $color, -$pad 0 0 $color;
+    line-height: 3.1rem;
+}
+
 @import 'util-typography.scss';
 //@import 'util-resets.scss';
 @import 'util-util.scss';

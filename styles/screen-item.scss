@@ -36,11 +36,7 @@
 }
 
 .item-title--raggedBackground {
-    background-color: $blue;
-    padding: 16px;
-    padding-left: 0;
-    padding-right: 0;
-    box-shadow: 16px 0 0 $blue, -16px 0 0 $blue;
+    @include raggedBackground;
 }
 
 .item-subtitle {
