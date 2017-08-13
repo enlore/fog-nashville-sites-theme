@@ -183,6 +183,19 @@
     }
 }
 
+.featuredPerson {
+}
+
+.featuredPerson-portrait {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.featuredPerson-title {
+    margin-top: 16px;
+}
 
 .greyBanner {
     background-color: $lightgrey;
