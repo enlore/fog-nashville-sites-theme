@@ -68,10 +68,12 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
                 set_current_record( 'item', $tourItem );
                 $itemID=$tourItem->id;
                 $hasImage=metadata($tourItem,'has thumbnail');
+                $itemHref = url('/') . 'items/show/' . $itemID . '?tour=' . tour( 'id' ) . '&index=' . ($i-1) . '';
          ?>
                  <div class="tourShow-item <?php echo $hasImage ? 'has-image' : null;?>">
                      <h3 class="tourShow-itemTitle">
-                         <a href="<?php echo url('/') ?>items/show/<?php echo $itemID.'?tour='.tour( 'id' ).'&index='.($i-1).''; ?>">
+                        
+                         <a href="<?php echo $itemHref; ?>">
                              <?php //echo '<span class="number">'.$i.'</span>';?>
                              <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
                          </a>
