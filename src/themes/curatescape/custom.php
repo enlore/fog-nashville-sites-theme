@@ -1728,7 +1728,7 @@ function mh_display_homepage_people($num=3){
     // omeka_elements_texts
     $personType = get_record('ItemType', array('name' => 'Person'));
 
-    $personItemTypeId = $personType->id;
+    //$personItemTypeId = $personType->id;
 
     // this is not cached
     //$people = get_db()->getTable('Item')->findBy(array('item_type_id' => $personItemTypeId), 3);
@@ -1740,26 +1740,36 @@ function mh_display_homepage_people($num=3){
     // (it defaults to outputing a bunch of html)
     //var_dump(all_element_texts($people[0], array('return_type' => 'array')));
 
-    $html = "<div class='featuredPeople columns is-mobile'>";
+    $html = '<div class="featuredPeople columns is-mobile">';
 
     foreach($people as $p) {
 
         $personName = metadata($p, array('Dublin Core', 'Title'));
-        $img_url = file_display_url($p->getFile(0));
-        $img_markup = '<div class="featuredPerson-portrait" style="background-image: url(' . $img_url .');">'
-            . '</div>';
+        $personFile = $p->getFile(0); // could be null
 
-        $html .='<div class="featuredPerson column is-half-mobile is-one-third-desktop">';
-            $html .= $img_markup;
-            $html .= '<h3 class="featuredPerson-title">' . $personName . '</h3>';
-        $html = $html."</div>";
+        if ($personFile === null) {
+            $img_url = '';
+        } else {
+            $img_url = file_display_url($personFile);
+        }
+
+        $personInner = '<div class="featuredPerson-portrait" style="background-image: url(' . $img_url .');">'
+        . '</div>';
+        $personInner .= '<h3 class="featuredPerson-title">' . $personName . '</h3>';
+
+        $personView = link_to(
+            $p,
+            null,
+            $personInner,
+            array('class' => "featuredPerson column is-half-mobile is-one-third-deskop")
+        );
+
+        $html .= $personView;
     }
 
     $html .= '</div>';
 
-    $html = mh_display_featured_section('Learn', 'People', $more="View More People", $link="#", $html);
-
-    return $html;
+    return mh_display_featured_section('Learn', 'People', $more="View More People", $link="#", $html);
 }
 
 /*
