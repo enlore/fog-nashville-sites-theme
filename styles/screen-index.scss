@@ -79,6 +79,7 @@
 
 .featuredItem {
     position: relative;
+    display: block;
 }
 
 .featuredItem + .featuredItem {
@@ -91,8 +92,6 @@
     background-position: center;
     background-size: cover;
 }
-
-.featuredItem-text {}
 
 .featuredItem-title {
     max-width: 70%;
