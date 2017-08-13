@@ -1700,12 +1700,13 @@ function mh_reducepayload($index,$showThisMany){
     return $showThisMany;
 }
 
-function mh_display_featured_section($title='Discover', $more="View More Explorations", $link="#", $inner=null){
+function mh_display_featured_section($title='Discover', $subtitle='Featured', $more="View More Explorations", $link="#", $inner=null){
+    $subtitle = $subtitle !== null ? $subtitle : 'Featured';
     $html = '<section class="featuredSection">';
         $html .= '<div class="featuredSection-inner">';
             $html .= '<div class="featuredSection-header">';
                 $html .= '<h3 class="featuredSection-label">'.__($title).'</h3>';
-                $html .= '<h2 class="featuredSection-title">'.__('Featured %s', mh_item_label()).'</h2>';
+                $html .= '<h2 class="featuredSection-title">'.__($subtitle).'</h2>';
                 $html .= '<a href="'.$link.'"><h3 class="featuredSection-link">'.__($more).'</h3></a>';
             $html .= '</div>';
 
@@ -1725,19 +1726,33 @@ function mh_display_featured_section($title='Discover', $more="View More Explora
 */
 function mh_display_homepage_people($num=3){
     // omeka_elements_texts
-    $people = get_records('Item', array('hasImage'=>true, 'item_type_id'=>12), $num);
-    $html = mh_display_featured_section('Learn', $more="View More People", $link="#");
-    $html = $html."<div class='people columns is-mobile'>";
+    $itemTypes = get_records('ItemType', array('name' => 'Person'), 1);
+
+    $personItemTypeId = $itemTypes[0]->id;
+
+    $people = get_db()->getTable('Item')->findBy(array('item_type_id' => $personItemTypeId), 3);
+
+    // tips and trix: all_element_texts can output just data if you ask it
+    // (it defaults to outputing a bunch of html)
+    //var_dump(all_element_texts($people[0], array('return_type' => 'array')));
+
+    $html = "<div class='featuredPeople columns is-mobile'>";
+
     foreach($people as $p) {
 
         $personName = metadata($p, array('Dublin Core', 'Title'));
-        $img_markup = item_image('fullsize',array(),0, $p);
-        $html = $html."<div class='person column is-half'>";
-        $html = $html.$img_markup;
-        $html = $html."<h3>".$personName."</h3>";
+        $img_markup = item_image('fullsize',array('class' => 'featuredPerson-image'),0, $p);
+
+        $html = $html.'<div class="featuredPerson column is-half-mobile is-one-third-desktop">';
+            $html .= $img_markup;
+            $html .= "<h3>" . $personName . "</h3>";
         $html = $html."</div>";
     }
-    $html = $html."</div>";
+
+    $html .= "</div>";
+
+    $html = mh_display_featured_section('Learn', 'People', $more="View More People", $link="#", $html);
+
     return $html;
 }
 
@@ -1747,6 +1762,7 @@ function mh_display_homepage_people($num=3){
 function mh_display_homepage_map() {
     $html = mh_display_featured_section(
         $title='Vist',
+        null,
         $more="View More Past Events",
         $link="#", mh_display_map($type='global')
     );
@@ -1818,7 +1834,7 @@ function mh_display_homepage_tours($num=7, $scope='random'){
         $html .= '</article>';
     }
 
-    $html = mh_display_featured_section(mh_tour_header(), null, null, $html);
+    $html = mh_display_featured_section(mh_tour_header(), __('Featured %s', mh_tour_label()), null, null, $html);
 
     return $html;
 
@@ -1864,7 +1880,7 @@ function mh_display_random_featured_item($withImage=false,$num=1)
                     $inner .= '</div>' ;
 
                 $inner .= '</article>';
-                $html = mh_display_featured_section("Discover", "View More Explorations", null, $inner);
+                $html = mh_display_featured_section("Discover", __('Featured %s', mh_item_label()), "View More Explorations", null, $inner);
             }
 
     endforeach;
@@ -2018,6 +2034,10 @@ function homepage_widget_3($content='recent_or_random'){
     return $content;
 }
 
+function homepage_widget_4 ($content='people') {
+    return $content;
+}
+
 function homepage_widget_sections($html=null){
 
         $recent_or_random_isset=0;
@@ -2025,7 +2045,12 @@ function homepage_widget_sections($html=null){
         $featured_isset=0;
         $popular_tags=0;
 
-        foreach(array(homepage_widget_1(),homepage_widget_2(),homepage_widget_3()) as $setting){
+        foreach(array(
+             homepage_widget_1(),
+             homepage_widget_2(),
+             homepage_widget_4(),
+             homepage_widget_3()
+        ) as $setting) {
 
             switch ($setting) {
                 case 'featured':
@@ -2045,7 +2070,7 @@ function homepage_widget_sections($html=null){
                     $popular_tags++;
                     break;
                 case 'people':
-                    $html.= ($popular_tags==0) ? '<section id="people">'.mh_display_homepage_people().'</section>' : null;
+                    $html.= ($popular_tags==0) ? mh_display_homepage_people() : null;
                     break;
                 case 'map':
                     $html.= ($popular_tags==0) ? mh_display_homepage_map() : null;
@@ -2130,7 +2155,7 @@ function mh_random_or_recent($mode='recent',$num=4){
             $html.= '</article>';
         }
 
-        $html = mh_display_featured_section("LEARN", null, null, $html);
+        $html = mh_display_featured_section("LEARN", __('Featured Items'), null, null, $html);
 
         //$html.= '<p class="view-more-link">'.link_to_items_browse(__('Browse all %s',$labelcount)).'</p>';
 
