@@ -2129,7 +2129,7 @@ function mh_random_or_recent($mode='recent',$num=4){
 
     set_loop_records('items',$items);
 
-    $html=null;
+    $featuredItemsView = '';
     // Browse all 49 stories
     $labelcount='<span>'.total_records('Item').' '.mh_item_label('plural').'</span>';
 
@@ -2141,42 +2141,36 @@ function mh_random_or_recent($mode='recent',$num=4){
         //$html .= '<h2 class="featuredItem-label"> LEARN </h2>';
 
         foreach (loop('items') as $item) {
-            $html.= '<article class="featuredItem">';
+            $itemTitle = metadata($item, array('Dublin Core','Title'));
 
-            $html .= '<div class="featuredItem-text">';
-                $html.= '<h2 class="featuredItem-title">'
+            $html = 
+                '<h2 class="featuredItem-title">'
                     . '<span class="featuredItem-title--raggedBackground">'
-                    .link_to_item(metadata($item,array('Dublin Core','Title')),array('class'=>'permalink'))
+                    . $itemTitle
                     . '</span>'
                 .'</h2>';
-            $html .= '</div>';
 
             $hasImage=metadata($item, 'has thumbnail');
+
             if ($hasImage){
                 preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
                 $item_image = array_pop($result);
             }
 
             $html.= isset($item_image)
-                ? link_to_item('<div class="featuredItem-imageBg" style="background-image:url('.$item_image.');"></div>')
+                ? '<div class="featuredItem-imageBg" style="background-image:url('.$item_image.');"></div>'
                 : null;
 
-
-            //if($desc = mh_the_text($item,array('snippet'=>200))){
-                //$html.= '<div class="item-description">'.strip_tags($desc).'</div>';
-            //}else{
-                //$html.= '<div class="item-description">'.__('Text preview unavailable.').'</div>';
-            //}
-
-            $html.= '</article>';
+            // append this item to view (item group)
+            $featuredItemsView .= link_to($item,
+                null,
+                $html,
+                array('class'=>'featuredItem'));
         }
 
-        $html = mh_display_featured_section("LEARN", __('Featured Items'), null, null, $html);
+        return mh_display_featured_section("LEARN", __('Featured Items'), null, null, $featuredItemsView);
 
-        //$html.= '<p class="view-more-link">'.link_to_items_browse(__('Browse all %s',$labelcount)).'</p>';
-
-
-    }else{
+    } else {
         $html .= '<article class="recent-random-result none">';
         $html .= '<p>'.__('No %s items are available.',$mode).'</p>';
         $html .= '</article><div class="clearfix"></div>';
