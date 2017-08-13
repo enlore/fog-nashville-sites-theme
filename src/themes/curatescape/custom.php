@@ -1726,11 +1726,15 @@ function mh_display_featured_section($title='Discover', $subtitle='Featured', $m
 */
 function mh_display_homepage_people($num=3){
     // omeka_elements_texts
-    $itemTypes = get_records('ItemType', array('name' => 'Person'), 1);
+    $personType = get_record('ItemType', array('name' => 'Person'));
 
-    $personItemTypeId = $itemTypes[0]->id;
+    $personItemTypeId = $personType->id;
 
-    $people = get_db()->getTable('Item')->findBy(array('item_type_id' => $personItemTypeId), 3);
+    // this is not cached
+    //$people = get_db()->getTable('Item')->findBy(array('item_type_id' => $personItemTypeId), 3);
+
+    // this is cached
+    $people = $personType->Items;
 
     // tips and trix: all_element_texts can output just data if you ask it
     // (it defaults to outputing a bunch of html)
@@ -1741,15 +1745,17 @@ function mh_display_homepage_people($num=3){
     foreach($people as $p) {
 
         $personName = metadata($p, array('Dublin Core', 'Title'));
-        $img_markup = item_image('fullsize',array('class' => 'featuredPerson-image'),0, $p);
+        $img_url = file_display_url($p->getFile(0));
+        $img_markup = '<div class="featuredPerson-portrait" style="background-image: url(' . $img_url .');">'
+            . '</div>';
 
-        $html = $html.'<div class="featuredPerson column is-half-mobile is-one-third-desktop">';
+        $html .='<div class="featuredPerson column is-half-mobile is-one-third-desktop">';
             $html .= $img_markup;
-            $html .= "<h3>" . $personName . "</h3>";
+            $html .= '<h3 class="featuredPerson-title">' . $personName . '</h3>';
         $html = $html."</div>";
     }
 
-    $html .= "</div>";
+    $html .= '</div>';
 
     $html = mh_display_featured_section('Learn', 'People', $more="View More People", $link="#", $html);
 
