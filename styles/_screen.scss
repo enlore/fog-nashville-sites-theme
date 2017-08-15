@@ -8,6 +8,7 @@
 @import 'bulma/sass/grid/all';
 @import 'bulma/sass/layout/all';
 @import 'bulma/sass/elements/other';
+@import 'bulma/sass/elements/content';
 
 /* colors, whitespace, etc */
 @import 'root.scss';
@@ -50,6 +51,7 @@
 @import 'screen-item.scss';
 @import 'screen-items.scss';
 @import 'screen-tour.scss';
+@import 'screen-tour-stop.scss';
 
 html, body { 
     padding: 0;

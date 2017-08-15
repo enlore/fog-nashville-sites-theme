@@ -1,0 +1,11 @@
+.tourStop-pagination {
+    display: flex;
+}
+
+.tourStop-paginationControl {
+    flex: 1 1 50%;
+    display: block;
+    padding: 24px;
+    background-color: $lightgrey;
+    text-align: center;
+}
