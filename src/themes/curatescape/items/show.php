@@ -4,14 +4,21 @@
 
 $type = $item->getItemType();
 $type = $type['name'];
-switch($type){
 
-//	case 'Curatescape Story':
-//	include('show-template-story.php');
-//	break;
-	
-	default:
-	include('show-template-default.php');
-	break;
-	
+// garbaaaaaaaage ugh
+if (isset($_GET['tour'])) {
+    include('show-stop-template.php');
+
+} else {
+    switch($type){
+
+    //	case 'Curatescape Story':
+    //	include('show-template-story.php');
+    //	break;
+        
+        default:
+        include('show-template-default.php');
+        break;
+        
+    }
 }
