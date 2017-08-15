@@ -1884,12 +1884,14 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 
                 $inner = '';
                 $inner .= '<article class="featuredItem">';
-                    $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>';
+                    $inner .= '<a href="' .record_url($item, 'show', null, array()) . '">';
+                        $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>';
+                    $inner .= '</a>';
 
                     $inner .= '<div class="featuredItem-text">';
                         $inner .= '<h2 class="featuredItem-title">' 
                             . '<span class="featuredItem-title--raggedBackground">'
-                            . link_to_item($itemTitle, array(), 'show', $item)
+                            . $itemTitle
                             . '</span>'
                                     //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
                            .'</h2>';
