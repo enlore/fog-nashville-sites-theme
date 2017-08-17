@@ -8,14 +8,14 @@
         <h2 class="instapaper_title"><?php echo metadata('exhibit_page', 'title'); ?></h2>
         <nav id="exhibit-pages">
             <?php echo exhibit_builder_page_nav(); ?>
-        </nav>      
-        
+        </nav>
+
         <nav id="exhibit-child-pages">
             <?php echo exhibit_builder_child_page_nav(); ?>
         </nav>
-        
+
         <?php exhibit_builder_render_exhibit_page(); ?>
-        
+
         <div id="exhibit-page-navigation">
             <?php if ($prevLink = exhibit_builder_link_to_previous_page()): ?>
             <div id="exhibit-nav-prev">
