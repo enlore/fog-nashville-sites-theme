@@ -55,7 +55,9 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
             $showImgNum= 3; // show this many images on the browse results page; used for slider on mobile devices
             foreach(loop('Items') as $item): 
                 $description = mh_the_text($item,array('snippet'=>250));
-                $tags=tag_string(get_current_record('item') , url('items/browse'));
+
+                $tags=tag_string(get_current_record('item') , url('items/browse'), '');
+
                 $titlelink=link_to_item(metadata($item, array('Dublin Core', 'Title')), array('class'=>'permalink'));
                 $hasImage=metadata($item, 'has thumbnail');
                 if ($hasImage){
