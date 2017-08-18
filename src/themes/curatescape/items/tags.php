@@ -4,27 +4,27 @@
 	?>
 
 
-<div id="content">
-<section class="browse tags">		
-<h2><?php echo __('Tags: %s', total_records('Tags'));?></h2>
+<section class="allTagsScreen section">		
+        <header>
+            <h2 class="allTags-title"><?php echo __('Tags: %s', total_records('Tags'));?></h2>
+        </header>
 
-
-	<div id="primary" class="browse">
-	<section id="tags">
-    
-	    
 	    <nav class="secondary-nav" id="tag-browse"> 
 			<?php mh_item_browse_subnav(); ?>
 	    </nav>
 	
-	    <?php echo tag_cloud($tags,url('items/browse')); ?>
+	    <?php // echo fog_tag_cloud($tags, url('items/browse'), 9, false, null, array('class' => 'browseTag')); ?>
 
-	</section> 
-	</div><!-- end primary -->
+        <div class="allTagsList">
+        <?php foreach ($tags as $tag) {
+            $_href = url('/items/browse', array('tags' => $tag['name']));
 
+            $href = html_escape($_href);
 
+            echo '<a class="allTagsList-tag" href="' . $href . '">' . $tag['name'] . '</a>';
+        }?>
+        </div>
 </section>	
-</div> <!-- end content -->
 
 <div id="share-this" class="browse">
 <?php echo mh_share_this();?>

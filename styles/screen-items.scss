@@ -30,10 +30,39 @@
     text-transform: uppercase;
 }
 
-.browseItem-tagsList a {
+@mixin tag () {
     background-color: $lightgrey;
     border-radius: 32px;
     padding: 8px 24px;
     display: inline-block;
     margin-top: 8px;
+}
+
+.browseItem-tagsList a {
+    @include tag;
+}
+
+.allTagsList {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.allTagsList-tag {
+    @include tag;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.allTagsList-tag:first-child {
+    margin-left: 0;
+}
+
+.allTagsList-tag:last-child {
+    margin-right: 0;
+}
+
+.allTags-title {
+    
 }
