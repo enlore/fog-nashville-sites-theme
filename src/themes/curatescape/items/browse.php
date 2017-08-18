@@ -67,20 +67,24 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 
                 ?>
                 <article class="browseItem" id="item-result-<?php echo $index;?>">
-                    <h2 class="browseItem-title"> <?php echo $titlelink; ?> </h2>
+                    <div class="columns">
+                        <div class="column">
+                            <h2 class="browseItem-title"> <?php echo $titlelink; ?> </h2>
 
-                    <?php echo isset($item_image) 
-                    //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
-                    ? link_to_item('<div class="browseItem-imageBg" style="background-image: url('.$item_image.');"></div>')
-                    : null; ?>
+                            <?php echo isset($item_image) 
+                            //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
+                            ? link_to_item('<div class="browseItem-imageBg" style="background-image: url('.$item_image.');"></div>')
+                            : null; ?>
 
-                    <div class="browseItem-byline"><?php echo mh_the_byline($item,true);?></div>
-                    
-                    <?php if ($description): ?>
-                        <div class="browseItem-description">
-                            <?php echo strip_tags($description); ?>
+                            <div class="browseItem-byline"><?php echo mh_the_byline($item,true);?></div>
                         </div>
-                    <?php endif; ?>
+                        
+                        <?php if ($description): ?>
+                            <div class="browseItem-description column">
+                                <?php echo strip_tags($description); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
                     <div class="browseItem-tags">
                         <?php if (metadata($item, 'has tags') ): ?>

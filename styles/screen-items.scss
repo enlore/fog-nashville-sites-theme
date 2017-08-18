@@ -15,7 +15,11 @@
 }
 
 .browseItem-description {
-    margin-top: 24px;
+    margin-top: 8px;
+    align-self: flex-end;
+
+    @include media(desktop) { padding-bottom: 64px; }
+    @include media(large) { padding-bottom: 48px; }
 }
 
 .browseItem-image {
@@ -25,14 +29,14 @@
 .browseItem-imageBg {
     @include imgBg;
     margin-top: 24px;
-    height: 240px;
+    height: 180px;
 
     @include media(tablet) {
-        height: 360px;
+        height: 240px;
     }
 
     @include media(desktop) {
-        height: 440px;
+        height: 290px;
     }
 }
 

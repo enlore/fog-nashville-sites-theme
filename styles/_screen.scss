@@ -69,7 +69,26 @@
 @import 'screen-item.scss';
 @import 'screen-items.scss';
 @import 'screen-tour.scss';
+@import 'screen-tours.scss';
 @import 'screen-tour-stop.scss';
+
+.flexRow {
+    display: flex;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexRow--wrap,
+.flexCol--wrap {
+    flex-wrap: wrap;
+}
+
+.flexItem-50 {
+    flex: 1 1 50%;
+}
 
 html, body { 
     padding: 0;

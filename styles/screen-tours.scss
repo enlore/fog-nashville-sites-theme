@@ -1,0 +1,24 @@
+.browseTour {
+
+}
+
+.browseTour-imageBg {
+    @include imgBg;
+
+    height: 120px;
+
+    @include media(tablet) { height: 220px; }
+    @include media(desktop) { height: 320px; }
+
+}
+
+.browseTour-meta {
+    margin-top: 4px;
+}
+
+.browseTour-description {
+    align-self: flex-end;
+
+    @include media(desktop) { padding-bottom: 64px; }
+    @include media(large) { padding-bottom: 48px; }
+}
