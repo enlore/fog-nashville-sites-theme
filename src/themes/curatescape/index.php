@@ -18,8 +18,8 @@ else { //if not stealth mode, do everything else
      <?php //mh_map_actions();?> 
 
     <article>
-        <section class="hero">
-            <div class="hero-text f-center f-h2">
+        <section class="hero section heroSection">
+            <div class="hero-text f-center f-h2 u-max800">
                 <?php echo mh_home_about();?>
             </div>
         </section>

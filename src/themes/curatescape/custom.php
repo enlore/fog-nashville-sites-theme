@@ -2042,10 +2042,10 @@ function homepage_widget_sections($html=null){
         $popular_tags=0;
 
         foreach(array(
-             homepage_widget_1(),
              homepage_widget_2(),
              homepage_widget_4(),
-             homepage_widget_3()
+             homepage_widget_1(),
+             //homepage_widget_3()
         ) as $setting) {
 
             switch ($setting) {
@@ -2078,12 +2078,7 @@ function homepage_widget_sections($html=null){
 
         }
 
-        // we need to use this one at least once for the mobile slider. if it's unused, we'll include it in a hidden div
-        $html.= ($recent_or_random_isset==0) ? '<section class="hidden" id="home-item-list">'.mh_home_item_list().'</section>' : null;
-
         return $html;
-
-
 }
 
 

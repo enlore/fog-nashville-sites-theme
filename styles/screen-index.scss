@@ -1,13 +1,16 @@
-.homepage-hero {
-    margin-bottom: 160px;
-    padding: 0 8px;
+.heroSection {
+    align-items: center;
+}
+
+.featuredSection {
+    margin-top: 72px;
 }
 
 .featuredSection + .featuredSection {
-    margin-top: 144px;
+    margin-top: 98px;
 
     @media screen and (min-width: $tablet) {
-        margin-top: 288px;
+        margin-top: 160px;
     }
 }
 
