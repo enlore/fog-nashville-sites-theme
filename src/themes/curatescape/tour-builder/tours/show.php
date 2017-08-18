@@ -52,6 +52,10 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
             <?php echo htmlspecialchars_decode(nls2p( tour( 'Description' ) )); ?>
        </div>
 
+        <div class="tourShow-map">
+            <?php mh_display_map('tour', null, $tour) ?>
+        </div>
+
        <div class="tourShow-postscript">
         <?php echo htmlspecialchars_decode(metadata('tour','Postscript Text')); ?>
        </div>

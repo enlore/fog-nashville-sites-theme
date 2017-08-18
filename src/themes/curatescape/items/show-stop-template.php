@@ -89,6 +89,13 @@ echo head(array(
         </div>
     </section>
 
+    <section class="item-mapSection section">
+        <div class="item-map">
+            <h2 class="f-upper" style="margin-bottom: 24px;"> Where can I find it? </h2>
+            <?php echo mh_display_map('story', $item, null) ?>
+        </div>
+    </section>
+
     <section class="item-media section">
         <div class="container">
             <?php mh_item_images($item);?>
@@ -96,14 +103,6 @@ echo head(array(
             <?php mh_audio_files($item);?>
 
             <?php mh_video_files($item);?>
-        </div>
-    </section>
-
-
-    <section class="item-mapSection section">
-        <div class="item-map">
-            <h2 class="f-upper" style="margin-bottom: 24px;"> Where can I find it? </h2>
-            <?php echo mh_display_map('story') ?>
         </div>
     </section>
 
