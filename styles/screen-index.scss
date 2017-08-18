@@ -204,7 +204,22 @@
     align-items: center;
 }
 
+.greyBanner-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.greyBanner-copy h4:first-child {
+    margin-top: 0;
+}
+
 .greyBanner-copy h4 {
-    padding: 16px 0px;
     margin: 0;
+    margin-top: 8px;
+}
+
+.greyBanner-image {
+    max-width: 100px;
+    display: block;
 }

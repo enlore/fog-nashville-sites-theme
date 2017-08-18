@@ -46,14 +46,12 @@ else { //if not stealth mode, do everything else
     <div class="greyBanner">
         <div class="columns is-mobile">
             <div class="column is-one-third greyBanner-proposalImage">
-                <img src="/themes/curatescape/images/MHC-demo-logo.png">
+                <img class="greyBanner-image" src="/themes/curatescape/images/MHC-demo-logo.png">
             </div>
 
-            <div class="column is-two-thirds">
-                <div class="greyBanner-copy">
-                    <h4>Do you know of a landmark, person, or site that the commission should add to our markers?</h4>
-                    <h4>Find out how to submit your marker proposal here.</h4>
-                </div>
+            <div class="greyBanner-copy column is-two-thirds">
+                <h4>Do you know of a landmark, person, or site that the commission should add to our markers?</h4>
+                <h4>Find out how to submit your marker proposal here.</h4>
             </div>
         </div>
     </div>
