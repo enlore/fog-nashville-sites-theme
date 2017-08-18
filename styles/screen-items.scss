@@ -22,6 +22,20 @@
     margin-top: 24px;
 }
 
+.browseItem-imageBg {
+    @include imgBg;
+    margin-top: 24px;
+    height: 240px;
+
+    @include media(tablet) {
+        height: 360px;
+    }
+
+    @include media(desktop) {
+        height: 440px;
+    }
+}
+
 .browseItem-tags {
     margin-top: 16px;
 }
@@ -36,6 +50,8 @@
     padding: 8px 24px;
     display: inline-block;
     margin-top: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .browseItem-tagsList a {
@@ -43,7 +59,6 @@
 }
 
 .allTagsList {
-    padding: 0 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -51,17 +66,8 @@
 
 .allTagsList-tag {
     @include tag;
-    margin-left: 8px;
-    margin-right: 8px;
 }
 
-.allTagsList-tag:first-child {
-    margin-left: 0;
-}
-
-.allTagsList-tag:last-child {
-    margin-right: 0;
-}
 
 .allTags-title {
     

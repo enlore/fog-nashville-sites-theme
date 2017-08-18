@@ -24,6 +24,24 @@
     line-height: 3.3rem;
 }
 
+@mixin imgBg () {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin media($media) {
+  @if $media == tablet {
+    @media only screen and (min-width: $tablet) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $desktop) { @content; }
+  }
+  @else if $media == large {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+
 @import 'util-typography.scss';
 //@import 'util-resets.scss';
 @import 'util-util.scss';

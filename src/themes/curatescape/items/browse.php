@@ -70,7 +70,8 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                     <h2 class="browseItem-title"> <?php echo $titlelink; ?> </h2>
 
                     <?php echo isset($item_image) 
-                    ? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
+                    //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
+                    ? link_to_item('<div class="browseItem-imageBg" style="background-image: url('.$item_image.');"></div>')
                     : null; ?>
 
                     <div class="browseItem-byline"><?php echo mh_the_byline($item,true);?></div>

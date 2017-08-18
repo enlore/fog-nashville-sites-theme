@@ -1920,30 +1920,8 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 ** also sets content for mobile slideshow, via mh_random_or_recent()
 */
 function mh_home_about($length=530,$html=null){
-
-    $html .= '<div class="about-text">';
-        $html .= '<article>';
-
-            // $html .= '<header>';
-            //  $html .= '<h2>'.option('site_title').'</h2>';
-            //  $html .= '<span class="find-us">'.__('A project by %s', mh_owner_link()).'</span>';
-            // $html .= '</header>';
-
-            $html .= '<div class="about-main">';
-                $html .= substr(mh_about(),0,$length);
-                $html .= ($length < strlen(mh_about())) ? '...' : null;
-                // $html .= '<p class="view-more-link"><a href="'.url('about').'">'.__('Read more <span>About Us</span>').'</a></p>';
-            $html .= '</div>';
-
-        $html .= '</article>';
-    $html .= '</div>';
-
-    // $html .= '<div class="home-about-links">';
-    //  $html .= '<aside>';
-    //  $html .= mh_homepage_find_us();
-    //  $html .= '</aside>';
-    // $html .= '</div>';
-
+    $html = substr(mh_about(),0,$length);
+    $html .= ($length < strlen(mh_about())) ? '...' : null;
     return $html;
 }
 
@@ -2518,6 +2496,60 @@ function fog_get_image_url_of_first_public_item ($tour) {
 
         return null;
     }
+}
+
+function fog_tag_cloud ($recordOrTags = null, $link = null, $maxClasses = 9, $tagNumber = false, $tagNumberOrder = null, $attr = array())
+{
+    if (!$recordOrTags) {
+        $tags = array();
+    } else if (is_string($recordOrTags)) {
+        $tags = get_current_record($recordOrTags)->Tags;
+    } else if ($recordOrTags instanceof Omeka_Record_AbstractRecord) {
+        $tags = $recordOrTags->Tags;
+    } else {
+        $tags = $recordOrTags;
+    }
+
+    if (empty($tags)) {
+        return '<p>' . __('No tags are available.') . '</p>';
+    }
+
+    //Get the largest value in the tags array
+    $largest = 0;
+    foreach ($tags as $tag) {
+        if($tag["tagCount"] > $largest) {
+            $largest = $tag['tagCount'];
+        }
+    }
+    $html = '<div class="hTagcloud">';
+    $html .= '<ul class="popularity">';
+
+    if ($largest < $maxClasses) {
+        $maxClasses = $largest;
+    }
+
+    foreach( $tags as $tag ) {
+        $size = (int)(($tag['tagCount'] * $maxClasses) / $largest - 1);
+        $class = str_repeat('v', $size) . ($size ? '-' : '') . 'popular';
+        $html .= '<li class="' . $class . '">';
+        if ($link) {
+            $html .= '<a href="' . html_escape(url($link, array('tags' => $tag['name']))) . '">';
+        }
+        if($tagNumber && $tagNumberOrder == 'before') {
+            $html .= ' <span class="count">'.$tag['tagCount'].'</span> ';
+        }
+        $html .= html_escape($tag['name']);
+        if($tagNumber && $tagNumberOrder == 'after') {
+            $html .= ' <span class="count">'.$tag['tagCount'].'</span> ';
+        }
+        if ($link) {
+            $html .= '</a>';
+        }
+        $html .= '</li>' . "\n";
+    }
+    $html .= '</ul></div>';
+
+    return $html;
 }
 
 ?>

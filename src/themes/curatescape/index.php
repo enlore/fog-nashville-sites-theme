@@ -17,33 +17,31 @@ else { //if not stealth mode, do everything else
 
      <?php //mh_map_actions();?> 
 
-    <div role="main">
-        <article id="homepage">
-            <section class="hero homepage-hero">
-                <div class="hero-text">
-                    <?php echo mh_home_about();?>
+    <article>
+        <section class="hero">
+            <div class="hero-text f-center f-h2">
+                <?php echo mh_home_about();?>
+            </div>
+        </section>
+
+        <?php echo homepage_widget_sections(); ?>
+
+        <section id="map" class="featuredSection">
+            <div class="featuredMap">
+                <h3 class="featuredMap-label">View</h3>
+
+                <div class="featuredMap-map">
+                    <?php mh_display_map($type='global'); ?>
                 </div>
-            </section>
 
-            <?php echo homepage_widget_sections(); ?>
+                <h2 class="featuredMap-title">
+                    <a class="featuredMap-titleInner" href="#">Check out the map to visit MHC Locations!</a>
+                </h2>
+            </div>
+        </section>
+            <?php //echo mh_display_featured_section($title='Vist', null, null, ); ?>
 
-            <section id="map" class="featuredSection">
-                <div class="featuredMap">
-                    <h3 class="featuredMap-label">View</h3>
-
-                    <div class="featuredMap-map">
-                        <?php mh_display_map($type='global'); ?>
-                    </div>
-
-                    <h2 class="featuredMap-title">
-                        <a class="featuredMap-titleInner" href="#">Check out the map to visit MHC Locations!</a>
-                    </h2>
-                </div>
-            </section>
-                <?php //echo mh_display_featured_section($title='Vist', null, null, ); ?>
-
-        </article>
-    </div>
+    </article>
 
     <div class="greyBanner">
         <div class="columns is-mobile">

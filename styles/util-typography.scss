@@ -43,16 +43,25 @@ a:hover {
     outline: 0
 }
 
-$h3-size: 1.5rem;
 
-h1, .f-h1 { font-size: 2.2rem; }
-h2, .f-h2 { font-size: 1.85rem; }
-h3, .f-h3 { font-size: $h3-size; }
-h4, .f-h4 { font-size: 1.25rem; }
-h5, .f-h5 { font-size: 1.2rem; }
+h1, .f-h1 { font-size: 1.8rem; }
+h2, .f-h2 { font-size: 1.65rem; }
+h3, .f-h3 { font-size: 1.2rem; }
+h4, .f-h4 { font-size: 1.15rem; }
+h5, .f-h5 { font-size: 1.0rem; }
 h6, .f-h6 { font-size: 0.75rem; }
 
+@media screen and (min-width: $tablet) {
+    h1, .f-h1 { font-size: 2.2rem; }
+    h2, .f-h2 { font-size: 1.85rem; }
+    h3, .f-h3 { font-size: 1.5rem; }
+    h4, .f-h4 { font-size: 1.25rem; }
+    h5, .f-h5 { font-size: 1.2rem; }
+    h6, .f-h6 { font-size: 0.75rem; }
+}
+
 .f-upper { text-transform: uppercase; }
+.f-center { text-align: center; }
 
 abbr[title] {
     border-bottom: 1px dotted
