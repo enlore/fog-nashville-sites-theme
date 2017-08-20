@@ -27,71 +27,55 @@ else{
 	$bodyclass .=' exhibits stories';
 }	
 echo head(array('maptype'=>'none','title'=>$title,'bodyid'=>'exhibits','bodyclass'=>$bodyclass)); 
+
+$title .= ( ($total_results) ? ': <span class="item-number">'.$total_results.'</span>' : '');
 ?>
 
+<section class="section">	
+	<h2><?php echo $title; ?></h2>
 
-<div id="content">
-
-<section class="browse stories items">	
-	<h2><?php 
-	$title .= ( ($total_results) ? ': <span class="item-number">'.$total_results.'</span>' : '');
-	echo $title; 
-	?></h2>
-
-	<div id="primary" class="browse">
-	<section id="results">
-			
-
-	<?php if (count($exhibits) > 0): ?>
-	
-		<nav class="secondary-nav" id="item-browse"> 
-		    <?php echo nav(array(
-		        array(
-		            'label' => __('All'),
-		            'uri' => url('exhibits')
-		        ),
-		        array(
-		            'label' => __('Tags'),
-		            'uri' => url('exhibits/tags')
-		        )
-		    )); ?>
-		</nav>    
+    <?php if (count($exhibits) > 0): ?>
+        <nav class="secondary-nav" id="item-browse"> 
+            <?php echo nav(array(
+                array(
+                    'label' => __('All'),
+                    'uri' => url('exhibits')
+                ),
+                array(
+                    'label' => __('Tags'),
+                    'uri' => url('exhibits/tags')
+                )
+            )); ?>
+        </nav>    
     
-	
+    
     <div class="pagination"><?php echo pagination_links(); ?></div>
-	
-    <div id="exhibits">	
-		<?php $exhibitCount = 0; ?>
-		<?php foreach (loop('exhibit') as $exhibit): ?>
-		    <?php $exhibitCount++; ?>
-		    <div class="exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
-		        <h2><?php echo link_to_exhibit(); ?></h2>
-		        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
-		        <div class="description"><?php echo $exhibitDescription; ?></div>
-		        <?php endif; ?>
-		        <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
-		        <p class="tags"><?php echo $exhibitTags; ?></p>
-		        <?php endif; ?>
-		    </div>
-		<?php endforeach; ?>
-    </div>
+    
+    <?php $exhibitCount = 0; ?>
+
+    <?php foreach (loop('exhibit') as $exhibit): ?>
+        <?php $exhibitCount++; ?>
+
+        <div class="browseExhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
+            <h2 class="browseExhibit-title"><?php echo link_to_exhibit(); ?></h2>
+
+            <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
+                <div class="browseExhibit-description"><?php echo $exhibitDescription; ?></div>
+            <?php endif; ?>
+
+            <?php if ($exhibitTags = tag_string('exhibit', 'exhibits', '')): ?>
+                <p class="browseExhibit-tags"><?php echo $exhibitTags; ?></p>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
     
     <div class="pagination"><?php echo pagination_links(); ?></div>
 
     <?php else: ?>
-	<p><?php echo __('There are no exhibits available yet.'); ?></p>
-	<?php endif; ?>
-
-
-
-
-				
-	</section>	
-	</div><!-- end primary -->
-
-
+        <p><?php echo __('There are no exhibits available yet.'); ?></p>
+    <?php endif; ?>
+                    
 </section>
-</div> <!-- end content -->
 
 <div id="share-this" class="browse">
 <?php echo mh_share_this();?>
