@@ -1,9 +1,6 @@
 <?php echo head(array('maptype'=>'none','title' => html_escape(metadata('exhibit_page', 'title') . ' : '. metadata('exhibit', 'title')), 'bodyclass' => 'exhibits show', 'bodyid' => 'exhibit')); ?>
 
-<div id="content">
-<article class="page show">
-
-
+<article class="section">
     <div id="primary" class="show" role="main">
         <h2 class="instapaper_title"><?php echo metadata('exhibit_page', 'title'); ?></h2>
         <nav id="exhibit-pages">
@@ -35,13 +32,10 @@
         </div>
     </div>
 
-
-<div id="share-this" class="show">
-<?php echo mh_share_this();?>
-</div>
-
+    <div id="share-this" class="show">
+    <?php echo mh_share_this();?>
+    </div>
 </article>
-</div> <!-- end content -->
 
 
 <?php echo foot(); ?>
