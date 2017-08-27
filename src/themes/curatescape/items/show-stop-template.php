@@ -17,6 +17,7 @@ $prevItem = $isFirstItem ? null : $items[$index - 1];
 
 $nextItemHref = $nextItem ? record_url($nextItem, 'show', false, array('tour' => $tourId, 'index' =>  $index + 1)) : null;
 $prevItemHref = $prevItem ? record_url($prevItem, 'show', false, array('tour' => $tourId, 'index' => $index - 1)) : null;
+$tourHref = record_url($tour, 'show', false);
 
 $dc = get_theme_option('dropcap')==1 ? 'dropcap' : null;
 
@@ -79,6 +80,10 @@ echo head(array(
                 . 'Prev Stop'
                 . '</a>';
         }
+
+        echo '<a class="tourStop-paginationControl" href="' . $tourHref . '">'
+            . 'Back to Start'
+            . '</a>';
 
         if ($nextItem) {
             echo '<a class="tourStop-paginationControl" href="' . $nextItemHref. '">'
