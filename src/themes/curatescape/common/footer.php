@@ -14,9 +14,10 @@
 
     <nav class="footer-nav column is-2-tablet">
         <ul>
-            <li><a href="#">Dicsover</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/tours/browse">Take a Tour</a></li>
+            <li><a href="/items/browse">Items</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
     </nav>
 
