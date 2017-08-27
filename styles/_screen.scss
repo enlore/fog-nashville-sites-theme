@@ -251,7 +251,7 @@ nav.secondary-nav {
 nav.secondary-nav ul {
     margin: 0 0 1em;
     padding: 0;
-    border-bottom: 4px solid #9e9e9e;
+    border-bottom: 4px solid $light-teal;
 }
 nav.secondary-nav ul li {
     display: inline-block;
@@ -259,7 +259,7 @@ nav.secondary-nav ul li {
     padding: .25em .5em
 }
 nav.secondary-nav ul li.active {
-    border-bottom: 4px solid #191919;
+    border-bottom: 4px solid $mid-blue;
     margin-bottom: -4px;
 }
 nav.secondary-nav ul a:hover {
