@@ -45,7 +45,11 @@ i.working {
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0
+    left: 0;
+
+    /* enlore ewwwwww ew */
+    /* fixes MHC-63 */
+    z-index: 1;
 }
 
 .fullscreen-map #hm-map #map_canvas {
