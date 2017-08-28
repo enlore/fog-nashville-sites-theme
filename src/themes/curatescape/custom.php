@@ -1192,7 +1192,7 @@ function mh_item_images($item,$index=0,$html=null){
 
         if(in_array($mime,$img)) {
             if($index==0) {
-                $html .= '<h3 class="f-upper" style="margin-bottom: 24px;">Images</h3>';
+                $html .= '<h2 class="f-upper f-body" style="margin-bottom: 24px;">Images</h2>';
 
 
 
@@ -1931,7 +1931,8 @@ function mh_display_random_featured_item($withImage=false,$num=1)
                     $inner .= '</div>' ;
 
                 $inner .= '</article>';
-                $html = mh_display_featured_section("Discover", __('Featured %s', mh_item_label()), "View More Explorations", null, $inner);
+                //$html = mh_display_featured_section("Discover", __('Featured %s', mh_item_label()), "View More Explorations", null, $inner);
+                $html = mh_display_featured_section("Discover", "", "", null, $inner);
             }
 
     endforeach;

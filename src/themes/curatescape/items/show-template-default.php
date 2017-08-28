@@ -15,17 +15,13 @@ echo head(array(
     <header class="item-header">
         <div class="item-headerImage"
             style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
-
-            <div class="item-headerInner">
-                <h2 class="item-title">
-                    <span class="item-title--raggedBackground">
-                        <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
-                    </span>
-                </h2>
-            </div>
-
         </div>
 
+        <div class="section container">
+            <h2 class="item-title">
+                <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
+            </h2>
+        </div>
         <!--
          <h3 class="item-subtitle">
             <?php //echo mh_the_subtitle($item); ?>
@@ -91,7 +87,7 @@ echo head(array(
     <section class="item-copy section" style="padding-top: 0px;">
         <div class="container">
             <div class="item-map">
-                <h2 class="f-upper" style="margin-bottom: 24px;"> Where can I find it? </h2>
+                <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
                 <?php echo mh_display_map('story') ?>
                 <?php mh_map_actions($item,null);?>
 
@@ -102,7 +98,7 @@ echo head(array(
             </div>
 
             <div class="item-description">
-                <h2 class="f-upper" style="margin-bottom: 24px"> Description </h2>
+                <h2 class="f-upper f-body" style="margin-bottom: 24px"> Description </h2>
                 <?php echo mh_the_text($item); ?>
             </div>
         </div>
