@@ -1,29 +1,28 @@
 /* regular weight */
-@font-face {
-    font-family: 'Edmonsans';
-    src: url('./../fonts/Edmondsans-Regular.woff') format('woff');
-         //url('./../fonts/Edmondsans-Regular.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-}
+//@font-face {
+    //font-family: 'Edmonsans';
+    //src: url('./../fonts/Edmondsans-Regular.woff') format('woff');
+         ////url('./../fonts/Edmondsans-Regular.otf') format('otf');
+    //font-weight: normal;
+    //font-style: normal;
+//}
 
-/* this font's medium looks pretty bold */
-@font-face {
-    font-family: 'Edmonsans';
-    src: url('./../fonts/Edmondsans-Medium.woff') format('woff');
-         //url('./../fonts/Edmondsans-Medium.otf') format('otf');
-    font-weight: bold;
-    font-style: normal;
-}
+//[> this font's medium looks pretty bold <]
+//@font-face {
+    //font-family: 'Edmonsans';
+    //src: url('./../fonts/Edmondsans-Medium.woff') format('woff');
+         ////url('./../fonts/Edmondsans-Medium.otf') format('otf');
+    //font-weight: bold;
+    //font-style: normal;
+//}
 
-/* very bold */
-@font-face {
-    font-family: 'Edmonsans';
-    src: url('./../fonts/Edmondsans-Bold.woff') format('woff');
-         //url('./../fonts/Edmondsans-Bold.otf') format('otf');
-    font-weight: 900;
-    font-style: normal;
-}
+//[> very bold <]
+//@font-face {
+    //font-family: 'Edmonsans';
+    //src: url('./../fonts/Edmondsans-Bold.woff') format('woff');
+         ////url('./../fonts/Edmondsans-Bold.otf') format('otf');
+    //font-weight: 900; //font-style: normal;
+//}
 
 a {
     color: inherit;
@@ -43,6 +42,17 @@ a:hover {
     outline: 0
 }
 
+.f-body, html, body {
+    font-family: 'Cabin Condensed', serif;
+}
+
+.f-title, h1,h2,h3,h4,h5,h6 {
+    font-family: 'EB Garamond', Helvettica, sans-serif;
+}
+
+a, p, li, span, dt, dd {
+    font-family: inherit;
+}
 
 h1, .f-h1 { font-size: 1.8rem; }
 h2, .f-h2 { font-size: 1.65rem; }

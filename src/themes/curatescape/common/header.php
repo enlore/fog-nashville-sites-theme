@@ -53,6 +53,7 @@ isset($file) ? $file : $file=null;
 
 <!-- Stylesheet -->
 <?php echo mh_theme_css();?>	
+<link href="https://fonts.googleapis.com/css?family=Cabin+Condensed|EB+Garamond" rel="stylesheet">
 
 <!-- Fonts -->
 <?php echo mh_web_font_loader();?>

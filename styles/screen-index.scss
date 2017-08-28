@@ -27,6 +27,8 @@
 }
 
 .featuredSection-link {
+    @include bodyFont;
+
     display: none;
 
     @media screen and (min-width: $tablet) {
@@ -44,6 +46,8 @@
 }
 
 .featuredSection-label {
+    @include bodyFont;
+
     display: inline-block;
     background-color: $green;
 
@@ -118,6 +122,8 @@
 }
 
 .featuredMap-label {
+    @include bodyFont;
+
     background-color: $green;
     display: inline-block;
     padding: 8px 32px;
@@ -141,7 +147,7 @@
 }
 
 .featuredMap-title {
-    color: $white;
+    //color: $white;
     display: inline-block;
     margin-left: 32px;
     margin-right: 6%;
@@ -156,9 +162,9 @@
 
 .featuredMap-titleInner {
     $raggedPadding: 12px;
-    background-color: $orange;
-    padding: 8px $raggedPadding;
-    box-shadow: $raggedPadding 0 0 $orange, -$raggedPadding 0 0 $orange;
+    //background-color: $orange;
+    //padding: 8px $raggedPadding;
+    //box-shadow: $raggedPadding 0 0 $orange, -$raggedPadding 0 0 $orange;
 }
 
 /*

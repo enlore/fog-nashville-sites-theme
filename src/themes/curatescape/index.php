@@ -17,7 +17,7 @@ else { //if not stealth mode, do everything else
 
     <article>
         <section class="hero section heroSection">
-            <div class="hero-text f-center f-h2 u-max800">
+            <div class="hero-text f-center f-h2 f-title u-max800">
                 <?php echo mh_home_about();?>
             </div>
         </section>
@@ -26,7 +26,7 @@ else { //if not stealth mode, do everything else
 
         <section id="map" class="featuredSection">
             <div class="featuredMap">
-                <h3 class="featuredMap-label">View</h3>
+                <h3 class="featuredMap-label">Explore</h3>
 
                 <div class="featuredMap-map">
                     <?php mh_display_map($type='global'); ?>
