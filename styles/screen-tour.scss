@@ -53,7 +53,14 @@
     margin-top: 64px;
 }
 
-.tourShow-postscript {}
+.tourShow-postscript {
+    margin-top: 32px;
+    font-style: italic;
+}
+
+.tourShow-map {
+    margin-top: 64px;
+}
 
 .tourShow-items {
     @media screen and (min-width: $tablet) {
