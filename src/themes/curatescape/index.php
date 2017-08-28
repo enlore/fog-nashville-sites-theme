@@ -46,7 +46,7 @@ else { //if not stealth mode, do everything else
     <div class="greyBanner">
         <div class="columns is-mobile">
             <div class="column is-one-third greyBanner-proposalImage">
-                <img class="greyBanner-image" src="/themes/curatescape/images/MHC-demo-logo.png">
+                <img class="greyBanner-image" src="/themes/curatescape/images/mhc-logo-draft-2.png">
             </div>
 
             <div class="greyBanner-copy column is-two-thirds">
