@@ -456,7 +456,7 @@ function mh_display_map($type=null,$item=null,$tour=null){
                 ** Safari 9.3+ users, Chrome 50+ users, and for browsers with no support
                 ** TODO: eventually, this will need to be applied to all insecure origins
                 */
-                jQuery('.map-actions a.location').addClass('hidden');
+                //jQuery('.map-actions a.location').addClass('hidden');
             }
 
             var terrain = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{retina}.jpg', {
@@ -485,6 +485,18 @@ function mh_display_map($type=null,$item=null,$tour=null){
                 "Terrain":terrain,
                 "Street":carto,
             }).addTo(map);
+
+            // Geolocate user
+            //map.locate({ setView: true, maxZoom: 12 });
+
+            //map.on('locationfound', function (e) {
+                //L.marker(e.latlng).addTo(map)
+                //.bindPopup('hey you here');
+            //});
+
+            //map.on('locationerror', function (e) {
+                //console.warn('leaflet::locationerror', e)
+            //});
 
             // Center marker and popup on open
             map.on('popupopen', function(e) {
@@ -724,15 +736,34 @@ function mh_map_actions($item=null,$tour=null,$saddr='current',$coords=null){
 
 
         <!-- Fullscreen -->
-        <a class="fullscreen"><span class="icon-expand" aria-hidden="true"></span> <span class="label"><?php echo __('Fullscreen Map');?></span><span class="alt"><?php echo __('Map');?></span></a>
+        <a class="map-actions-link">
+            <span class="icon-expand" aria-hidden="true"></span>
+            <span class="label"><?php echo __('Fullscreen');?></span>
+        </a>
 
 
         <!-- Geolocation -->
-        <a class="location"><span class="icon-location-arrow" aria-hidden="true"></span> <span class="label"><?php echo __('Show Current Location');?></span><span class="alt"><?php echo __('My Location');?></span></a>
+        <a class="map-actions-link">
+            <span class="icon-location-arrow" aria-hidden="true"></span>
+            <span class="label"><?php echo __('Show My Location');?></span>
+        </a>
 
         <!-- Directions link -->
         <?php
-        $directions_link= ($show_directions==1) ? '<a onclick="jQuery(\'body\').removeClass(\'fullscreen-map\')" class="directions" title="'.__('Get Directions on Google Maps').'" target="_blank" href="https://maps.google.com/maps?saddr='.$saddr.'+location&daddr='.($street_address ? urlencode($street_address) : $coords).'"><span class="icon-external-link-square" aria-hidden="true"></span> <span class="label">'.__('Get Directions').'</span><span class="alt">'.__('Directions').'</span></a> ' : null;
+        $directions_link= ($show_directions==1)
+            ? /* i'm sure it could be worse */
+                 '<a onclick="jQuery(\'body\').removeClass(\'fullscreen-map\')" class="map-actions-link" title="'
+                    . __('Get Directions on Google Maps')
+                    . '" target="_blank" href="https://maps.google.com/maps?saddr='
+                    . $saddr
+                    . '+location&daddr='.($street_address ? urlencode($street_address) : $coords).'">'
+                    . '<span class="icon-external-link-square" aria-hidden="true"></span>'
+                    . ' <span class="label">'
+                    . __('Get Directions')
+                . '</span></a> '
+
+            : null;
+
         echo ( $coords && ($item || $tour) ) ? $directions_link : null;
         ?>
 

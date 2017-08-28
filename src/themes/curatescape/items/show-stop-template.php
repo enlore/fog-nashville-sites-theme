@@ -31,8 +31,6 @@ echo head(array(
 ));
 ?>
 
-<?php mh_map_actions($item,null);?>
-
 <article class="item instapaper_body hentry" role="main">
 
     <header class="item-header">
@@ -98,6 +96,8 @@ echo head(array(
         <div class="item-map">
             <h2 class="f-upper" style="margin-bottom: 24px;"> Where can I find it? </h2>
             <?php echo mh_display_map('story', $item, null) ?>
+            <?php mh_map_actions($item,null);?>
+
         </div>
     </section>
 
