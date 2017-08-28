@@ -1740,7 +1740,7 @@ function mh_display_homepage_people($num=3){
     // (it defaults to outputing a bunch of html)
     //var_dump(all_element_texts($people[0], array('return_type' => 'array')));
 
-    $html = '<div class="featuredPeople columns is-mobile">';
+    $html = '<div class="featuredPeople columns is-tablet">';
 
     foreach($people as $p) {
 
@@ -1761,7 +1761,7 @@ function mh_display_homepage_people($num=3){
             $p,
             null,
             $personInner,
-            array('class' => "featuredPerson column is-half-mobile is-one-third-deskop")
+            array('class' => "featuredPerson column is-one-third-deskop")
         );
 
         $html .= $personView;
