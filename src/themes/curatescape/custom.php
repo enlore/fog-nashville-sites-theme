@@ -2075,9 +2075,9 @@ function homepage_widget_sections($html=null){
         $popular_tags=0;
 
         foreach(array(
-             homepage_widget_2(),
-             homepage_widget_4(),
              homepage_widget_1(),
+             homepage_widget_4(null), // TODO turn people back on
+             homepage_widget_2(),
              //homepage_widget_3()
         ) as $setting) {
 
