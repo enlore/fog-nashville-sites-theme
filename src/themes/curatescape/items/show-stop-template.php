@@ -39,9 +39,9 @@ echo head(array(
         </div>
 
         <div class="section container">
-            <h2 class="item-title">
+            <h1 class="item-title">
                 <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
-            </h2>
+            </h1>
         </div>
 
         <!--
@@ -53,14 +53,14 @@ echo head(array(
         <?php //echo mh_the_byline($item,true,true); echo item_is_private($item);?>
     </header>
 
-    <section class="item-copy section" style="padding-top: 64px;">
+    <section class="item-copy section" style="">
         <div class="container">
             <div class="item-lede">
                 <?php echo mh_the_lede($item);?>
             </div>
 
             <div class="item-description item-description--tight content">
-                <h2 class="f-upper" style="margin-bottom: 24px"> Description </h2>
+                <h2 class="f-upper f-body" style="margin-bottom: 24px"> Description </h2>
                 <?php echo mh_the_text($item); ?>
             </div>
         </div>
@@ -89,11 +89,12 @@ echo head(array(
     </section>
 
     <section class="item-mapSection section">
-        <div class="item-map">
-            <h2 class="f-upper" style="margin-bottom: 24px;"> Where can I find it? </h2>
-            <?php echo mh_display_map('story', $item, null) ?>
-            <?php mh_map_actions($item,null);?>
-
+        <div class="container">
+            <div class="item-map">
+                <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
+                <?php echo mh_display_map('story', $item, null) ?>
+                <?php mh_map_actions($item,null);?>
+            </div>
         </div>
     </section>
 
