@@ -54,6 +54,8 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 
         <div class="tourShow-map">
             <?php mh_display_map('tour', null, $tour) ?>
+            <?php mh_map_actions(null, $tour, null, null);?>
+
         </div>
 
        <div class="tourShow-postscript">

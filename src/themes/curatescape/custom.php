@@ -736,14 +736,14 @@ function mh_map_actions($item=null,$tour=null,$saddr='current',$coords=null){
 
 
         <!-- Fullscreen -->
-        <a class="map-actions-link">
+        <a class="fullscreen map-actions-link">
             <span class="icon-expand" aria-hidden="true"></span>
             <span class="label"><?php echo __('Fullscreen');?></span>
         </a>
 
 
         <!-- Geolocation -->
-        <a class="map-actions-link">
+        <a class="location map-actions-link">
             <span class="icon-location-arrow" aria-hidden="true"></span>
             <span class="label"><?php echo __('Show My Location');?></span>
         </a>
@@ -752,7 +752,7 @@ function mh_map_actions($item=null,$tour=null,$saddr='current',$coords=null){
         <?php
         $directions_link= ($show_directions==1)
             ? /* i'm sure it could be worse */
-                 '<a onclick="jQuery(\'body\').removeClass(\'fullscreen-map\')" class="map-actions-link" title="'
+                 '<a onclick="jQuery(\'body\').removeClass(\'fullscreen-map\')" class="directions map-actions-link" title="'
                     . __('Get Directions on Google Maps')
                     . '" target="_blank" href="https://maps.google.com/maps?saddr='
                     . $saddr
