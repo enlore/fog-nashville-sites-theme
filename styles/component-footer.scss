@@ -30,7 +30,6 @@ footer.main #logo-img {
 
 .footer-byline {
     margin-top: 64px;
-    text-align: right;
 }
 
 @media only screen and (min-width: $fullhd) {
@@ -59,7 +58,6 @@ footer.main #logo-img {
 @media only screen and (max-width: $tablet) {
     .footer-byline {
         margin-top: 0;
-        text-align: left;
     }
 }
 
