@@ -598,7 +598,9 @@ function mh_display_map($type=null,$item=null,$tour=null){
                 if(data){
                     addMarkers(data);
                 }else{
-                    jQuery('#hero, .map-actions').hide();
+                    //jQuery('#hero, .map-actions').hide();
+                    // enlore stop hiding the map on the Item pages
+                    jQuery('#hero').hide();
                 }
 
             }else if(type=='tour'){
