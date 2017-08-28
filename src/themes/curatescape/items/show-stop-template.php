@@ -59,7 +59,7 @@ echo head(array(
                 <?php echo mh_the_lede($item);?>
             </div>
 
-            <div class="item-description content">
+            <div class="item-description item-description--tight content">
                 <h2 class="f-upper" style="margin-bottom: 24px"> Description </h2>
                 <?php echo mh_the_text($item); ?>
             </div>

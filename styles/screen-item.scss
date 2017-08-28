@@ -22,7 +22,7 @@
 
 .item-metadata {
     padding: 32px;
-    margin-top: 56px;
+    //margin-top: 56px;
 }
 
 .item-legend {
@@ -55,6 +55,11 @@
 }
 
 .item-description {
+    margin-top: 64px;
+}
+
+.item-description--tight {
+    margin-top: 0;
 }
 
 @media screen and (min-width: 768px) {
