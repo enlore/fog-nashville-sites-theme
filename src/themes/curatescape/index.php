@@ -15,8 +15,6 @@ else { //if not stealth mode, do everything else
         echo head(array('maptype'=>'focusarea','bodyid'=>'home','bodyclass'=>$classname)); 
     ?>
 
-     <?php //mh_map_actions();?> 
-
     <article>
         <section class="hero section heroSection">
             <div class="hero-text f-center f-h2 u-max800">
@@ -32,6 +30,8 @@ else { //if not stealth mode, do everything else
 
                 <div class="featuredMap-map">
                     <?php mh_display_map($type='global'); ?>
+                    <?php mh_map_actions();?> 
+
                 </div>
 
                 <h2 class="featuredMap-title">
