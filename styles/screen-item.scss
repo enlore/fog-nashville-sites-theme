@@ -14,10 +14,13 @@
 }
 
 .item-title {
+    background-color: $blue;
+    color: $white;
+    padding: 16px;
+    font-size: 2.2rem;
 }
 
 .item-subtitle {
-    margin: 0;
 }
 
 .item-metadata {
@@ -64,7 +67,7 @@
 
 @media screen and (min-width: 768px) {
     .item-lede, .item-description {
-        max-width: 76%;
+        //max-width: 76%;
     }
 }
 
@@ -73,6 +76,22 @@
     padding: 8px;
 
     @include media(tablet) {
-        max-width: 50%;
+        //max-width: 50%;
+    }
+}
+
+.item-order-1-mobile {
+    order: -1;
+    @include media(desktop) {
+        order: 2;
+    }
+}
+
+.columns-is-col {
+    display: flex;
+    flex-direction: column;
+
+    @include media(desktop) {
+        flex-direction: row;
     }
 }
