@@ -36,10 +36,8 @@
 			3000 Granny White Pike<br/>
 			Nashville, Tennesee 37204
 		</address>
-		<p>
-			Phone: 615-862-7970<br/>
-			Fax: 615-862-7974<br/>
-		</p>
+
+		<p> Phone: 615-862-7970 </p>
 
 		<p> Copyright 2017. <br /> All rights reserved. </p>
 
