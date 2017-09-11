@@ -1216,9 +1216,10 @@ function mh_item_images($item,$index=0,$html=null){
             $html .= file_markup($file, array('imageSize' => 'fullsize','linkAttributes'=>array('data-caption'=>$fancyboxCaption,'title'=>$photoTitle, 'class'=>'fancybox', 'rel'=>'group'),'imgAttributes'=>array('alt'=>$photoTitle) ) );
 
             $html .= ($photoTitle) ? '<h4 class="title image-title">'.$photoTitle.'</h4>' : '';
-            //$html .= '<p class="description image-description">'.( ($photoDesc) ? $photoDesc : '');
-            ////TODO enlore re enable image description
-            //$html .= link_to($file,'show', '<span class="view-file-link"><span class="icon-file" aria-hidden="true"></span> '.__('View File Details Page').'</span>',array('class'=>'view-file-record','rel'=>'nofollow')).'</p>';
+            $html .= '<p class="description image-description">'.( ($photoDesc) ? $photoDesc : '');
+            //TODO enlore re enable image description
+            $html .= link_to($file,'show', '<span class="view-file-link"><span class="icon-file" aria-hidden="true"></span> '.__('View File Details Page').'</span>',array('class'=>'view-file-record','rel'=>'nofollow'))
+            .'</p>';
             $html .= '</div>';
 
             //echo $html;
