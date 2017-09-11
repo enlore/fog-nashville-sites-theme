@@ -5,3 +5,16 @@
 .file-contentInner { 
     display: inline-block;
 }
+
+.file-metadata .element-set h3 {
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+.file-metadata .element-set .element {
+    margin-top: 8px;
+}
+
+.element-setTitleType,
+.element-setTitleFormat {
+    margin-top: 32px;
+}

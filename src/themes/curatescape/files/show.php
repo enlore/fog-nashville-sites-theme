@@ -43,33 +43,35 @@
         </div>
 
         <div class="column is-4-desktop section">
-            <div class="file-metadata">
+            <h3 class="f-body item-legend"> INFO </h3>
+
+            <div class="file-metadata item-fieldset">
                 <?php echo all_element_texts('file'); ?> 		
         
-                <div class="format-metadata" class="element-set">
-                    <h2><?php echo __('Format Metadata'); ?></h2>
+                <div class="format-metadata element-set">
+                    <h2 class="element-setTitlte element-setTitleFormat"><?php echo __('Format Metadata'); ?></h2>
 
-                    <div class="original-filename" class="element">
+                    <div class="original-filename element">
                         <h3><?php echo __('Original Filename'); ?></h3>
                         <div class="element-text"><?php echo metadata('file', 'Original Filename'); ?></div>
                     </div>
                 
-                    <div class="file-size" class="element">
+                    <div class="file-size element">
                         <h3><?php echo __('File Size'); ?></h3>
                         <div class="element-text"><?php echo __('%s bytes', metadata('file', 'Size')); ?></div>
                     </div>
             
                 </div><!-- end format-metadata -->
                 
-                <div class="type-metadata" class="section element-set">
-                    <h2><?php echo __('Type Metadata'); ?></h2>
+                <div class="type-metadata element-set">
+                    <h2 class="element-setTitle element-setTitleType"><?php echo __('Type Metadata'); ?></h2>
 
-                    <div class="mime-type-browser" class="element">
+                    <div class="mime-type-browser element">
                         <h3><?php echo __('Mime Type'); ?></h3>
                         <div class="element-text"><?php echo metadata('file', 'MIME Type'); ?></div>
                     </div>
 
-                    <div class="file-type-os" class="element">
+                    <div class="file-type-os element">
                         <h3><?php echo __('File Type / OS'); ?></h3>
                         <div class="element-text"><?php echo metadata('file', 'Type OS'); ?></div>
                     </div>
