@@ -1,11 +1,48 @@
 .tourStop-pagination {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .tourStop-paginationControl {
-    flex: 1 1 50%;
     display: block;
-    padding: 24px;
+    padding: 16px;
     background-color: $lightgrey;
+    color: $white;
     text-align: center;
+}
+
+.tourStop-paginationControl:first-child { margin-left: 0; }
+.tourStop-paginationControl:last-child { margin-right: 0; }
+
+.tourStop-pageNext {
+    background-color: $blue;
+    flex: 1 1 auto;
+}
+
+.tourStop-pagePrev {
+    background-color: $blue;
+    flex: 1 1 auto;
+    margin-right: 8px;
+
+    @include media(tablet) {
+        margin-right: 0px;
+    }
+}
+
+.tourStop-pageTop {
+    background-color: $green;
+    color: $black;
+    flex: 2 1 auto;
+    width: 100%;
+    order: -1;
+    margin-bottom: 8px;
+
+    @include media(tablet) {
+        flex: 1 1 auto;
+        width: 33%;
+        order: unset;
+        margin-bottom: 0;
+        margin: 0 8px;
+    }
 }

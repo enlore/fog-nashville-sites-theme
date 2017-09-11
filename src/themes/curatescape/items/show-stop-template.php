@@ -70,17 +70,17 @@ echo head(array(
         <div class="tourStop-pagination">
         <?php
         if ($prevItem) {
-            echo '<a class="tourStop-paginationControl" href="' . $prevItemHref. '">'
+            echo '<a class="tourStop-paginationControl tourStop-pagePrev" href="' . $prevItemHref. '">'
                 . 'Prev Stop'
                 . '</a>';
         }
 
-        echo '<a class="tourStop-paginationControl" href="' . $tourHref . '">'
+        echo '<a class="tourStop-paginationControl tourStop-pageTop" href="' . $tourHref . '">'
             . 'Back to Start'
             . '</a>';
 
         if ($nextItem) {
-            echo '<a class="tourStop-paginationControl" href="' . $nextItemHref. '">'
+            echo '<a class="tourStop-paginationControl tourStop-pageNext" href="' . $nextItemHref. '">'
                 . 'Next Stop'
                 . '</a>';
         }
