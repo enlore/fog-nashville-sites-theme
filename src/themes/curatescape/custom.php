@@ -542,8 +542,10 @@ function mh_display_map($type=null,$item=null,$tour=null){
                         }else{
                             var image = '';
                         }
-                        var number = (type=='tour') ? '<span class="number">'+(i+1)+'</span>' : '';
-                        var html = image+number+'<span><a class="curatescape-infowindow-title" href="<?php echo WEB_ROOT;?>/items/show/'+item.id+'">'+item.title+'</a><br>'+'<div class="curatescape-infowindow-address">'+address.replace(/(<([^>]+)>)/ig,"")+'</div></span>';
+                        var number = (type=='tour') ? '<span class="f-body f-h3">'+(i+1)+'</span>' : '';
+                        var html = image
+                            + number
+                            + '<span><a class="curatescape-infowindow-title f-body f-h5" href="<?php echo WEB_ROOT;?>/items/show/'+item.id+'">'+item.title+'</a><br>'+'<div class="curatescape-infowindow-address">'+address.replace(/(<([^>]+)>)/ig,"")+'</div></span>';
 
 
                         var marker = L.marker([item.latitude,item.longitude],{icon: icon(c,inner)}).bindPopup(html);

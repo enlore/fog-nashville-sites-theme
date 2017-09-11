@@ -79,7 +79,7 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
                      <h3 class="tourShow-itemTitle">
                         
                          <a href="<?php echo $itemHref; ?>">
-                             <?php //echo '<span class="number">'.$i.'</span>';?>
+                             <?php echo '<span class="tourShow-itemNumber f-h1 f-body">'.$i.'</span>';?>
                              <?php echo metadata( $tourItem, array('Dublin Core', 'Title') ); ?>
                          </a>
                     </h3>
