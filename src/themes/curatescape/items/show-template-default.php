@@ -101,10 +101,6 @@ echo head(array(
                     <?php mh_subjects(); ?>
                     </div>
 
-                    <div id="tags">
-                    <?php mh_tags();?>
-                    </div>
-
                     <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>
 
                     <div class="item-related-links">
@@ -119,6 +115,20 @@ echo head(array(
                     <?php mh_display_comments();?>
                     </div>
                 </div>
+
+
+                <div class="item-tags">
+                    <?php //mh_tags();?>
+                    <?php if (metadata($item, 'has tags') ): ?>
+                        <?php $tags=tag_string(get_current_record('item') , url('items/browse'), ''); ?>
+                        <h2 class="item-tagsTitle f-body f-upper"> <?php echo __('Tags');?> </h2>
+
+                        <div class="item-tagsList f-h4">
+                            <?php echo $tags; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
             </section>
         </div>
     </div>

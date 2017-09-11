@@ -24,7 +24,7 @@
 }
 
 .item-metadata {
-    padding: 32px;
+    //padding: 32px;
     //margin-top: 56px;
 }
 
@@ -49,6 +49,14 @@
     border-left-color: transparent;
 }
 
+.item-tags {
+    margin-top: 32px;
+}
+
+.item-tagsList a {
+    @include tag;
+}
+
 .item-map {
     margin-top: 64px;
 }
@@ -58,7 +66,9 @@
 }
 
 .item-description {
-    margin-top: 64px;
+    @include media(desktop) {
+        margin-top: 64px;
+    }
 }
 
 .item-description--tight {
