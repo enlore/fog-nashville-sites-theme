@@ -47,8 +47,33 @@ echo head(array(
             </section>
 
             <section class="item-media section">
-                <div class="">
-                    <?php mh_item_images($item);?>
+                <div class="columns">
+                    <?php //mh_item_images($item);?>
+                    <?php foreach($item->Files as $file):
+                        $fileUrl = file_display_url($file);
+                        $fileTitle = metadata($file, array('Dublin Core', 'Title'));
+                        $fileDesc = metadata($file, array('Dublin Core', 'Description'));
+                        $fileHref = record_url($file, 'show');
+                        $fileElement = '';
+                        $fileElement
+                            .= '<div class="column is-half-desktop">'
+                                .'<a href="'. $fileHref .'">'
+                                    . '<div class="item-mediaImage" style="background-image: url('. $fileUrl .')">'
+                                    . '</div>'
+
+                                    . '<div class="item-mediaTitle f-h4">'
+                                        . $fileTitle
+                                    . '</div>'
+
+                                    . '<div class="item-mediaDescription">'
+                                        . $fileDesc
+                                    . '</div>'
+                                . '</a>'
+                            . '</div>'
+                            ;
+
+                        echo $fileElement;
+                    endforeach; ?>
 
                     <?php mh_audio_files($item);?>
 

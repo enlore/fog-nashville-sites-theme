@@ -65,6 +65,13 @@
 
 }
 
+.item-mediaImage {
+    width: auto;
+    height: 240px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .item-description {
     @include media(desktop) {
         margin-top: 64px;
