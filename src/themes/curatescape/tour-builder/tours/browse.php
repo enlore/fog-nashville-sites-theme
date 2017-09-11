@@ -31,8 +31,10 @@ echo head( array('maptype'=>'none', 'title' => $label, 'bodyid'=>'tours',
                     
                         echo '<article id="item-result-'.$i.'" class="browseTour columns is-tablet is-desktop">';
                             echo '<div class="column">';
-                                echo '<h3 class="browseTour-title">'.link_to_tour(null,array('class'=>'permalink')).'</h3>';
-                                echo '<div class="browseTour-imageBg" style="background-image: url(' . $imgSrc . ')">' . '</div>';
+                                echo '<a href="'. record_url($tour, 'show') .'">';
+                                    echo '<h3 class="browseTour-title">'.$tour->title.'</h3>';
+                                    echo '<div class="browseTour-imageBg" style="background-image: url(' . $imgSrc . ')">' . '</div>';
+                                echo '</a>';
 
                                 echo '<div class="browseTour-meta">';
                                     if(tour( 'Credits' )){

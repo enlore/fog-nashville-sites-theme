@@ -69,7 +69,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 <article class="browseItem" id="item-result-<?php echo $index;?>">
                     <div class="columns">
                         <div class="column">
-                            <h2 class="browseItem-title"> <?php echo $titlelink; ?> </h2>
+                            <h3 class="browseItem-title"> <?php echo $titlelink; ?> </h3>
 
                             <?php echo isset($item_image) 
                             //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')

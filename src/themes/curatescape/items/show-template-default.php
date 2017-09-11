@@ -88,7 +88,7 @@ echo head(array(
         <div class="container">
             <div class="item-map">
                 <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
-                <?php echo mh_display_map('story') ?>
+                <?php echo mh_display_map('story', $item) ?>
                 <?php mh_map_actions($item,null);?>
 
             </div>
