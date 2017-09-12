@@ -99,11 +99,21 @@
     position: absolute;
     bottom: 0px;
     transform: translateY(34%);
-    right: 7%;
+    left: 32px;
+
+    @include media(tablet) {
+        left: auto;
+        right: 7%;
+    }
 }
 
 .featuredItem-title--raggedBackground {
     @include raggedBackground;
+}
+
+.featuredItem-viewMoreLink {
+    margin-top: 80px;
+    padding: 0 16px;
 }
 
 .featuredMap {

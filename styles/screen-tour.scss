@@ -1,11 +1,14 @@
 .tourShow-header {
     position: relative;
     margin: 32px 0 96px;
+
+    @include media(desktop) {
+        margin-bottom: 16px;
+    }
 }
 
 .tourShow-title {
     color: $white;
-    max-width: 70%;
     transform: translateY(50%);
     position: absolute;
     bottom: 0;
@@ -39,7 +42,6 @@
 
 .tourShow-copy {
     @media screen and (min-width: $tablet) {
-        max-width: 70%;
     }
 }
 
@@ -66,7 +68,6 @@
 
 .tourShow-items {
     @media screen and (min-width: $tablet) {
-        max-width: 70%;
     }
 }
 

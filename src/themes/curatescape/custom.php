@@ -1880,7 +1880,7 @@ function mh_display_homepage_tours($num=7, $scope='random'){
             $html .= '</article>';
         }
         if(count($public)>1){
-            $html .= '<p class="view-more-link"><a href="'.WEB_ROOT.'/tours/browse/">'.__('Browse all <span>%1$s %2$s</span>', count($public), mh_tour_label('plural')).'</a></p>';
+            $html .= '<p class="featuredItem-viewMoreLink"><a href="'.WEB_ROOT.'/tours/browse/">'.__('Browse all <span>%1$s %2$s</span>', count($public), mh_tour_label('plural')).'</a></p>';
         }
     }else{
         $html .= '<article class="home-tour-result none">';
