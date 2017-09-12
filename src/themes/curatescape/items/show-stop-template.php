@@ -34,15 +34,9 @@ echo head(array(
 <article class="item instapaper_body hentry" role="main">
 
     <header class="item-header">
-        <div class="item-headerImage"
-            style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
-        </div>
-
-        <div class="section container">
-            <h1 class="item-title">
-                <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
-            </h1>
-        </div>
+        <h1 class="item-title">
+            <?php echo metadata($item, array('Dublin Core', 'Title'), array('index'=>0)); ?>
+        </h1>
 
         <!--
          <h3 class="item-subtitle">
@@ -54,54 +48,88 @@ echo head(array(
     </header>
 
     <section class="item-copy section" style="">
-        <div class="container">
-            <div class="item-lede">
-                <?php echo mh_the_lede($item);?>
+        <div class="columns tourStop-columns">
+            <div class="column">
+                <div class="item-lede">
+                    <?php echo mh_the_lede($item);?>
+                </div>
+
+                <div class="item-description item-description--tight content">
+                    <h2 class="f-upper f-body" style="margin-bottom: 24px"> Description </h2>
+                    <?php echo mh_the_text($item); ?>
+                </div>
+
+                <div class="tourStop-pagination">
+                    <?php
+                        if ($prevItem) {
+                            echo '<a class="tourStop-paginationControl tourStop-pagePrev" href="' . $prevItemHref. '">'
+                                . 'Prev Stop'
+                                . '</a>';
+                        }
+
+                        echo '<a class="tourStop-paginationControl tourStop-pageTop" href="' . $tourHref . '">'
+                            . 'Back to Start'
+                            . '</a>';
+
+                        if ($nextItem) {
+                            echo '<a class="tourStop-paginationControl tourStop-pageNext" href="' . $nextItemHref. '">'
+                                . 'Next Stop'
+                                . '</a>';
+                        }
+                    ?>
+                </div>
+
+                <div class="item-map">
+                    <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
+                    <?php echo mh_display_map('story', $item, null) ?>
+                    <?php mh_map_actions($item,null);?>
+                </div>
             </div>
 
-            <div class="item-description item-description--tight content">
-                <h2 class="f-upper f-body" style="margin-bottom: 24px"> Description </h2>
-                <?php echo mh_the_text($item); ?>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="tourStop-pagination">
-        <?php
-        if ($prevItem) {
-            echo '<a class="tourStop-paginationControl tourStop-pagePrev" href="' . $prevItemHref. '">'
-                . 'Prev Stop'
-                . '</a>';
-        }
-
-        echo '<a class="tourStop-paginationControl tourStop-pageTop" href="' . $tourHref . '">'
-            . 'Back to Start'
-            . '</a>';
-
-        if ($nextItem) {
-            echo '<a class="tourStop-paginationControl tourStop-pageNext" href="' . $nextItemHref. '">'
-                . 'Next Stop'
-                . '</a>';
-        }
-        ?>
-        </div>
-    </section>
-
-    <section class="item-mapSection section">
-        <div class="container">
-            <div class="item-map">
-                <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
-                <?php echo mh_display_map('story', $item, null) ?>
-                <?php mh_map_actions($item,null);?>
+            <div class="column is-5-desktop tourStop-imageColumn">
+                <div class="item-headerImage"
+                    style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
+                </div>
             </div>
         </div>
     </section>
 
     <section class="item-media section">
-        <div class="container">
-            <?php mh_item_images($item);?>
+        <h2 class="f-upper f-body"> Take a Look </h2>
+        <div class="columns">
+            <?php //mh_item_images($item);?>
+            <?php foreach($item->Files as $file):
+                $fileUrl = file_display_url($file);
+                $fileTitle = metadata($file, array('Dublin Core', 'Title'));
+                $fileDesc = metadata($file, array('Dublin Core', 'Description'));
+                $fileHref = record_url($file, 'show');
+                $fileElement = '';
+                $fileElement
+                    .= '<div class="column is-half-desktop">'
+                        .'<a href="'. $fileHref .'">'
+                            . '<div class="item-mediaImage" style="background-image: url('. $fileUrl .')">'
+                            . '</div>'
 
+                            . '<div class="item-mediaTitle f-h4">'
+                                . $fileTitle
+                            . '</div>'
+
+                            . '<div class="item-mediaDescription">'
+                                . $fileDesc
+                            . '</div>'
+                        . '</a>'
+                    . '</div>'
+                    ;
+
+                echo $fileElement;
+            endforeach; ?>
+
+            <?php mh_audio_files($item);?>
+
+            <?php mh_video_files($item);?>
+        </div>
+
+        <div class="container">
             <?php mh_audio_files($item);?>
 
             <?php mh_video_files($item);?>

@@ -46,3 +46,19 @@
         margin: 0 8px;
     }
 }
+
+.tourStop-columns {
+    display: flex;
+    flex-direction: column;
+
+    @include media(desktop) {
+        flex-direction: row;
+    }
+}
+
+.tourStop-imageColumn {
+    order: -1;
+    @include media(desktop) {
+        order: unset;
+    }
+}
