@@ -1916,26 +1916,25 @@ function mh_display_random_featured_item($withImage=false,$num=1)
 
             if (metadata($item, 'has thumbnail') ) {
 
+            //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
+
             $img_markup=item_image('fullsize',array(),0, $item);
             preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_markup, $result);
             $img_url = array_pop($result);
 
                 $inner = '';
-                $inner .= '<article class="featuredItem">';
-                    $inner .= '<a href="' .record_url($item, 'show', null, array()) . '">';
+                $inner .= '<a href="' .record_url($item, 'show', null, array()) . '">';
+                    $inner .= '<article class="featuredItem">';
                         $inner .= '<div class="featuredItem-imageBg" style="background-image:url('.$img_url.')"></div>';
-                    $inner .= '</a>';
-
-                    $inner .= '<div class="featuredItem-text">';
-                        $inner .= '<h2 class="featuredItem-title">' 
-                            . '<span class="featuredItem-title--raggedBackground">'
-                            . $itemTitle
-                            . '</span>'
-                                    //.'<span class="featured-item-author"> '.mh_the_byline($item,false). '</span>'
-                           .'</h2>';
-                    $inner .= '</div>' ;
-
-                $inner .= '</article>';
+                        $inner .= '<div class="featuredItem-text">';
+                            $inner .= '<h2 class="featuredItem-title">'
+                                . '<span class="featuredItem-title--raggedBackground">'
+                                    . $itemTitle
+                                . '</span>'
+                               .'</h2>';
+                        $inner .= '</div>' ;
+                    $inner .= '</article>';
+                $inner .= '</a>';
                 //$html = mh_display_featured_section("Discover", __('Featured %s', mh_item_label()), "View More Explorations", null, $inner);
                 $html = mh_display_featured_section("Discover", "", "", null, $inner);
             }
