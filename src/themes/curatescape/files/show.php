@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="column is-4-desktop section">
+        <div class="column section">
             <h3 class="f-body item-legend"> INFO </h3>
 
             <div class="file-metadata item-fieldset">
