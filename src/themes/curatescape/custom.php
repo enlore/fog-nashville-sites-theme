@@ -1865,19 +1865,18 @@ function mh_display_homepage_tours($num=7, $scope='random'){
     if($items){
         for ($i = 0; $i < $num; $i++) {
             //var_dump($items[$i]);
-            $html .= '<article class="featuredItem">';
-                $html .= '<div class="featuredItem-text">';
-                    $html .= '<h2 class="featuredItem-title">';
-                        $html .= '<span class="featuredItem-title--raggedBackground">' . $items[$i]['title'] . '</span>';
-                    $html .= '</h2>';
-                $html .= '</div>';
+            $html .= '<a class="featuredItem" href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">';
+                $html .= '<article >';
+                    $html .= '<div class="featuredItem-text">';
+                        $html .= '<h2 class="featuredItem-title">';
+                            $html .= '<span class="featuredItem-title--raggedBackground">' . $items[$i]['title'] . '</span>';
+                        $html .= '</h2>';
+                    $html .= '</div>';
 
-                $html .= '<a href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">';
                     $html .= '<div class="featuredItem-imageBg" style="background-image: url('. fog_get_image_url_of_first_public_item($items[$i]) .')">';
                     $html .= '</div>';
-                $html .= '</a>';
-
-            $html .= '</article>';
+                $html .= '</article>';
+            $html .= '</a>';
         }
         if(count($public)>1){
             $html .= '<p class="featuredItem-viewMoreLink"><a href="'.WEB_ROOT.'/tours/browse/">'.__('Browse all <span>%1$s %2$s</span>', count($public), mh_tour_label('plural')).'</a></p>';
