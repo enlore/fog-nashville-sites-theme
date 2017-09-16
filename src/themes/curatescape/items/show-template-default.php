@@ -47,7 +47,7 @@ echo head(array(
             </section>
 
             <section class="item-media section">
-                <div class="columns">
+                <div class="columns flex-wrap">
                     <?php //mh_item_images($item);?>
                     <?php foreach($item->Files as $file):
                         $fileUrl = file_display_url($file);
@@ -88,7 +88,7 @@ echo head(array(
 
         </div>
 
-        <div class="column is-5-desktop item-order-1-mobile">
+        <div class="column item-order-1-mobile">
             <section class="item-metadata section instapaper_ignore">
                 <div class="item-headerImage"
                     style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
