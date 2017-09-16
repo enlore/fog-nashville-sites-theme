@@ -22,12 +22,9 @@
     </nav>
 
     <p class="footer-about column is-5-tablet">
-        The Metropolitan Historical Commission is a municipal
-        historic preservation agency working to document history,
-        save and reuse buildings, and make the public more aware of the 
-        necessity and advantages of preservation in Nashville and 
-        Davidson County, Tennessee. Created in 1966, the commision
-        consists of fifteen citizens appointed by the mayor.
+        The Metropolitan Historical Commission Foundation is a 501(c)(3) non-profit
+        friends group which assists the Metro Historical Commission in its efforts to
+        identify, protect, study, and interpret the rich history of Nashville.
     </p>
 
 	<div class="footer-address column">
