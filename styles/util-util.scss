@@ -1,11 +1,9 @@
 .chromeframe {
-    margin: 0.2em 0;
-    background: #ccc;
+    margin: 0.2em 0; background: #ccc;
     color: #000;
     padding: 0.2em 0
 }
-.ir {
-    background-color: transparent;
+.ir { background-color: transparent;
     border: 0;
     overflow: hidden;
     *text-indent: -9999px
@@ -58,10 +56,70 @@
     max-width: 800px;
 }
 
-.flex-wrap {
-    flex-wrap: wrap;
-}
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+.flex-desktop { display: block; @include media(desktop) { display: flex; } }
+.flex-grow-0 { flex-grow: 0; }
+.flex-grow-1 { flex-grow: 1; }
+.flex-grow-2 { flex-grow: 2; }
+
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-shrink-1 { flex-shrink: 1; }
+.flex-shrink-1 { flex-shrink: 2; }
+
+.flex-order-1 { order: 1; }
+.flex-order-2 { order: 2; }
+.flex-order-3 { order: 3; }
+.flex-order-4 { order: 4; }
+.flex-order-5 { order: 5; }
+.flex-order-6 { order: 6; }
+.flex-order-7 { order: 7; }
+.flex-order-8 { order: 8; }
+
+.width-8_3 { width: 8.33333%; } // 1 col
+.width-16_6 { width: 16.66667%; } // 2 col
+.width-25 { width: 25%; }
+.width-33 { width: 33.3333%; }
+.width-41_6 { width: 41.66667%; }
+.width-50 { width: 50%; }
+.width-58_3 { width: 58.33333%; }
+.width-75 { width: 75%; }
+
+.width-8_3-desktop { @include media(desktop) { width: 8.33333%; }} // 1 col
+.width-16_6-desktop { @include media(desktop) { width: 16.66667%; }} // 2 col
+.width-25-desktop { @include media(desktop) { width: 25%; }}
+.width-33-desktop { @include media(desktop) { width: 33.3333%; }}
+.width-41_6-desktop { @include media(desktop) { width: 41.66667%; }}
+.width-50-desktop { @include media(desktop) { width: 50%; }}
+.width-58_3-desktop { @include media(desktop) { width: 58.33333%; }}
+.width-75-desktop { @include media(desktop) { width: 75%; }}
+
+.flex-align-start { align-self: flex-start; }
+.flex-align-end { align-self: flex-end; }
+
+.flex-just-start { justify-content: flex-start; }
+
+.float-container { overflow: hidden; }
+.float-clear-both { clear: both; }
+.float-clear-left { clear: left; }
+
+.float-right-desktop { @include media(desktop) { float: right; } }
+.float-left-desktop { @include media(desktop) { float: left; } }
+
+.none { display: none; }
+.block { display: block; }
+.none-desktop { @include media(desktop) { display: none; } }
+.block-desktop { @include media(desktop) { display: block; } }
+
 .u-img-resp {
     display: block;
     max-width: 100%;
+}
+
+.flex-order-3-desktop {
+    @include media(desktop) {
+        order: 3;
+    }
 }
