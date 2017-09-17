@@ -70,6 +70,11 @@ h6, .f-h6 { font-size: 0.75rem; }
     h6, .f-h6 { font-size: 0.75rem; }
 }
 
+@mixin f-lighten ($color, $val: 15) {
+    color: lighten($color, $val);
+}
+
+.f-lighten { color: lighten(#4a4a4a, 14); }
 .f-upper { text-transform: uppercase; }
 .f-center { text-align: center; }
 

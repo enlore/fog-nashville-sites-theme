@@ -6,15 +6,40 @@
     display: inline-block;
 }
 
-.file-metadata .element-set h3 {
+.file-metadata .element-set h2 {
+    font-size: 1.55rem;
     font-family: 'Cabin Condensed', sans-serif;
+    @include f-lighten(#4a4a4a);
 }
 
-.file-metadata .element-set .element {
-    margin-top: 8px;
+.file-metadata .element-set h3 {
+    font-size: 1.45rem;
 }
 
-.element-setTitleType,
-.element-setTitleFormat {
+.element + .element {
+    margin-top: 24px;
+}
+
+.element {
+    maring-top: 4px;
+    padding-left: 24px;
+}
+
+.file-pad-left {
+}
+
+.element-set:first-child h2 {
+    margin-top: 0;
+}
+
+.element-set h2 {
     margin-top: 32px;
+}
+
+.element-text {
+    margin-top: 2px;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
+    padding-left: 2px;
 }

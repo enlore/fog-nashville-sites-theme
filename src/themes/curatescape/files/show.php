@@ -43,9 +43,9 @@
         </div>
 
         <div class="column section">
-            <h3 class="f-body item-legend"> INFO </h3>
+            <h2 class="f-body item-legend"> INFO </h2>
 
-            <div class="file-metadata item-fieldset">
+            <div class="file-metadata item-fieldset file-pad-left">
                 <?php echo all_element_texts('file'); ?>        
 
                 <div class="format-metadata element-set">
