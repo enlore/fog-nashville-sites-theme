@@ -35,7 +35,7 @@ echo head(array(
             <section class="item-metadata none block-desktop instapaper_ignore">
                 <div class="f-h2 item-legend"> Info </div>
 
-                <div class="item-fieldset">
+                <div class="item-fieldset item-fieldset--nopad">
                     <div id="factoid">
                         <?php echo mh_factoid(); ?>
                     </div>

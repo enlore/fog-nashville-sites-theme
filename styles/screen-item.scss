@@ -72,8 +72,12 @@
     z-index: 10;
 }
 
+.item-fieldset--nopad {
+    padding-top: 0;
+}
+
 .item-fieldset {
-    padding: 0px 16px 16px 0;
+    padding: 16px 16px 16px 0;
     border-style: solid;
     border-width: 1px;
     border-color: #4a4a4a;
