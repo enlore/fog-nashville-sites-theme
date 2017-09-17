@@ -86,7 +86,7 @@ echo head(array(
                 </div>
             </div>
 
-            <div class="column is-5-desktop tourStop-imageColumn">
+            <div class="column tourStop-imageColumn">
                 <div class="item-headerImage"
                     style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
                 </div>
