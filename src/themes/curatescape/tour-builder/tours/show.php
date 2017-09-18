@@ -20,13 +20,15 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
         <h1 class="tourShow-title instapaper_title">
             <?php echo $tourTitle; ?>
         </h1>
-
-
     </header>
 
-    <div class="columns tourShow-pad">
+    <div class="columns is-desktop tourShow-body">
         <div class="column">
-            <section class="tourShow-copy section">
+            <?php if ($heroImageUrl !== null) {
+                echo '<img class="u-img-resp margin-center none-desktop" src="' . $heroImageUrl . '" />';
+            } ?>
+
+            <section class="tourShow-copy">
                 <?php if(tour( 'Credits' )){
                     echo '<div class="tourShow-credits">'
                         .'<h2 class="tourShow-sectionLabel">Credits</h2>'
@@ -62,10 +64,10 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 
         <div class="column">
             <?php if ($heroImageUrl !== null) {
-                echo '<img class="u-img-resp" src="' . $heroImageUrl . '" />';
+                echo '<img class="u-img-resp none block-desktop" src="' . $heroImageUrl . '" />';
             } ?>
 
-            <section class="tourShow-items section">
+            <section class="tourShow-items">
                 <h2 class="tourShow-itemsTitle"><?php echo __('Stops Along the %s', $label);?></h2>
 
                 <?php

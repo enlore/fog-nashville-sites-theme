@@ -1,22 +1,15 @@
 .tourShow-header {
-    position: relative;
-    margin: 32px 0 96px;
+}
 
-    @include media(desktop) {
-        margin-bottom: 16px;
-    }
+.tourShow-body {
+    margin-top: 32px;
+    padding: 0px 16px 0px 16px;
 }
 
 .tourShow-title {
     color: $white;
     background-color: $blue;
-    padding: 16px;
-}
-
-.tourShow-pad {
-    @include media(tablet) {
-        padding: 0 8px;
-    }
+    padding: 24px;
 }
 
 .tourShow-title--raggedBackground {
@@ -43,7 +36,9 @@
     }
 }
 
-.tourShow-credits {}
+.tourShow-credits {
+    margin-top: 32px;
+}
 
 .tourShow-sectionLabel {
     @include bodyFont;
@@ -52,7 +47,7 @@
 }
 
 .tourShow-description {
-    margin-top: 64px;
+    margin-top: 32px;
 }
 
 .tourShow-postscript {
@@ -65,6 +60,7 @@
 }
 
 .tourShow-items {
+    margin-top: 32px;
     @media screen and (min-width: $tablet) {
     }
 }
@@ -80,7 +76,7 @@
 }
 
 .tourShow-item {
-    margin-top: 32px;
+    margin-top: 16px;
 }
 
 .tourShow-itemImage {
@@ -92,16 +88,16 @@
     background-size: cover;
 
     @media screen and (min-width: $tablet) {
-        height: 360px;
+        height: 280px;
     }
 
     @media screen and (min-width: $desktop) {
-        height: 400px;
+        //height: 400px;
     }
 }
 
 .tourShow-itemDescription {
-    margin-top: 32px;
+    margin-top: 16px;
 
 }
 
