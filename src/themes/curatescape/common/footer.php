@@ -5,7 +5,7 @@
 </aside> 
 -->
 
-</div><!--end wrap-->
+</main><!--end wrap-->
 
 <footer class="footer is-desktop">
     <div class="columns">
