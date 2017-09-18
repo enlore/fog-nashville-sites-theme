@@ -36,25 +36,24 @@ echo head(array(
                 <div class="f-h2 item-legend"> Info </div>
 
                 <div class="item-fieldset item-fieldset--nopad">
-                    <div id="factoid">
+                    <div class="factoid">
                         <?php echo mh_factoid(); ?>
                     </div>
 
-                    <div id="access-info">
+                    <div class="access-info">
                         <?php echo mh_the_access_information(); ?>
                     </div>
 
-                    <div id="street-address">
+                    <div class="street-address">
                         <?php echo mh_street_address();?>
                     </div>
 
-                    <div id="official-website">
+                    <div class="official-website">
                         <?php echo mh_official_website();?>
                     </div>
 
-                    <div id="cite-this">
+                    <div class="cite-this">
                         <h3> <?php echo __('Cite this Page:'); ?> </h3>
-
                         <?php echo html_entity_decode(metadata('item', 'citation'));?>
                     </div>
 
@@ -63,7 +62,7 @@ echo head(array(
                         echo tours_for_item($item->id, __('Related %s', $label));
                     }?>
 
-                    <div id="subjects">
+                    <div class="subjects">
                         <?php mh_subjects(); ?>
                     </div>
 
@@ -134,7 +133,8 @@ echo head(array(
                 </div>
 
                 <div id="cite-this">
-                <?php echo mh_item_citation(); ?>
+                        <h3> <?php echo __('Cite this Page:'); ?> </h3>
+                        <?php echo html_entity_decode(metadata('item', 'citation'));?>
                 </div>
 
                 <?php if(function_exists('tours_for_item')){
