@@ -52,7 +52,7 @@ isset($file) ? $file : $file=null;
 <link rel="icon" href="<?php echo mh_apple_icon_logo_url(); ?>"/> 
 
 <!-- Stylesheet -->
-<?php echo mh_theme_css();?>	
+<?php echo mh_theme_css();?>    
 <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed|EB+Garamond" rel="stylesheet">
 
 <!-- Fonts -->
@@ -62,7 +62,7 @@ isset($file) ? $file : $file=null;
 <?php 
 //echo mh_custom_css();
 //if ($uploaded_stylesheet=get_theme_option('custom stylesheet')){
-	//echo '<link rel="stylesheet" type="text/css" media="screen" href="'.WEB_ROOT.'/files/theme_uploads/'.$uploaded_stylesheet.'" />';
+    //echo '<link rel="stylesheet" type="text/css" media="screen" href="'.WEB_ROOT.'/files/theme_uploads/'.$uploaded_stylesheet.'" />';
 //}
 ?>
 
@@ -72,10 +72,10 @@ isset($file) ? $file : $file=null;
 <?php echo js_tag('leaflet','javascripts/leaflet');?>
 <link rel="stylesheet" href="<?php echo css_src('leaflet','javascripts/leaflet');?>" />
 <?php if(get_theme_option('clustering')):?>
-	<!-- Clustering -->
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <!-- Clustering -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 <?php endif;
 queue_js_file('libraries.min'); // <-- Modernizr, MakiMarker, Swipe.js, iSOnScreen, LoadJS, LoadCSS
 //queue_js_file('check-width');
@@ -97,19 +97,19 @@ echo head_js(false); // <-- No to Omeka default scripts
 <body<?php echo isset($bodyid) ? ' id="'.$bodyid.'"' : ''; ?><?php echo isset($bodyclass) ? ' class="'.$bodyclass.'"' : ''; ?>> 
 
 <div id="no-js-message">
-	<span><?php echo __('Please enable JavaScript in your browser settings.');?></span>
+    <span><?php echo __('Please enable JavaScript in your browser settings.');?></span>
 </div>
 
 
-<header class="main active" role="banner">	
-	<?php echo mh_global_header();?>
-	<script>
-	    jQuery("#navbar-menu", "#menu-toggle").removeClass("active");
-	    jQuery("#menu-toggle").click(function () {
-	    	jQuery("#navbar-menu").toggleClass("is-active");
+<header class="main active" role="banner">  
+    <?php echo mh_global_header();?>
+    <script>
+        jQuery("#navbar-menu", "#menu-toggle").removeClass("active");
+        jQuery("#menu-toggle").click(function () {
+            jQuery("#navbar-menu").toggleClass("is-active");
             jQuery("#menu-toggle").toggleClass('is-active')
-	    });
-	</script>
+        });
+    </script>
 </header>
 
 
