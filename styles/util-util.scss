@@ -96,6 +96,11 @@
 .width-58_3-desktop { @include media(desktop) { width: 58.33333%; }}
 .width-75-desktop { @include media(desktop) { width: 75%; }}
 
+.margin-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flex-align-start { align-self: flex-start; }
 .flex-align-end { align-self: flex-end; }
 
@@ -108,10 +113,10 @@
 .float-right-desktop { @include media(desktop) { float: right; } }
 .float-left-desktop { @include media(desktop) { float: left; } }
 
-.none { display: none; }
-.block { display: block; }
-.none-desktop { @include media(desktop) { display: none; } }
-.block-desktop { @include media(desktop) { display: block; } }
+.none { display: none !important; }
+.block { display: block !important; }
+.none-desktop { @include media(desktop) { display: none !important;} }
+.block-desktop { @include media(desktop) { display: block !important; } }
 
 .u-img-resp {
     display: block;
