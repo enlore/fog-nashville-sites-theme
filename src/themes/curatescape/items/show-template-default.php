@@ -117,24 +117,24 @@ echo head(array(
 
             <div class="item-fieldset">
                 <aside id="factoid">
-                <?php echo mh_factoid(); ?>
+                    <?php echo mh_factoid(); ?>
                 </aside>
 
                 <div id="access-info">
-                <?php echo mh_the_access_information(); ?>
+                    <?php echo mh_the_access_information(); ?>
                 </div>
 
                 <div id="street-address">
-                <?php echo mh_street_address();?>
+                    <?php echo mh_street_address();?>
                 </div>
 
                 <div id="official-website">
-                <?php echo mh_official_website();?>
+                    <?php echo mh_official_website();?>
                 </div>
 
                 <div id="cite-this">
-                        <h3> <?php echo __('Cite this Page:'); ?> </h3>
-                        <?php echo html_entity_decode(metadata('item', 'citation'));?>
+                    <h3> <?php echo __('Cite this Page:'); ?> </h3>
+                    <?php echo html_entity_decode(metadata('item', 'citation'));?>
                 </div>
 
                 <?php if(function_exists('tours_for_item')){
@@ -143,21 +143,21 @@ echo head(array(
                 }?>
 
                 <div id="subjects">
-                <?php mh_subjects(); ?>
+                    <?php mh_subjects(); ?>
                 </div>
 
                 <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>
 
                 <div class="item-related-links">
-                <?php mh_related_links();?>
+                    <?php mh_related_links();?>
                 </div>
 
                 <div class="date-stamp">
-                <?php echo mh_post_date(); ?>
+                    <?php echo mh_post_date(); ?>
                 </div>
 
                 <div class="comments">
-                <?php mh_display_comments();?>
+                    <?php mh_display_comments();?>
                 </div>
             </div>
         </section>
