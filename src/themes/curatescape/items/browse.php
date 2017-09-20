@@ -37,12 +37,13 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
 <?php //mh_map_actions();?>
 
 <section class="section browseItemsSection">    
-    <h2><?php 
-    $title .= ( $total_results  ? ': <span class="item-number">'.$total_results.'</span>' : '');
-    echo $title; 
-    ?></h2>
-
     <div id="primary" class="container">
+
+        <h2>
+            <?php $title .= ( $total_results  ? ': <span class="item-number">'.$total_results.'</span>' : '');
+            echo $title; ?>
+        </h2>
+
         <nav class="secondary-nav" id="item-browse"> 
             <?php echo mh_item_browse_subnav();?>
         </nav>
@@ -67,24 +68,20 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 
                 ?>
                 <article class="browseItem" id="item-result-<?php echo $index;?>">
-                    <div class="columns">
-                        <div class="column">
-                            <h3 class="browseItem-title"> <?php echo $titlelink; ?> </h3>
+                    <h3 class="browseItem-title"> <?php echo $titlelink; ?> </h3>
 
-                            <?php echo isset($item_image) 
-                            //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
-                            ? link_to_item('<div class="browseItem-imageBg" style="background-image: url('.$item_image.');"></div>')
-                            : null; ?>
+                    <?php echo isset($item_image) 
+                    //? link_to_item('<img class="browseItem-image" src="'.$item_image.'"></img>')
+                    ? link_to_item('<div class="browseItem-imageBg" style="background-image: url('.$item_image.');"></div>')
+                    : null; ?>
 
-                            <div class="browseItem-byline"><?php echo mh_the_byline($item,true);?></div>
+                    <div class="browseItem-byline"><?php echo mh_the_byline($item,true);?></div>
+                    
+                    <?php if ($description): ?>
+                        <div class="browseItem-description">
+                            <?php echo strip_tags($description); ?>
                         </div>
-                        
-                        <?php if ($description): ?>
-                            <div class="browseItem-description column">
-                                <?php echo strip_tags($description); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+                    <?php endif; ?>
 
                     <div class="browseItem-tags">
                         <?php if (metadata($item, 'has tags') ): ?>
