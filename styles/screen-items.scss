@@ -1,9 +1,12 @@
 .browseItem {
-    margin-top: 96px;
+    margin-top: 32px;
+    @include media(tablet) { max-width: 60%; }
+    @include media(desktop) { padding-bottom: 64px; }
+    @include media(large) { padding-bottom: 48px; }
 }
 
 .browseItem:first-child {
-    margin-top: 32px;
+    margin-top: 16px;
 }
 
 .browseItem-title {
@@ -18,8 +21,6 @@
     margin-top: 8px;
     align-self: flex-end;
 
-    @include media(desktop) { padding-bottom: 64px; }
-    @include media(large) { padding-bottom: 48px; }
 }
 
 .browseItem-image {
