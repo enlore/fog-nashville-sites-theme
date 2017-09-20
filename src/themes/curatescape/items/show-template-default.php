@@ -88,7 +88,7 @@ echo head(array(
                     <?php $tags=tag_string(get_current_record('item') , url('items/browse'), ''); ?>
                     <h2 class="item-tagsTitle f-body f-upper"> <?php echo __('Tags');?> </h2>
 
-                    <div class="item-tagsList f-h4">
+                    <div class="item-tagsList">
                         <?php echo $tags; ?>
                     </div>
                 <?php endif; ?>

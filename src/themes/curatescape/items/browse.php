@@ -88,7 +88,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
 
                     <div class="browseItem-tags">
                         <?php if (metadata($item, 'has tags') ): ?>
-                            <div class="browseItem-tagsTitle f-h3"> <?php echo __('Tags');?> </div>
+                            <div class="browseItem-tagsTitle"> <?php echo __('Tags');?> </div>
 
                             <div class="browseItem-tagsList f-h4">
                                 <?php echo $tags; ?>

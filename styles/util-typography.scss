@@ -54,12 +54,16 @@ a, p, li, span, dt, dd {
     font-family: inherit;
 }
 
+p, .f-p { font-size: 1.2rem; }
+
 h1, .f-h1 { font-size: 1.8rem; }
 h2, .f-h2 { font-size: 1.65rem; }
 h3, .f-h3 { font-size: 1.2rem; }
 h4, .f-h4 { font-size: 1.15rem; }
 h5, .f-h5 { font-size: 1.0rem; }
 h6, .f-h6 { font-size: 0.75rem; }
+
+@mixin f-h4 () { font-size: 1.15rem; }
 
 @media screen and (min-width: $tablet) {
     h1, .f-h1 { font-size: 2.2rem; }

@@ -16,6 +16,14 @@
     font-size: 1.45rem;
 }
 
+.file-metadata .element + .file-metadata .element h3 {
+    margin-top: 16px;
+}
+
+.file-metadata .element h3 {
+    margin-top: 0px;
+}
+
 .element + .element {
     margin-top: 24px;
 }
