@@ -36,12 +36,67 @@ echo head(array(
                 <div class="f-h2 item-legend"> Info </div>
 
                 <div class="item-fieldset item-fieldset--nopad">
-                    <div class="factoid">
-                        <?php echo mh_factoid(); ?>
+                    <!--<div class="factoid">-->
+                        <!--<?php echo mh_factoid(); ?>-->
+                    <!--</div>-->
+
+                    <!--<div class="access-info">-->
+                        <!--<?php echo mh_the_access_information(); ?>-->
+                    <!--</div>-->
+                    
+                    <div class="source">
+                        <h3> Source </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Source'))?>
                     </div>
 
-                    <div class="access-info">
-                        <?php echo mh_the_access_information(); ?>
+                    <div class="publisher">
+                        <h3> Publisher </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Publisher'))?>
+                    </div>
+
+                    <div class="Date">
+                        <h3> Date </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Date'))?>
+                    </div>
+
+                    <div class="contributor">
+                        <h3> Contributor </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Contributor'))?>
+                    </div>
+
+                    <div class="rights">
+                        <h3> Rights </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Rights'))?>
+                    </div>
+
+                    <div class="format">
+                        <h3> Format</h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Format'))?>
+                    </div>
+
+                    <div class="relation">
+                        <h3> Relation </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Relation'))?>
+                    </div>
+
+                    <div class="type">
+                        <h3> Type </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Type'))?>
+                    </div>
+
+                    <div class="language">
+                        <h3> Language </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Language'))?>
+                    </div>
+
+                    <div class="Identifier">
+                        <h3> Identifier</h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Identifier'))?>
+                    </div>
+
+                    <div class="coverage">
+                        <h3> Coverage </h3>
+                        <?php echo metadata('item', array('Dublin Core', 'Coverage'))?>
                     </div>
 
                     <div class="street-address">
@@ -106,7 +161,7 @@ echo head(array(
             <?php echo mh_the_text($item); ?>
         </section>
 
-        <section class="item-map float-clear-both">
+        <section class="item-map">
             <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
             <?php echo mh_display_map('story', $item) ?>
             <?php mh_map_actions($item,null);?>
@@ -116,23 +171,78 @@ echo head(array(
             <div class="f-h2 item-legend"> Info </div>
 
             <div class="item-fieldset">
-                <aside id="factoid">
-                    <?php echo mh_factoid(); ?>
-                </aside>
+                <!--<div class="factoid">-->
+                    <!--<?php echo mh_factoid(); ?>-->
+                <!--</div>-->
 
-                <div id="access-info">
-                    <?php echo mh_the_access_information(); ?>
+                <!--<div class="access-info">-->
+                    <!--<?php echo mh_the_access_information(); ?>-->
+                <!--</div>-->
+                
+                <div class="source">
+                    <h3> Source </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Source'))?>
                 </div>
 
-                <div id="street-address">
+                <div class="publisher">
+                    <h3> Publisher </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Publisher'))?>
+                </div>
+
+                <div class="Date">
+                    <h3> Date </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Date'))?>
+                </div>
+
+                <div class="contributor">
+                    <h3> Contributor </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Contributor'))?>
+                </div>
+
+                <div class="rights">
+                    <h3> Rights </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Rights'))?>
+                </div>
+
+                <div class="format">
+                    <h3> Format</h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Format'))?>
+                </div>
+
+                <div class="relation">
+                    <h3> Relation </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Relation'))?>
+                </div>
+
+                <div class="type">
+                    <h3> Type </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Type'))?>
+                </div>
+
+                <div class="language">
+                    <h3> Language </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Language'))?>
+                </div>
+
+                <div class="Identifier">
+                    <h3> Identifier</h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Identifier'))?>
+                </div>
+
+                <div class="coverage">
+                    <h3> Coverage </h3>
+                    <?php echo metadata('item', array('Dublin Core', 'Coverage'))?>
+                </div>
+
+                <div class="street-address">
                     <?php echo mh_street_address();?>
                 </div>
 
-                <div id="official-website">
+                <div class="official-website">
                     <?php echo mh_official_website();?>
                 </div>
 
-                <div id="cite-this">
+                <div class="cite-this">
                     <h3> <?php echo __('Cite this Page:'); ?> </h3>
                     <?php echo html_entity_decode(metadata('item', 'citation'));?>
                 </div>
@@ -142,7 +252,7 @@ echo head(array(
                     echo tours_for_item($item->id, __('Related %s', $label));
                 }?>
 
-                <div id="subjects">
+                <div class="subjects">
                     <?php mh_subjects(); ?>
                 </div>
 
@@ -157,7 +267,7 @@ echo head(array(
                 </div>
 
                 <div class="comments">
-                    <?php mh_display_comments();?>
+                    <?php //mh_display_comments();?>
                 </div>
             </div>
         </section>
