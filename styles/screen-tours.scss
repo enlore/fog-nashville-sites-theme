@@ -1,5 +1,5 @@
 .browseTour {
-
+    @include media(tablet) { max-width: 60%; }
 }
 
 .browseTour-imageBg {
