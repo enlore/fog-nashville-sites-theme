@@ -34,8 +34,9 @@
                 3000 Granny White Pike<br/>
                 Nashville, Tennesee 37204
             </address>
-
-            <p> Phone: 615-862-7970 </p>
+            
+            <p> Email: <a style="border-bottom: 1px solid white; padding-bottom: 2px;" href="mailto:info@nashvillesites.org">info@nashvillesites.org</a>
+            <p> Phone: <a style="border-bottom: 1px solid white; padding-bottom: 2px;" href="tel:6158627970">615-862-7970</a> </p>
 
             <p> Copyright 2017. <br /> All rights reserved. </p>
 
