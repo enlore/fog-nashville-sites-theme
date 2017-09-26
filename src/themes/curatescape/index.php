@@ -43,18 +43,6 @@ else { //if not stealth mode, do everything else
 
     </article>
 
-    <div class="greyBanner">
-        <div class="columns is-mobile">
-            <div class="column is-one-third greyBanner-proposalImage">
-                <img class="greyBanner-image" src="/themes/curatescape/images/mhc-logo-draft-2.png">
-            </div>
-
-            <div class="greyBanner-copy column is-two-thirds">
-                <h4>Do you know of a landmark, person, or site that the commission should add to our markers?</h4>
-                <h4>Find out how to submit your marker proposal here.</h4>
-            </div>
-        </div>
-    </div>
     <!-- <script>
         // add map overlay for click function if map is not already expanded
         jQuery('body:not(.expand-map) #hm-map').append('<div class="home-map-overlay"></div>');

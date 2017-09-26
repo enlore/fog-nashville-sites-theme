@@ -22,11 +22,18 @@
             </ul>
         </nav>
 
-        <p class="footer-about column is-5-tablet">
-            The Metropolitan Historical Commission Foundation is a 501(c)(3) non-profit
-            friends group which assists the Metro Historical Commission in its efforts to
-            identify, protect, study, and interpret the rich history of Nashville.
-        </p>
+        <div class="footer-about column is-5-tablet">
+            <p>
+                The Metropolitan Historical Commission Foundation is a 501(c)(3) non-profit
+                friends group which assists the Metro Historical Commission in its efforts to
+                identify, protect, study, and interpret the rich history of Nashville.
+            </p>
+
+            <p>
+                Do you know of a landmark, person, or site that the commission
+                should add to our markers?  <a class="footer-a" href="mailto:info@nashvillesites.org?Subject=New Marker Proposal">Email us to submit your marker proposal.</a>
+            </p>
+        </div>
 
         <div class="footer-address column">
             <address>
@@ -35,8 +42,8 @@
                 Nashville, Tennesee 37204
             </address>
             
-            <p> Email: <a style="border-bottom: 1px solid white; padding-bottom: 2px;" href="mailto:info@nashvillesites.org">info@nashvillesites.org</a>
-            <p> Phone: <a style="border-bottom: 1px solid white; padding-bottom: 2px;" href="tel:6158627970">615-862-7970</a> </p>
+            <p> Email: <a class="footer-a" href="mailto:info@nashvillesites.org">info@nashvillesites.org</a>
+            <p> Phone: <a class="footer-a" href="tel:6158627970">615-862-7970</a> </p>
 
             <p> Copyright 2017. <br /> All rights reserved. </p>
 
