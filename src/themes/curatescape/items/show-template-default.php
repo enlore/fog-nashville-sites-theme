@@ -19,6 +19,9 @@ $type = metadata('item'        , array('Dublin Core' , 'Type'));
 $language = metadata('item'    , array('Dublin Core' , 'Language'));
 $identifier = metadata('item'  , array('Dublin Core' , 'Identifier'));
 $coverage = metadata('item'    , array('Dublin Core' , 'Coverage'));
+$headerImageTitle = metadata($item->Files[0], array('Dublin Core', 'Title'));
+$headerImageDescription = metadata($item->Files[0], array('Dublin Core', 'Description'));
+$headerImageHref =  record_url($item->Files[0], 'show');
 //$cite = metadata('item', array('Dublin Core', 'Publisher'));
 function fog_echo_meta ($meta, $label) {
     if ($meta) {
@@ -49,9 +52,14 @@ function fog_echo_meta ($meta, $label) {
 
     <div class="item-body float-container">
         <div class="float-right-desktop width-50-desktop pad-left-32-desktop">
-            <section class="item-headerImage"
-                style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
-            </section>
+
+            <a href="<?php echo $headerImageHref;?>" class="item-headerImageLink">
+                <section class="item-headerImage"
+                    style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
+                </section>
+                <p class="item-headerImageTitle"><?php echo $headerImageTitle; ?></p>
+                <p class="item-headerImageDescription"><?php echo $headerImageDescription; ?></p>
+            </a>
 
             <!-- HEY! You have to update the metadata in two places : ( -->
             <section class="item-metadata none block-desktop instapaper_ignore">
