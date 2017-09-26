@@ -48,7 +48,7 @@ function fog_echo_meta ($meta, $label) {
     </header>
 
     <div class="item-body float-container">
-        <div class="float-right-desktop width-50-desktop pad-lr-desktop">
+        <div class="float-right-desktop width-50-desktop pad-left-32-desktop">
             <section class="item-headerImage"
                 style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
             </section>
@@ -148,12 +148,12 @@ function fog_echo_meta ($meta, $label) {
             <?php //echo mh_the_lede($item);?>
         </section>
         -->
-        <section class="item-description">
+        <section class="item-description width-50-desktop pad-right-32-desktop">
             <h2 class="f-upper f-body" style="margin-bottom: 24px"> Description </h2>
             <?php echo mh_the_text($item); ?>
         </section>
 
-        <section class="item-map">
+        <section class="item-map width-50-desktop pad-right-32-desktop">
             <h2 class="f-upper f-body" style="margin-bottom: 24px;"> Where can I find it? </h2>
             <?php echo mh_display_map('story', $item) ?>
             <?php mh_map_actions($item,null);?>

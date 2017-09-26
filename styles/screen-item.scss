@@ -10,11 +10,22 @@
 }
 
 .pad-lr-desktop {
-    @include padLRDesktop();
+    @include padLRDesktop(48px, 48px);
 }
+
+.pad-left-32-desktop { @include padLRDesktop(32px, 0); }
+.pad-right-32-desktop { @include padLRDesktop(0, 32px); }
 
 .pad-bot-desktop {
     padding-bottom: 32px;
+}
+
+.item-body {
+    padding: 48px 16px 16px 16px;
+
+    @include media (desktop) {
+        padding: 48px 40px 16px 40px;
+    }
 }
 
 
@@ -23,8 +34,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    @include padLRDesktop();
 
     @include media (tablet) {
         height: 450px;
@@ -87,7 +96,8 @@
 
 .item-body {
     // counter -margin from bulma .columns
-    padding: 48px 24px 0.75rem 24px;
+    //padding: 48px 24px 0.75rem 24px;
+    padding-top: 48px;
 }
 
 .item-tags {
@@ -127,8 +137,6 @@
 
 .item-description {
     margin-top: 32px;
-
-    //@include padLRDesktop();
 
     @include media(desktop) {
         margin-top: 0px;
