@@ -99,7 +99,7 @@ function fog_echo_meta ($meta, $label) {
                     </div>
 
                     <div class="cite-this">
-                        <h3> <?php echo __('Cite this Page:'); ?> </h3>
+                        <h3> <?php echo __('Cite this Page'); ?> </h3>
                         <?php echo html_entity_decode(metadata('item', 'citation'));?>
                     </div>
 
@@ -238,7 +238,7 @@ function fog_echo_meta ($meta, $label) {
                 </div>
 
                 <div class="cite-this">
-                    <h3> <?php echo __('Cite this Page:'); ?> </h3>
+                    <h3> <?php echo __('Cite this Page'); ?> </h3>
                     <?php echo html_entity_decode(metadata('item', 'citation'));?>
                 </div>
 
