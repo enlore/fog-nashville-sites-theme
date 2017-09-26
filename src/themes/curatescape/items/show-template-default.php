@@ -53,6 +53,7 @@ function fog_echo_meta ($meta, $label) {
                 style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
             </section>
 
+            <!-- HEY! You have to update the metadata in two places : ( -->
             <section class="item-metadata none block-desktop instapaper_ignore">
                 <div class="f-h2 item-legend"> Info </div>
 
