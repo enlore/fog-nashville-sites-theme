@@ -108,9 +108,11 @@ function fog_echo_meta ($meta, $label) {
                         echo tours_for_item($item->id, __('Related %s', $label));
                     }?>
 
-                    <div class="subjects">
+                    <!--
+                     <div class="subjects">
                         <?php mh_subjects(); ?>
                     </div>
+                    -->
 
                     <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>
 
@@ -245,9 +247,11 @@ function fog_echo_meta ($meta, $label) {
                     echo tours_for_item($item->id, __('Related %s', $label));
                 }?>
 
+                <!--
                 <div class="subjects">
                     <?php mh_subjects(); ?>
                 </div>
+                -->
 
                 <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>
 
