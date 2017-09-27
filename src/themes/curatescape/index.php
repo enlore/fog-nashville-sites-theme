@@ -35,7 +35,7 @@ else { //if not stealth mode, do everything else
                 </div>
 
                 <h2 class="featuredMap-title">
-                    <a class="featuredMap-titleInner" href="#">Check out the map to visit MHC Locations!</a>
+                    Check out the map to visit MHC Locations!
                 </h2>
             </div>
         </section>
