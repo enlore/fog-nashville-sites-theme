@@ -12,6 +12,7 @@ $source = metadata('item'      , array('Dublin Core' , 'Source'));
 $publisher = metadata('item'   , array('Dublin Core' , 'Publisher'));
 $date = metadata('item'        , array('Dublin Core' , 'Date'));
 $contributor = metadata('item' , array('Dublin Core' , 'Contributor'));
+$creator = metadata('item'     , array('Dublin Core' , 'Creator'));
 $rights = metadata('item'      , array('Dublin Core' , 'Rights'));
 $format = metadata('item'      , array('Dublin Core' , 'Format'));
 $relation = metadata('item'    , array('Dublin Core' , 'Relation'));
@@ -61,85 +62,6 @@ function fog_echo_meta ($meta, $label) {
                 <p class="item-headerImageDescription"><?php echo $headerImageDescription; ?></p>
             </a>
 
-            <!-- HEY! You have to update the metadata in two places : ( -->
-            <section class="item-metadata none block-desktop instapaper_ignore">
-                <div class="f-h2 item-legend"> Info </div>
-
-                <div class="item-fieldset item-fieldset--nopad">
-                    <!--<div class="factoid">-->
-                        <!--<?php echo mh_factoid(); ?>-->
-                    <!--</div>-->
-
-                    <!--<div class="access-info">-->
-                        <!--<?php echo mh_the_access_information(); ?>-->
-                    <!--</div>-->
-
-                    <?php if ($source) { ?>
-                        <div class="source">
-                            <h3> Source </h3>
-                            <?php echo $source; ?>
-                        </div>
-                    <?php } ?>
-
-                    <?php if ($publisher) { ?>
-                        <div class="publisher">
-                            <h3> Publisher </h3>
-                            <?php echo $publisher; ?>
-                        </div>
-                    <?php } ?>
-
-                    <?php fog_echo_meta($date, "Date"); ?>
-                    <?php fog_echo_meta($contributor, "Contributor"); ?>
-                    <?php fog_echo_meta($rights, "Rights"); ?>
-                    <?php fog_echo_meta($format, "Format"); ?>
-                    <?php fog_echo_meta($relation, "Relation"); ?>
-                    <?php fog_echo_meta($type, "Type"); ?>
-                    <?php fog_echo_meta($language, "Language"); ?>
-                    <?php fog_echo_meta($identifier, "Identifier"); ?>
-                    <?php fog_echo_meta($coverage, "Coverage"); ?>
-
-                    <div class="street-address">
-                        <?php echo mh_street_address();?>
-                    </div>
-
-                    <div class="official-website">
-                        <?php echo mh_official_website();?>
-                    </div>
-
-                    <div class="cite-this">
-                        <h3> <?php echo __('Cite this Page'); ?> </h3>
-                        <?php echo html_entity_decode(metadata('item', 'citation'));?>
-                    </div>
-
-                    <?php if(function_exists('tours_for_item')){
-                        $label=mh_tour_label_option('plural');
-                        echo tours_for_item($item->id, __('Related %s', $label));
-                    }?>
-
-                    <!--
-                     <div class="subjects">
-                        <?php mh_subjects(); ?>
-                    </div>
-                    -->
-
-                    <?php echo function_exists('tour_nav') ? tour_nav(null,mh_tour_label()) : null; ?>
-
-                    <div class="item-related-links">
-                        <?php mh_related_links();?>
-                    </div>
-
-                    <div class="date-stamp">
-                        <?php echo mh_post_date(); ?>
-                    </div>
-
-                    <!--
-                    <div class="comments">
-                        <?php //mh_display_comments();?>
-                    </div>
-                    -->
-                </div>
-            </section>
-
             <section class="item-tags none block-desktop pad-bot-desktop">
                 <?php //mh_tags();?>
                 <?php if (metadata($item, 'has tags') ): ?>
@@ -170,7 +92,7 @@ function fog_echo_meta ($meta, $label) {
             <?php mh_map_actions($item,null);?>
         </section>
 
-        <section class="item-metadata none-desktop instapaper_ignore">
+        <section class="item-metadata width-50-desktop instapaper_ignore">
             <div class="f-h2 item-legend"> Info </div>
 
             <div class="item-fieldset">
@@ -181,61 +103,19 @@ function fog_echo_meta ($meta, $label) {
                 <!--<div class="access-info">-->
                     <!--<?php echo mh_the_access_information(); ?>-->
                 <!--</div>-->
-                
-                <div class="source">
-                    <h3> Source </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Source'))?>
-                </div>
 
-                <div class="publisher">
-                    <h3> Publisher </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Publisher'))?>
-                </div>
-
-                <div class="Date">
-                    <h3> Date </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Date'))?>
-                </div>
-
-                <div class="contributor">
-                    <h3> Contributor </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Contributor'))?>
-                </div>
-
-                <div class="rights">
-                    <h3> Rights </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Rights'))?>
-                </div>
-
-                <div class="format">
-                    <h3> Format</h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Format'))?>
-                </div>
-
-                <div class="relation">
-                    <h3> Relation </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Relation'))?>
-                </div>
-
-                <div class="type">
-                    <h3> Type </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Type'))?>
-                </div>
-
-                <div class="language">
-                    <h3> Language </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Language'))?>
-                </div>
-
-                <div class="Identifier">
-                    <h3> Identifier</h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Identifier'))?>
-                </div>
-
-                <div class="coverage">
-                    <h3> Coverage </h3>
-                    <?php echo metadata('item', array('Dublin Core', 'Coverage'))?>
-                </div>
+                <?php fog_echo_meta($publisher, "Publisher"); ?>
+                <?php fog_echo_meta($source, "Source"); ?>
+                <?php fog_echo_meta($date, "Date"); ?>
+                <?php fog_echo_meta($contributor, "Contributor"); ?>
+                <?php fog_echo_meta($creator, "Creator"); ?>
+                <?php fog_echo_meta($rights, "Rights"); ?>
+                <?php fog_echo_meta($format, "Format"); ?>
+                <?php fog_echo_meta($relation, "Relation"); ?>
+                <?php fog_echo_meta($type, "Type"); ?>
+                <?php fog_echo_meta($language, "Language"); ?>
+                <?php fog_echo_meta($identifier, "Identifier"); ?>
+                <?php fog_echo_meta($coverage, "Coverage"); ?>
 
                 <div class="street-address">
                     <?php echo mh_street_address();?>
