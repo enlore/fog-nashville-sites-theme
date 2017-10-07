@@ -93,7 +93,10 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
                         if ($hasImage){
                             preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
                             $item_image = array_pop($result);
+                        } else {
+                            $item_image = '/themes/curatescape/images/logo-as-placeholder.png';
                         }
+
                         echo isset($item_image) ? '<a href="'. url('/') .'items/show/'.$itemID.'?tour='.tour( 'id' ).'&index='.($i-1).'"><div class="tourShow-itemImage" style="background-image:url('.$item_image.');"></div></a>' : null;
                     ?>
 

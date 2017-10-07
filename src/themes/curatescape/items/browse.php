@@ -65,7 +65,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                         preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', item_image('fullsize'), $result);
                         $item_image = array_pop($result);               
                 } else {
-                    $item_image = '/files/theme_uploads/ac62e6924c8fc96c340c435fef2cb443.png';
+                    $item_image = '/themes/curatescape/images/logo-as-placeholder.png';
                 }
                 
                 ?>

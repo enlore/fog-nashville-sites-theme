@@ -12,6 +12,12 @@ $index = (int) $_GET['index'];
 $isLastItem = $index == $itemCount - 1 ? true : false;
 $isFirstItem = $index === 0;
 
+if (count($item->Files) > 0) {
+    $headerImageUrl = file_display_url($item->Files[0]);
+} else {
+    $headerImageUrl = '/themes/curatescape/images/logo-as-placeholder.png';
+}
+
 $nextItem = ! $isLastItem ? $items[$index + 1] : null;
 $prevItem = $isFirstItem ? null : $items[$index - 1];
 
@@ -88,7 +94,7 @@ echo head(array(
 
             <div class="column tourStop-imageColumn">
                 <div class="item-headerImage"
-                    style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
+                    style="background-image: url(<?php echo $headerImageUrl; ?>)">
                 </div>
             </div>
         </div>

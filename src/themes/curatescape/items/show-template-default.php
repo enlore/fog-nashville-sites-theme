@@ -31,7 +31,7 @@ if (count($item->Files) > 0) {
     $headerImage = null;
     $headerImageTitle       = '';
     $headerImageDescription = '';
-    $headerImageDisplayUrl  = '/files/theme_uploads/ac62e6924c8fc96c340c435fef2cb443.png';
+    $headerImageDisplayUrl  = '/themes/curatescape/images/logo-as-placeholder.png';
     $headerImageHref        = $headerImageDisplayUrl;
 }
 
