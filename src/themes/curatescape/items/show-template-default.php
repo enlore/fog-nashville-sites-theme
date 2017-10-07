@@ -20,9 +20,21 @@ $type = metadata('item'        , array('Dublin Core' , 'Type'));
 $language = metadata('item'    , array('Dublin Core' , 'Language'));
 $identifier = metadata('item'  , array('Dublin Core' , 'Identifier'));
 $coverage = metadata('item'    , array('Dublin Core' , 'Coverage'));
-$headerImageTitle = metadata($item->Files[0], array('Dublin Core', 'Title'));
-$headerImageDescription = metadata($item->Files[0], array('Dublin Core', 'Description'));
-$headerImageHref =  record_url($item->Files[0], 'show');
+
+if (count($item->Files) > 0) {
+    $headerImage = $item->Files[0];
+    $headerImageTitle = metadata($headerImage, array('Dublin Core', 'Title'));
+    $headerImageDescription = metadata($headerImage, array('Dublin Core', 'Description'));
+    $headerImageHref =  record_url($headerImage, 'show');
+    $headerImageDisplayUrl = file_display_url($headerImage);
+} else {
+    $headerImage = null;
+    $headerImageTitle       = '';
+    $headerImageDescription = '';
+    $headerImageDisplayUrl  = '/files/theme_uploads/ac62e6924c8fc96c340c435fef2cb443.png';
+    $headerImageHref        = $headerImageDisplayUrl;
+}
+
 //$cite = metadata('item', array('Dublin Core', 'Publisher'));
 function fog_echo_meta ($meta, $label) {
     if ($meta) {
@@ -56,7 +68,7 @@ function fog_echo_meta ($meta, $label) {
 
             <a href="<?php echo $headerImageHref;?>" class="item-headerImageLink">
                 <section class="item-headerImage"
-                    style="background-image: url(<?php echo file_display_url($item->Files[0]) ?>)">
+                    style="background-image: url(<?php echo $headerImageDisplayUrl; ?>)">
                 </section>
                 <p class="item-headerImageTitle"><?php echo $headerImageTitle; ?></p>
                 <p class="item-headerImageDescription"><?php echo $headerImageDescription; ?></p>
