@@ -1864,6 +1864,12 @@ function mh_display_homepage_tours($num=7, $scope='random'){
 
     if($items){
         for ($i = 0; $i < $num; $i++) {
+            $headerImageOfFirstPublicItem = fog_get_image_url_of_first_public_item($items[$i]);
+
+            if (! $headerImageOfFirstPublicItem) {
+                $headerImageOfFirstPublicItem = '/themes/curatescape/images/logo-as-placeholder.png'; // ugh
+            }
+
             //var_dump($items[$i]);
             $html .= '<a class="featuredItem" href="' . WEB_ROOT . '/tours/show/'. $items[$i]['id'].'">';
                 $html .= '<article >';
@@ -1873,7 +1879,7 @@ function mh_display_homepage_tours($num=7, $scope='random'){
                         $html .= '</h2>';
                     $html .= '</div>';
 
-                    $html .= '<div class="featuredItem-imageBg" style="background-image: url('. fog_get_image_url_of_first_public_item($items[$i]) .')">';
+                    $html .= '<div class="featuredItem-imageBg" style="background-image: url('. $headerImageOfFirstPublicItem .')">';
                     $html .= '</div>';
                 $html .= '</article>';
             $html .= '</a>';
