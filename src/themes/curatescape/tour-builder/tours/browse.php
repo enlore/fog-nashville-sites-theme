@@ -29,6 +29,10 @@ echo head( array('maptype'=>'none', 'title' => $label, 'bodyid'=>'tours',
                     
                         $tourdesc = strip_tags( htmlspecialchars_decode(tour( 'description' )) );
                         $imgSrc = fog_get_image_url_of_first_public_item($tour);
+
+                        if (! $imgSrc) {
+                            $imgSrc = '/themes/curatescape/images/logo-as-placeholder.png';
+                        }
                     
                         echo '<article id="item-result-'.$i.'" class="browseTour">';
                             echo '<a href="'. record_url($tour, 'show') .'">';
