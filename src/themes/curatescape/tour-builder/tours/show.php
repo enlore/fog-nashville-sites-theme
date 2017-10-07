@@ -2,6 +2,10 @@
 $tourTitle = strip_formatting( tour( 'title' ) );
 $label = mh_tour_label();
 $heroImageUrl = fog_get_image_url_of_first_public_item($tour);
+
+if (! $heroImageUrl) {
+    $heroImageUrl = '/themes/curatescape/images/logo-as-placeholder.png';
+}
 //var_dump($tour);
 
 
@@ -24,9 +28,8 @@ echo head( array( 'maptype'=>'tour','title' => ''.$label.' | '.$tourTitle, 'cont
 
     <div class="columns is-desktop tourShow-body">
         <div class="column">
-            <?php if ($heroImageUrl !== null) {
-                echo '<img class="u-img-resp margin-center none-desktop" src="' . $heroImageUrl . '" />';
-            } ?>
+
+            <?php echo '<img class="u-img-resp margin-center none-desktop" src="' . $heroImageUrl . '" />'; ?>
 
             <section class="tourShow-copy">
                 <?php if(tour( 'Credits' )){
