@@ -476,6 +476,9 @@ function mh_display_map($type=null,$item=null,$tour=null){
             // Build the base map
             var map = L.map('map_canvas',{
                 layers: defaultMapLayer,
+                tap: true,
+                dragging: false,
+                //dragging: !L.Browser.mobile,
                 minZoom: 3,
                 scrollWheelZoom: false,
             }).setView(center, zoom);
@@ -630,15 +633,32 @@ function mh_display_map($type=null,$item=null,$tour=null){
 
             /* Map Action Buttons */
 
+            //map.dragging.disable();
+
             // Fullscreen
             jQuery('.map-actions .fullscreen').click(function(){
-                jQuery('#slider').slideToggle('fast', 'linear');
-                jQuery('#swipenav').slideToggle('fast', 'linear');
+                //jQuery('#slider').slideToggle('fast', 'linear');
+                //jQuery('#swipenav').slideToggle('fast', 'linear');
                 jQuery('.small #map_canvas').toggle(); // in case it's hidden by checkwidth.js
                 jQuery("body").toggleClass("fullscreen-map");
-                jQuery(".map-actions a.fullscreen i").toggleClass('icon-expand').toggleClass('icon-compress');
+                //jQuery(".map-actions a.fullscreen i").toggleClass('icon-expand').toggleClass('icon-compress');
                 map.invalidateSize();
+
+                //  enlore this is a toggle method, so
+                //if (map.dragging.enabled()) {
+                    //map.dragging.disable();
+                //} else {
+                    //map.dragging.enable();
+                //}
             });
+
+            jQuery('#mapControls-close').click(function () {
+                jQuery('.small #map_canvas').hide(); // in case it's hidden by checkwidth.js
+                jQuery("body").removeClass("fullscreen-map");
+                // enlore but this is a sure thing
+                //map.dragging.disable();
+            });
+
             jQuery(document).keyup(function(e) {
                 if ( e.keyCode == 27 ){ // exit fullscreen
                     if(jQuery('body').hasClass('fullscreen-map')) jQuery('.map-actions .fullscreen').click();
@@ -691,6 +711,9 @@ function mh_display_map($type=null,$item=null,$tour=null){
 
         <!-- Map Container -->
         <div id="hm-map">
+            <div class="mapControls">
+                <div id="mapControls-close" class="f-body f-upper f-center" style="padding: 12px 0 8px; pointer: cursor;">close</div>
+            </div>
             <div id="map_canvas"></div>
         </div>
 

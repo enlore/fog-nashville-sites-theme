@@ -69,6 +69,16 @@ i.working {
     z-index: 1;
 }
 
+#hm-map .mapControls {
+    display: none;
+}
+
+.fullscreen-map #hm-map .mapControls {
+    background: $white;
+    color: $blue;
+    display: block;
+}
+
 .fullscreen-map #hm-map #map_canvas {
     height: 100% !important;
     width: 100% !important
@@ -157,13 +167,13 @@ a.leaflet-control-layers-toggle,
 @media only screen and (max-width: 50em) {
 }
 
-
 @media only screen and (max-width: 30em) {
     .fullscreen-map #hm-map {
-        top: 3em;
+        //top: 3em;
         height: 100%;
         z-index: 1
     }
+
 }
 
 @media only screen and (max-width: 50em) {
